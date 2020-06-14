@@ -76,9 +76,13 @@ public class menu extends javax.swing.JFrame {
         jComboBox12 = new javax.swing.JComboBox<>();
         jComboBox13 = new javax.swing.JComboBox<>();
         jPanel16 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
+        jSpinner1 = new javax.swing.JSpinner();
+        jSpinner2 = new javax.swing.JSpinner();
+        jSpinner3 = new javax.swing.JSpinner();
+        jPanel9 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jPanel24 = new javax.swing.JPanel();
         jPanel25 = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
@@ -92,10 +96,15 @@ public class menu extends javax.swing.JFrame {
         jComboBox17 = new javax.swing.JComboBox<>();
         jComboBox18 = new javax.swing.JComboBox<>();
         jPanel28 = new javax.swing.JPanel();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        jSpinner9 = new javax.swing.JSpinner();
+        jSpinner12 = new javax.swing.JSpinner();
+        jSpinner13 = new javax.swing.JSpinner();
+        jSpinner14 = new javax.swing.JSpinner();
+        jPanel32 = new javax.swing.JPanel();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -108,9 +117,13 @@ public class menu extends javax.swing.JFrame {
         jComboBox20 = new javax.swing.JComboBox<>();
         jComboBox21 = new javax.swing.JComboBox<>();
         jPanel31 = new javax.swing.JPanel();
-        jButton14 = new javax.swing.JButton();
+        jSpinner15 = new javax.swing.JSpinner();
+        jSpinner17 = new javax.swing.JSpinner();
+        jSpinner16 = new javax.swing.JSpinner();
+        jPanel33 = new javax.swing.JPanel();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         cardQuanLyMon = new javax.swing.JPanel();
@@ -332,7 +345,7 @@ public class menu extends javax.swing.JFrame {
 
         jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jPanel17.setLayout(new java.awt.GridLayout());
+        jPanel17.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel20.setLayout(new java.awt.GridLayout(0, 1));
 
@@ -361,17 +374,24 @@ public class menu extends javax.swing.JFrame {
         jPanel17.add(jPanel8);
 
         jPanel16.setLayout(new java.awt.GridLayout(0, 1));
-
-        jButton6.setText("Đặt ");
-        jPanel16.add(jButton6);
-
-        jButton7.setText("Đặt ");
-        jPanel16.add(jButton7);
-
-        jButton8.setText("Đặt ");
-        jPanel16.add(jButton8);
+        jPanel16.add(jSpinner1);
+        jPanel16.add(jSpinner2);
+        jPanel16.add(jSpinner3);
 
         jPanel17.add(jPanel16);
+
+        jPanel9.setLayout(new java.awt.GridLayout(0, 1));
+
+        jButton7.setText("Đặt ");
+        jPanel9.add(jButton7);
+
+        jButton8.setText("Đặt ");
+        jPanel9.add(jButton8);
+
+        jButton6.setText("Đặt ");
+        jPanel9.add(jButton6);
+
+        jPanel17.add(jPanel9);
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -380,7 +400,7 @@ public class menu extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,9 +410,9 @@ public class menu extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jPanel5.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 36, -1, -1));
+        jPanel5.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 36, 340, -1));
 
-        jPanel25.setLayout(new java.awt.GridLayout());
+        jPanel25.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel26.setLayout(new java.awt.GridLayout(0, 1));
 
@@ -427,20 +447,28 @@ public class menu extends javax.swing.JFrame {
         jPanel25.add(jPanel27);
 
         jPanel28.setLayout(new java.awt.GridLayout(0, 1));
-
-        jButton10.setText("Đặt ");
-        jPanel28.add(jButton10);
-
-        jButton11.setText("Đặt ");
-        jPanel28.add(jButton11);
-
-        jButton12.setText("Đặt ");
-        jPanel28.add(jButton12);
-
-        jButton13.setText("Đặt ");
-        jPanel28.add(jButton13);
+        jPanel28.add(jSpinner9);
+        jPanel28.add(jSpinner12);
+        jPanel28.add(jSpinner13);
+        jPanel28.add(jSpinner14);
 
         jPanel25.add(jPanel28);
+
+        jPanel32.setLayout(new java.awt.GridLayout(0, 1));
+
+        jButton12.setText("Đặt ");
+        jPanel32.add(jButton12);
+
+        jButton13.setText("Đặt ");
+        jPanel32.add(jButton13);
+
+        jButton11.setText("Đặt ");
+        jPanel32.add(jButton11);
+
+        jButton10.setText("Đặt ");
+        jPanel32.add(jButton10);
+
+        jPanel25.add(jPanel32);
 
         javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
         jPanel24.setLayout(jPanel24Layout);
@@ -464,7 +492,7 @@ public class menu extends javax.swing.JFrame {
         jLabel8.setText("Trà");
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 341, -1, 26));
 
-        jPanel7.setLayout(new java.awt.GridLayout());
+        jPanel7.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel29.setLayout(new java.awt.GridLayout(0, 1));
 
@@ -493,17 +521,24 @@ public class menu extends javax.swing.JFrame {
         jPanel7.add(jPanel30);
 
         jPanel31.setLayout(new java.awt.GridLayout(0, 1));
-
-        jButton14.setText("Đặt ");
-        jPanel31.add(jButton14);
-
-        jButton15.setText("Đặt ");
-        jPanel31.add(jButton15);
-
-        jButton16.setText("Đặt ");
-        jPanel31.add(jButton16);
+        jPanel31.add(jSpinner15);
+        jPanel31.add(jSpinner17);
+        jPanel31.add(jSpinner16);
 
         jPanel7.add(jPanel31);
+
+        jPanel33.setLayout(new java.awt.GridLayout(0, 1));
+
+        jButton15.setText("Đặt ");
+        jPanel33.add(jButton15);
+
+        jButton16.setText("Đặt ");
+        jPanel33.add(jButton16);
+
+        jButton14.setText("Đặt ");
+        jPanel33.add(jButton14);
+
+        jPanel7.add(jPanel33);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -807,7 +842,6 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
     private javax.swing.JComboBox<String> jComboBox12;
     private javax.swing.JComboBox<String> jComboBox13;
@@ -818,10 +852,6 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox19;
     private javax.swing.JComboBox<String> jComboBox20;
     private javax.swing.JComboBox<String> jComboBox21;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
-    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -836,11 +866,6 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
@@ -857,7 +882,6 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
@@ -868,9 +892,6 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
@@ -880,16 +901,24 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner12;
+    private javax.swing.JSpinner jSpinner13;
+    private javax.swing.JSpinner jSpinner14;
+    private javax.swing.JSpinner jSpinner15;
+    private javax.swing.JSpinner jSpinner16;
+    private javax.swing.JSpinner jSpinner17;
+    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JSpinner jSpinner9;
     private javax.swing.JLabel redDatMon;
     private javax.swing.JLabel redKhachHang;
     private javax.swing.JLabel redKho;

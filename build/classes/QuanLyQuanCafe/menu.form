@@ -530,7 +530,7 @@
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="27" y="36" width="-1" height="-1"/>
+                              <AbsoluteConstraints x="27" y="36" width="340" height="-1"/>
                             </Constraint>
                           </Constraints>
 
@@ -540,13 +540,13 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                       <Component id="jPanel17" min="-2" pref="308" max="-2" attributes="0"/>
-                                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                                      <EmptySpace pref="16" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                       <Component id="jPanel17" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace pref="15" max="32767" attributes="0"/>
@@ -644,17 +644,32 @@
                                     <Property name="rows" type="int" value="0"/>
                                   </Layout>
                                   <SubComponents>
-                                    <Component class="javax.swing.JButton" name="jButton6">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
-                                      </Properties>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner1">
                                     </Component>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner2">
+                                    </Component>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner3">
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="jPanel9">
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                                    <Property name="columns" type="int" value="1"/>
+                                    <Property name="rows" type="int" value="0"/>
+                                  </Layout>
+                                  <SubComponents>
                                     <Component class="javax.swing.JButton" name="jButton7">
                                       <Properties>
                                         <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
                                       </Properties>
                                     </Component>
                                     <Component class="javax.swing.JButton" name="jButton8">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="jButton6">
                                       <Properties>
                                         <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
                                       </Properties>
@@ -801,7 +816,29 @@
                                     <Property name="rows" type="int" value="0"/>
                                   </Layout>
                                   <SubComponents>
-                                    <Component class="javax.swing.JButton" name="jButton10">
+                                    <Component class="javax.swing.JSpinner" name="jSpinner9">
+                                    </Component>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner12">
+                                    </Component>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner13">
+                                    </Component>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner14">
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="jPanel32">
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                                    <Property name="columns" type="int" value="1"/>
+                                    <Property name="rows" type="int" value="0"/>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JButton" name="jButton12">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="jButton13">
                                       <Properties>
                                         <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
                                       </Properties>
@@ -811,12 +848,7 @@
                                         <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JButton" name="jButton12">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JButton" name="jButton13">
+                                    <Component class="javax.swing.JButton" name="jButton10">
                                       <Properties>
                                         <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
                                       </Properties>
@@ -954,17 +986,32 @@
                                     <Property name="rows" type="int" value="0"/>
                                   </Layout>
                                   <SubComponents>
-                                    <Component class="javax.swing.JButton" name="jButton14">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
-                                      </Properties>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner15">
                                     </Component>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner17">
+                                    </Component>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner16">
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="jPanel33">
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                                    <Property name="columns" type="int" value="1"/>
+                                    <Property name="rows" type="int" value="0"/>
+                                  </Layout>
+                                  <SubComponents>
                                     <Component class="javax.swing.JButton" name="jButton15">
                                       <Properties>
                                         <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
                                       </Properties>
                                     </Component>
                                     <Component class="javax.swing.JButton" name="jButton16">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="jButton14">
                                       <Properties>
                                         <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
                                       </Properties>
