@@ -6,11 +6,9 @@
 package QuanLyQuanCafe;
 
 import java.awt.Color;
-import javax.swing.JOptionPane;
 import java.awt.CardLayout;
 import javax.swing.JLabel;
-import javax.swing.*;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author namduong
@@ -25,7 +23,6 @@ public class menu extends javax.swing.JFrame {
         initComponents();
         cardLayout = (CardLayout)(card.getLayout());
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -133,15 +130,12 @@ public class menu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel21 = new javax.swing.JPanel();
-        btnKhachHang1 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        btnThemMon = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        btnKhachHang2 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        btnXoaMon = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        btnKhachHang3 = new javax.swing.JPanel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
         jPanel40 = new javax.swing.JPanel();
         jPanel41 = new javax.swing.JPanel();
         jPanel42 = new javax.swing.JPanel();
@@ -651,77 +645,53 @@ public class menu extends javax.swing.JFrame {
 
         jPanel21.setBackground(new java.awt.Color(241, 242, 249));
 
-        btnKhachHang1.setBackground(new java.awt.Color(251, 52, 90));
-        btnKhachHang1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnKhachHang1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnThemMon.setBackground(new java.awt.Color(251, 52, 90));
+        btnThemMon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnThemMon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnKhachHang1MouseClicked(evt);
+                btnThemMonMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnKhachHang1MouseExited(evt);
+                btnThemMonMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnKhachHang1MouseEntered(evt);
+                btnThemMonMouseEntered(evt);
             }
         });
-        btnKhachHang1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnThemMon.setLayout(new java.awt.GridLayout());
+
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
+        btnThemMon.add(jLabel24);
 
         jLabel11.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Thêm");
-        btnKhachHang1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 70, 30));
+        btnThemMon.add(jLabel11);
 
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
-        btnKhachHang1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, -1, -1));
-
-        btnKhachHang2.setBackground(new java.awt.Color(251, 52, 90));
-        btnKhachHang2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnKhachHang2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnXoaMon.setBackground(new java.awt.Color(251, 52, 90));
+        btnXoaMon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnXoaMon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnKhachHang2MouseClicked(evt);
+                btnXoaMonMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnKhachHang2MouseExited(evt);
+                btnXoaMonMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnKhachHang2MouseEntered(evt);
+                btnXoaMonMouseEntered(evt);
             }
         });
-        btnKhachHang2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnXoaMon.setLayout(new java.awt.GridLayout());
 
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
-        btnKhachHang2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, -1, -1));
+        btnXoaMon.add(jLabel25);
 
         jLabel26.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("Xoá");
-        btnKhachHang2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 70, 30));
-
-        btnKhachHang3.setBackground(new java.awt.Color(251, 52, 90));
-        btnKhachHang3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnKhachHang3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnKhachHang3MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnKhachHang3MouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnKhachHang3MouseEntered(evt);
-            }
-        });
-        btnKhachHang3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel29.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setText("Sửa");
-        btnKhachHang3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 70, 30));
-
-        jLabel30.setIcon(new javax.swing.ImageIcon("/Users/namduong/Downloads/edit-8-32.png")); // NOI18N
-        btnKhachHang3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, -1, -1));
+        btnXoaMon.add(jLabel26);
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
@@ -729,20 +699,17 @@ public class menu extends javax.swing.JFrame {
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(btnKhachHang1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnThemMon, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(93, 93, 93)
-                .addComponent(btnKhachHang2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnKhachHang3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addComponent(btnXoaMon, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnKhachHang2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnKhachHang1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnKhachHang3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnXoaMon, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnThemMon, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1003,41 +970,31 @@ public class menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_redKhachHangMouseClicked
 
-    private void btnKhachHang1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnKhachHang1MouseClicked
+    private void btnThemMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMonMouseClicked
+        
+        JOptionPane.showMessageDialog(null, "Thêm con cặc");
+    }//GEN-LAST:event_btnThemMonMouseClicked
 
-    private void btnKhachHang1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnKhachHang1MouseExited
+    private void btnThemMonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMonMouseExited
+        btnThemMon.setBackground(Color.decode("#FB345A"));
+    }//GEN-LAST:event_btnThemMonMouseExited
 
-    private void btnKhachHang1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang1MouseEntered
+    private void btnThemMonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMonMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnKhachHang1MouseEntered
+        btnThemMon.setBackground(Color.decode("#DD163C"));
+    }//GEN-LAST:event_btnThemMonMouseEntered
 
-    private void btnKhachHang2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnKhachHang2MouseClicked
+    private void btnXoaMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaMonMouseClicked
+        JOptionPane.showMessageDialog(null, "Xoá con cặc");
+    }//GEN-LAST:event_btnXoaMonMouseClicked
 
-    private void btnKhachHang2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang2MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnKhachHang2MouseExited
+    private void btnXoaMonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaMonMouseExited
+        btnXoaMon.setBackground(Color.decode("#FB345A"));
+    }//GEN-LAST:event_btnXoaMonMouseExited
 
-    private void btnKhachHang2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang2MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnKhachHang2MouseEntered
-
-    private void btnKhachHang3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnKhachHang3MouseClicked
-
-    private void btnKhachHang3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang3MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnKhachHang3MouseExited
-
-    private void btnKhachHang3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang3MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnKhachHang3MouseEntered
+    private void btnXoaMonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaMonMouseEntered
+        btnXoaMon.setBackground(Color.decode("#DD163C"));
+    }//GEN-LAST:event_btnXoaMonMouseEntered
 
     public void redBar(JLabel red){
         redDatMon.setOpaque(false);
@@ -1092,12 +1049,11 @@ public class menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnDatMon;
     private javax.swing.JPanel btnKhachHang;
-    private javax.swing.JPanel btnKhachHang1;
-    private javax.swing.JPanel btnKhachHang2;
-    private javax.swing.JPanel btnKhachHang3;
     private javax.swing.JPanel btnKho;
     private javax.swing.JPanel btnNhanVien;
     private javax.swing.JPanel btnQuanLyMon;
+    private javax.swing.JPanel btnThemMon;
+    private javax.swing.JPanel btnXoaMon;
     private javax.swing.JPanel card;
     private javax.swing.JPanel cardDatMon;
     private javax.swing.JPanel cardKhachHang;
@@ -1145,9 +1101,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;

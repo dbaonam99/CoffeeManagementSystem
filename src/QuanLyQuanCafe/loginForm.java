@@ -8,13 +8,20 @@ package QuanLyQuanCafe;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
  * @author namduong
  */
 public class loginForm extends javax.swing.JFrame {
-
+    Connection connection = null;
+    ResultSet rs = null;
+    PreparedStatement pstmt =  null;
     /**
      * Creates new form loginForm
      */
@@ -22,6 +29,18 @@ public class loginForm extends javax.swing.JFrame {
         initComponents();
         overlay.setBackground(new Color(0,0,0,150));
         btnLogin.setBackground(new Color(0,0,0,150));
+        connection = ConnectDB.dbConnector();
+    }
+    
+    private Connection connect() {
+        // SQLite connection string
+        String url = "jdbc:sqlite:/Users/namduong/NetBeansProjects/QuanLiKhachHangg/src/database/database.db";
+        try {
+            connection = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return connection;
     }
 
     /**
@@ -35,8 +54,8 @@ public class loginForm extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         loginBox = new javax.swing.JPanel();
-        txtPassword = new javax.swing.JPasswordField();
-        txtUsername = new javax.swing.JTextField();
+        txtPass = new javax.swing.JPasswordField();
+        txtUser = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -57,26 +76,26 @@ public class loginForm extends javax.swing.JFrame {
         loginBox.setBackground(new java.awt.Color(255, 255, 255));
         loginBox.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 0, 0)));
-        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtPass.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 0, 0)));
+        txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPasswordKeyPressed(evt);
+                txtPassKeyPressed(evt);
             }
         });
-        loginBox.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 258, 30));
+        loginBox.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 258, 30));
 
-        txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 0, 0)));
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+        txtUser.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 0, 0)));
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
+                txtUserActionPerformed(evt);
             }
         });
-        txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtUsernameKeyPressed(evt);
+                txtUserKeyPressed(evt);
             }
         });
-        loginBox.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 257, 30));
+        loginBox.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 257, 30));
 
         jLabel4.setBackground(new java.awt.Color(33, 38, 54));
         jLabel4.setFont(new java.awt.Font("UTM Bebas", 1, 24)); // NOI18N
@@ -161,50 +180,96 @@ public class loginForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyPressed
+    private void txtUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            if (txtUsername.getText().equals("") || txtPassword.getText().equals("")) {
+            if (txtUser.getText().equals("") || txtPass.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
             }
             else {
-                JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thành công!");
-                txtUsername.setText("");
-                txtPassword.setText("");
-                new menu().setVisible(true);
-                this.dispose();
+                String sql="Select * from USER where USERNAME =? and PASSWORD=?";
+                try {
+                    Connection conn = this.connect();
+                    pstmt = conn.prepareStatement(sql);
+                    pstmt.setString (1,txtUser.getText());
+                    pstmt.setString (2,txtPass.getText());
+                    rs= pstmt.executeQuery();
+                    int count = 0;
+                    while(rs.next()) {
+                        count++;
+                    }
+                    if(count==1) {
+                        JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
+                        this.dispose();
+                    } else if(count>1) {
+                        JOptionPane.showMessageDialog(this, "Username and password are dupllicated");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Sai thông tin đăng nhập");
+                    }
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
             }
         }
-    }//GEN-LAST:event_txtUsernameKeyPressed
+    }//GEN-LAST:event_txtUserKeyPressed
 
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
+    }//GEN-LAST:event_txtUserActionPerformed
 
-    private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
+    private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            if (txtUsername.getText().equals("") || txtPassword.getText().equals("")) {
+            if (txtUser.getText().equals("") || txtPass.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
             }
             else {
-                JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thành công!");
-                txtUsername.setText("");
-                txtPassword.setText("");
-                new menu().setVisible(true);
-                this.dispose();
+                String sql="Select * from USER where USERNAME =? and PASSWORD=?";
+                try {
+                    Connection conn = this.connect();
+                    pstmt = conn.prepareStatement(sql);
+                    pstmt.setString (1,txtUser.getText());
+                    pstmt.setString (2,txtPass.getText());
+                    rs= pstmt.executeQuery();
+                    int count = 0;
+                    while(rs.next()) {
+                        count++;
+                    }
+                    if(count==1) {
+                        JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
+                        this.dispose();
+                    } else if(count>1) {
+                        JOptionPane.showMessageDialog(this, "Username and password are dupllicated");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Sai thông tin đăng nhập");
+                    }
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
             }
         }
-    }//GEN-LAST:event_txtPasswordKeyPressed
+    }//GEN-LAST:event_txtPassKeyPressed
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        if (txtUsername.getText().equals("") || txtPassword.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
-        }
-        else {
-            JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thành công!");
-            txtUsername.setText("");
-            txtPassword.setText("");
-            new menu().setVisible(true);
-            this.dispose();
+        String sql="Select * from USER where USERNAME =? and PASSWORD=?";
+        try {
+            Connection conn = this.connect();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString (1,txtUser.getText());
+            pstmt.setString (2,txtPass.getText());
+            rs= pstmt.executeQuery();
+            int count = 0;
+            while(rs.next()) {
+                count++;
+            }
+            if(count==1) {
+                JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
+                this.dispose();
+            } else if(count>1) {
+                JOptionPane.showMessageDialog(this, "Username and password are dupllicated");
+            } else {
+                JOptionPane.showMessageDialog(this, "Sai thông tin đăng nhập");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnLoginMouseClicked
 
@@ -259,7 +324,7 @@ public class loginForm extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel loginBox;
     private javax.swing.JPanel overlay;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtUsername;
+    private javax.swing.JPasswordField txtPass;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
