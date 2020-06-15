@@ -722,8 +722,10 @@ public class menu extends javax.swing.JFrame {
         jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel23.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("Quản Lý Món");
-        jPanel18.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 350, 40));
+        jLabel23.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(0, 0, 0)));
+        jPanel18.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 40));
 
         cardQuanLyMon.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 748, 40));
 
@@ -731,13 +733,13 @@ public class menu extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã Món", "Tên món", "Giá", "Size", "Loại"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -805,7 +807,7 @@ public class menu extends javax.swing.JFrame {
                 btnSuaMonMouseEntered(evt);
             }
         });
-        btnSuaMon.setLayout(new java.awt.GridLayout());
+        btnSuaMon.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
@@ -972,7 +974,7 @@ public class menu extends javax.swing.JFrame {
                 btnThemMon1MouseEntered(evt);
             }
         });
-        btnThemMon1.setLayout(new java.awt.GridLayout());
+        btnThemMon1.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
@@ -996,7 +998,7 @@ public class menu extends javax.swing.JFrame {
                 btnXoaMon1MouseEntered(evt);
             }
         });
-        btnXoaMon1.setLayout(new java.awt.GridLayout());
+        btnXoaMon1.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
@@ -1020,7 +1022,7 @@ public class menu extends javax.swing.JFrame {
                 btnSuaMon1MouseEntered(evt);
             }
         });
-        btnSuaMon1.setLayout(new java.awt.GridLayout());
+        btnSuaMon1.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
@@ -1056,7 +1058,7 @@ public class menu extends javax.swing.JFrame {
 
         jPanel44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jPanel45.setLayout(new java.awt.GridLayout());
+        jPanel45.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel47.setLayout(new java.awt.GridLayout(0, 1));
 
@@ -1078,7 +1080,7 @@ public class menu extends javax.swing.JFrame {
 
         jPanel45.add(jPanel48);
 
-        jPanel51.setLayout(new java.awt.GridLayout());
+        jPanel51.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel52.setLayout(new java.awt.GridLayout(0, 1));
 
@@ -1213,7 +1215,7 @@ public class menu extends javax.swing.JFrame {
                 btnThemMon2MouseEntered(evt);
             }
         });
-        btnThemMon2.setLayout(new java.awt.GridLayout());
+        btnThemMon2.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
@@ -1237,7 +1239,7 @@ public class menu extends javax.swing.JFrame {
                 btnXoaMon2MouseEntered(evt);
             }
         });
-        btnXoaMon2.setLayout(new java.awt.GridLayout());
+        btnXoaMon2.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
@@ -1261,7 +1263,7 @@ public class menu extends javax.swing.JFrame {
                 btnSuaMon2MouseEntered(evt);
             }
         });
-        btnSuaMon2.setLayout(new java.awt.GridLayout());
+        btnSuaMon2.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
@@ -1297,7 +1299,7 @@ public class menu extends javax.swing.JFrame {
 
         jPanel54.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jPanel55.setLayout(new java.awt.GridLayout());
+        jPanel55.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel56.setLayout(new java.awt.GridLayout(0, 1));
 
@@ -1319,7 +1321,7 @@ public class menu extends javax.swing.JFrame {
 
         jPanel55.add(jPanel57);
 
-        jPanel58.setLayout(new java.awt.GridLayout());
+        jPanel58.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel59.setLayout(new java.awt.GridLayout(0, 1));
 
@@ -1432,7 +1434,7 @@ public class menu extends javax.swing.JFrame {
                 btnThemMon4MouseEntered(evt);
             }
         });
-        btnThemMon4.setLayout(new java.awt.GridLayout());
+        btnThemMon4.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel75.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel75.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
@@ -1456,7 +1458,7 @@ public class menu extends javax.swing.JFrame {
                 btnXoaMon4MouseEntered(evt);
             }
         });
-        btnXoaMon4.setLayout(new java.awt.GridLayout());
+        btnXoaMon4.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
@@ -1480,7 +1482,7 @@ public class menu extends javax.swing.JFrame {
                 btnSuaMon4MouseEntered(evt);
             }
         });
-        btnSuaMon4.setLayout(new java.awt.GridLayout());
+        btnSuaMon4.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel78.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
@@ -1516,7 +1518,7 @@ public class menu extends javax.swing.JFrame {
 
         jPanel76.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jPanel77.setLayout(new java.awt.GridLayout());
+        jPanel77.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel78.setLayout(new java.awt.GridLayout(0, 1));
 
@@ -1538,7 +1540,7 @@ public class menu extends javax.swing.JFrame {
 
         jPanel77.add(jPanel79);
 
-        jPanel80.setLayout(new java.awt.GridLayout());
+        jPanel80.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel81.setLayout(new java.awt.GridLayout(0, 1));
 
