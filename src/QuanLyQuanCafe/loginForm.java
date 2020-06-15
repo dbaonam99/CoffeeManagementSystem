@@ -199,6 +199,7 @@ public class loginForm extends javax.swing.JFrame {
                     }
                     if(count==1) {
                         JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
+                        new menu().setVisible(true);
                         this.dispose();
                     } else if(count>1) {
                         JOptionPane.showMessageDialog(this, "Username and password are dupllicated");
@@ -235,6 +236,7 @@ public class loginForm extends javax.swing.JFrame {
                     }
                     if(count==1) {
                         JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
+                        new menu().setVisible(true);
                         this.dispose();
                     } else if(count>1) {
                         JOptionPane.showMessageDialog(this, "Username and password are dupllicated");
@@ -262,6 +264,7 @@ public class loginForm extends javax.swing.JFrame {
             }
             if(count==1) {
                 JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
+                new menu().setVisible(true);
                 this.dispose();
             } else if(count>1) {
                 JOptionPane.showMessageDialog(this, "Username and password are dupllicated");
