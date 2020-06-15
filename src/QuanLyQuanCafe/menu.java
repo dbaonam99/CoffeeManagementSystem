@@ -129,6 +129,34 @@ public class menu extends javax.swing.JFrame {
         cardQuanLyMon = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel21 = new javax.swing.JPanel();
+        btnKhachHang1 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        btnKhachHang2 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        btnKhachHang3 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jPanel40 = new javax.swing.JPanel();
+        jPanel41 = new javax.swing.JPanel();
+        jPanel42 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jPanel43 = new javax.swing.JPanel();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jPanel46 = new javax.swing.JPanel();
+        jPanel49 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jPanel50 = new javax.swing.JPanel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
         cardKhachHang = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
@@ -170,7 +198,7 @@ public class menu extends javax.swing.JFrame {
         jLabel12.setText("Đặt Món");
         btnDatMon.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
-        redDatMon.setBackground(new java.awt.Color(192, 27, 54));
+        redDatMon.setBackground(new java.awt.Color(251, 52, 90));
         redDatMon.setOpaque(true);
         btnDatMon.add(redDatMon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 50));
 
@@ -198,7 +226,7 @@ public class menu extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/qlmon.png"))); // NOI18N
         btnQuanLyMon.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 30, 30));
 
-        redQuanLiMon.setBackground(new java.awt.Color(192, 27, 54));
+        redQuanLiMon.setBackground(new java.awt.Color(251, 52, 90));
         btnQuanLyMon.add(redQuanLiMon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 50));
 
         btnKhachHang.setBackground(new java.awt.Color(33, 38, 54));
@@ -225,7 +253,7 @@ public class menu extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/customer.png"))); // NOI18N
         btnKhachHang.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 30, 30));
 
-        redKhachHang.setBackground(new java.awt.Color(192, 27, 54));
+        redKhachHang.setBackground(new java.awt.Color(251, 52, 90));
         redKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 redKhachHangMouseClicked(evt);
@@ -256,7 +284,7 @@ public class menu extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/employees.png"))); // NOI18N
         btnNhanVien.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 30, 30));
 
-        redNhanVien.setBackground(new java.awt.Color(192, 27, 54));
+        redNhanVien.setBackground(new java.awt.Color(251, 52, 90));
         btnNhanVien.add(redNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 50));
 
         btnKho.setBackground(new java.awt.Color(33, 38, 54));
@@ -282,7 +310,7 @@ public class menu extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/inventory.png"))); // NOI18N
         btnKho.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 30, 30));
 
-        redKho.setBackground(new java.awt.Color(192, 27, 54));
+        redKho.setBackground(new java.awt.Color(251, 52, 90));
         btnKho.add(redKho, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 50));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -412,6 +440,8 @@ public class menu extends javax.swing.JFrame {
 
         jPanel5.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 36, 340, -1));
 
+        jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
         jPanel25.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel26.setLayout(new java.awt.GridLayout(0, 1));
@@ -491,6 +521,8 @@ public class menu extends javax.swing.JFrame {
 
         jLabel8.setText("Trà");
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 341, -1, 26));
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         jPanel7.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -597,10 +629,211 @@ public class menu extends javax.swing.JFrame {
         jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel23.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel23.setText("Đặt Món ");
+        jLabel23.setText("Quản Lý Món");
         jPanel18.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 350, 40));
 
-        cardQuanLyMon.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 748, 50));
+        cardQuanLyMon.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 748, 40));
+
+        jPanel10.setBackground(new java.awt.Color(241, 242, 249));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel21.setBackground(new java.awt.Color(241, 242, 249));
+
+        btnKhachHang1.setBackground(new java.awt.Color(251, 52, 90));
+        btnKhachHang1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnKhachHang1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnKhachHang1MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnKhachHang1MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnKhachHang1MouseEntered(evt);
+            }
+        });
+        btnKhachHang1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Thêm");
+        btnKhachHang1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 70, 30));
+
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
+        btnKhachHang1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, -1, -1));
+
+        btnKhachHang2.setBackground(new java.awt.Color(251, 52, 90));
+        btnKhachHang2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnKhachHang2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnKhachHang2MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnKhachHang2MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnKhachHang2MouseEntered(evt);
+            }
+        });
+        btnKhachHang2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
+        btnKhachHang2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("Xoá");
+        btnKhachHang2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 70, 30));
+
+        btnKhachHang3.setBackground(new java.awt.Color(251, 52, 90));
+        btnKhachHang3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnKhachHang3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnKhachHang3MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnKhachHang3MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnKhachHang3MouseEntered(evt);
+            }
+        });
+        btnKhachHang3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel29.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("Sửa");
+        btnKhachHang3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 70, 30));
+
+        jLabel30.setIcon(new javax.swing.ImageIcon("/Users/namduong/Downloads/edit-8-32.png")); // NOI18N
+        btnKhachHang3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, -1, -1));
+
+        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+        jPanel21.setLayout(jPanel21Layout);
+        jPanel21Layout.setHorizontalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(btnKhachHang1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93)
+                .addComponent(btnKhachHang2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnKhachHang3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+        );
+        jPanel21Layout.setVerticalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnKhachHang2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnKhachHang1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnKhachHang3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel40.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        jPanel41.setLayout(new java.awt.GridLayout());
+
+        jPanel42.setLayout(new java.awt.GridLayout(0, 1));
+
+        jLabel27.setText("Tên món");
+        jPanel42.add(jLabel27);
+
+        jLabel28.setText("Giá bán");
+        jPanel42.add(jLabel28);
+
+        jPanel41.add(jPanel42);
+
+        jPanel43.setLayout(new java.awt.GridLayout(0, 1));
+        jPanel43.add(jTextField7);
+        jPanel43.add(jTextField8);
+
+        jPanel41.add(jPanel43);
+
+        jPanel46.setLayout(new java.awt.GridLayout());
+
+        jPanel49.setLayout(new java.awt.GridLayout(0, 1));
+
+        jLabel34.setText("Size");
+        jPanel49.add(jLabel34);
+
+        jLabel46.setText("Loại");
+        jPanel49.add(jLabel46);
+
+        jPanel46.add(jPanel49);
+
+        jPanel50.setLayout(new java.awt.GridLayout(0, 1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel50.add(jComboBox3);
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel50.add(jComboBox4);
+
+        jPanel46.add(jPanel50);
+
+        javax.swing.GroupLayout jPanel40Layout = new javax.swing.GroupLayout(jPanel40);
+        jPanel40.setLayout(jPanel40Layout);
+        jPanel40Layout.setHorizontalGroup(
+            jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel40Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel46, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+        jPanel40Layout.setVerticalGroup(
+            jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel40Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel46, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(jPanel40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+
+        cardQuanLyMon.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 680, 510));
 
         card.add(cardQuanLyMon, "cardQuanLyMon");
 
@@ -770,6 +1003,42 @@ public class menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_redKhachHangMouseClicked
 
+    private void btnKhachHang1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKhachHang1MouseClicked
+
+    private void btnKhachHang1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKhachHang1MouseExited
+
+    private void btnKhachHang1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKhachHang1MouseEntered
+
+    private void btnKhachHang2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKhachHang2MouseClicked
+
+    private void btnKhachHang2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKhachHang2MouseExited
+
+    private void btnKhachHang2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKhachHang2MouseEntered
+
+    private void btnKhachHang3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKhachHang3MouseClicked
+
+    private void btnKhachHang3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKhachHang3MouseExited
+
+    private void btnKhachHang3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKhachHang3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKhachHang3MouseEntered
+
     public void redBar(JLabel red){
         redDatMon.setOpaque(false);
         redQuanLiMon.setOpaque(false);
@@ -823,6 +1092,9 @@ public class menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnDatMon;
     private javax.swing.JPanel btnKhachHang;
+    private javax.swing.JPanel btnKhachHang1;
+    private javax.swing.JPanel btnKhachHang2;
+    private javax.swing.JPanel btnKhachHang3;
     private javax.swing.JPanel btnKho;
     private javax.swing.JPanel btnNhanVien;
     private javax.swing.JPanel btnQuanLyMon;
@@ -852,8 +1124,11 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox19;
     private javax.swing.JComboBox<String> jComboBox20;
     private javax.swing.JComboBox<String> jComboBox21;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -865,7 +1140,15 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
@@ -875,6 +1158,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -882,6 +1166,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
@@ -892,6 +1177,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
@@ -904,11 +1190,19 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel40;
+    private javax.swing.JPanel jPanel41;
+    private javax.swing.JPanel jPanel42;
+    private javax.swing.JPanel jPanel43;
+    private javax.swing.JPanel jPanel46;
+    private javax.swing.JPanel jPanel49;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel50;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner12;
     private javax.swing.JSpinner jSpinner13;
@@ -919,6 +1213,9 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JSpinner jSpinner9;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel redDatMon;
     private javax.swing.JLabel redKhachHang;
     private javax.swing.JLabel redKho;
