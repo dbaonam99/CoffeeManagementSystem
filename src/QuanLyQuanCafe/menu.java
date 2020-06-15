@@ -17,7 +17,7 @@ public class menu extends javax.swing.JFrame {
     CardLayout cardLayout = new CardLayout();
     
     /** 
-     * Creates new form menu
+     * Creates new form menu.
      */
     public menu() {
         initComponents();
