@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -500,21 +500,21 @@
                       <SubComponents>
                         <Component class="javax.swing.JLabel" name="jLabel5">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="C&#xe0; ph&#xea;"/>
+                            <Property name="text" type="java.lang.String" value="Drink"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="27" y="8" width="-1" height="22"/>
+                              <AbsoluteConstraints x="30" y="10" width="-1" height="22"/>
                             </Constraint>
                           </Constraints>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel6">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="B&#xe1;nh m&#xec;"/>
+                            <Property name="text" type="java.lang.String" value="Cake"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="27" y="158" width="-1" height="26"/>
+                              <AbsoluteConstraints x="30" y="240" width="-1" height="26"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -530,7 +530,7 @@
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="27" y="36" width="340" height="-1"/>
+                              <AbsoluteConstraints x="30" y="40" width="340" height="-1"/>
                             </Constraint>
                           </Constraints>
 
@@ -584,6 +584,21 @@
                                         <Property name="text" type="java.lang.String" value="B&#x1ea1;c x&#x1ec9;u &#x111;&#xe1;"/>
                                       </Properties>
                                     </Component>
+                                    <Component class="javax.swing.JLabel" name="jLabel44">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="Tr&#xe0; &#x111;&#xe0;o"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="jLabel47">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="Tr&#xe0; chanh"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="jLabel10">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="Tr&#xe0; v&#x1ea3;i"/>
+                                      </Properties>
+                                    </Component>
                                   </SubComponents>
                                 </Container>
                                 <Container class="javax.swing.JPanel" name="jPanel8">
@@ -635,324 +650,6 @@
                                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                                       </AuxValues>
                                     </Component>
-                                  </SubComponents>
-                                </Container>
-                                <Container class="javax.swing.JPanel" name="jPanel16">
-
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                    <Property name="columns" type="int" value="1"/>
-                                    <Property name="rows" type="int" value="0"/>
-                                  </Layout>
-                                  <SubComponents>
-                                    <Component class="javax.swing.JSpinner" name="jSpinner1">
-                                    </Component>
-                                    <Component class="javax.swing.JSpinner" name="jSpinner2">
-                                    </Component>
-                                    <Component class="javax.swing.JSpinner" name="jSpinner3">
-                                    </Component>
-                                  </SubComponents>
-                                </Container>
-                                <Container class="javax.swing.JPanel" name="jPanel9">
-
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                    <Property name="columns" type="int" value="1"/>
-                                    <Property name="rows" type="int" value="0"/>
-                                  </Layout>
-                                  <SubComponents>
-                                    <Component class="javax.swing.JButton" name="jButton7">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JButton" name="jButton8">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JButton" name="jButton6">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
-                                      </Properties>
-                                    </Component>
-                                  </SubComponents>
-                                </Container>
-                              </SubComponents>
-                            </Container>
-                          </SubComponents>
-                        </Container>
-                        <Container class="javax.swing.JPanel" name="jPanel24">
-                          <Properties>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                <LineBorder>
-                                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
-                                </LineBorder>
-                              </Border>
-                            </Property>
-                          </Properties>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="27" y="190" width="337" height="-1"/>
-                            </Constraint>
-                          </Constraints>
-
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="jPanel25" min="-2" pref="308" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                      <Component id="jPanel25" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="15" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
-                          <SubComponents>
-                            <Container class="javax.swing.JPanel" name="jPanel25">
-
-                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                <Property name="columns" type="int" value="0"/>
-                                <Property name="rows" type="int" value="1"/>
-                              </Layout>
-                              <SubComponents>
-                                <Container class="javax.swing.JPanel" name="jPanel26">
-
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                    <Property name="columns" type="int" value="1"/>
-                                    <Property name="rows" type="int" value="0"/>
-                                  </Layout>
-                                  <SubComponents>
-                                    <Component class="javax.swing.JLabel" name="jLabel40">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="G&#xe0; x&#xe9;"/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JLabel" name="jLabel41">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="C&#xe0; ri g&#xe0;"/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JLabel" name="jLabel42">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="C&#xe1; ng&#x1eeb;"/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JLabel" name="jLabel43">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="N&#x1ea5;m"/>
-                                      </Properties>
-                                    </Component>
-                                  </SubComponents>
-                                </Container>
-                                <Container class="javax.swing.JPanel" name="jPanel27">
-
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                    <Property name="columns" type="int" value="1"/>
-                                    <Property name="rows" type="int" value="0"/>
-                                  </Layout>
-                                  <SubComponents>
-                                    <Component class="javax.swing.JComboBox" name="jComboBox15">
-                                      <Properties>
-                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                          <StringArray count="3">
-                                            <StringItem index="0" value="S"/>
-                                            <StringItem index="1" value="M"/>
-                                            <StringItem index="2" value="L"/>
-                                          </StringArray>
-                                        </Property>
-                                      </Properties>
-                                      <AuxValues>
-                                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                                      </AuxValues>
-                                    </Component>
-                                    <Component class="javax.swing.JComboBox" name="jComboBox16">
-                                      <Properties>
-                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                          <StringArray count="3">
-                                            <StringItem index="0" value="S"/>
-                                            <StringItem index="1" value="M"/>
-                                            <StringItem index="2" value="L"/>
-                                          </StringArray>
-                                        </Property>
-                                      </Properties>
-                                      <AuxValues>
-                                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                                      </AuxValues>
-                                    </Component>
-                                    <Component class="javax.swing.JComboBox" name="jComboBox17">
-                                      <Properties>
-                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                          <StringArray count="3">
-                                            <StringItem index="0" value="S"/>
-                                            <StringItem index="1" value="M"/>
-                                            <StringItem index="2" value="L"/>
-                                          </StringArray>
-                                        </Property>
-                                      </Properties>
-                                      <AuxValues>
-                                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                                      </AuxValues>
-                                    </Component>
-                                    <Component class="javax.swing.JComboBox" name="jComboBox18">
-                                      <Properties>
-                                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                          <StringArray count="3">
-                                            <StringItem index="0" value="S"/>
-                                            <StringItem index="1" value="M"/>
-                                            <StringItem index="2" value="L"/>
-                                          </StringArray>
-                                        </Property>
-                                      </Properties>
-                                      <AuxValues>
-                                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                                      </AuxValues>
-                                    </Component>
-                                  </SubComponents>
-                                </Container>
-                                <Container class="javax.swing.JPanel" name="jPanel28">
-
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                    <Property name="columns" type="int" value="1"/>
-                                    <Property name="rows" type="int" value="0"/>
-                                  </Layout>
-                                  <SubComponents>
-                                    <Component class="javax.swing.JSpinner" name="jSpinner9">
-                                    </Component>
-                                    <Component class="javax.swing.JSpinner" name="jSpinner12">
-                                    </Component>
-                                    <Component class="javax.swing.JSpinner" name="jSpinner13">
-                                    </Component>
-                                    <Component class="javax.swing.JSpinner" name="jSpinner14">
-                                    </Component>
-                                  </SubComponents>
-                                </Container>
-                                <Container class="javax.swing.JPanel" name="jPanel32">
-
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                    <Property name="columns" type="int" value="1"/>
-                                    <Property name="rows" type="int" value="0"/>
-                                  </Layout>
-                                  <SubComponents>
-                                    <Component class="javax.swing.JButton" name="jButton12">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JButton" name="jButton13">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JButton" name="jButton11">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JButton" name="jButton10">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
-                                      </Properties>
-                                    </Component>
-                                  </SubComponents>
-                                </Container>
-                              </SubComponents>
-                            </Container>
-                          </SubComponents>
-                        </Container>
-                        <Component class="javax.swing.JLabel" name="jLabel8">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Tr&#xe0;"/>
-                          </Properties>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="27" y="341" width="-1" height="26"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Container class="javax.swing.JPanel" name="jPanel6">
-                          <Properties>
-                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                                <LineBorder>
-                                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
-                                </LineBorder>
-                              </Border>
-                            </Property>
-                          </Properties>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="27" y="373" width="337" height="-1"/>
-                            </Constraint>
-                          </Constraints>
-
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                      <Component id="jPanel7" min="-2" pref="309" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="14" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
-                          <SubComponents>
-                            <Container class="javax.swing.JPanel" name="jPanel7">
-
-                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                <Property name="columns" type="int" value="0"/>
-                                <Property name="rows" type="int" value="1"/>
-                              </Layout>
-                              <SubComponents>
-                                <Container class="javax.swing.JPanel" name="jPanel29">
-
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                    <Property name="columns" type="int" value="1"/>
-                                    <Property name="rows" type="int" value="0"/>
-                                  </Layout>
-                                  <SubComponents>
-                                    <Component class="javax.swing.JLabel" name="jLabel44">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="Tr&#xe0; &#x111;&#xe0;o"/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JLabel" name="jLabel47">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="Tr&#xe0; chanh"/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JLabel" name="jLabel10">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="Tr&#xe0; v&#x1ea3;i"/>
-                                      </Properties>
-                                    </Component>
-                                  </SubComponents>
-                                </Container>
-                                <Container class="javax.swing.JPanel" name="jPanel30">
-
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                    <Property name="columns" type="int" value="1"/>
-                                    <Property name="rows" type="int" value="0"/>
-                                  </Layout>
-                                  <SubComponents>
                                     <Component class="javax.swing.JComboBox" name="jComboBox19">
                                       <Properties>
                                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -997,13 +694,19 @@
                                     </Component>
                                   </SubComponents>
                                 </Container>
-                                <Container class="javax.swing.JPanel" name="jPanel31">
+                                <Container class="javax.swing.JPanel" name="jPanel16">
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                                     <Property name="columns" type="int" value="1"/>
                                     <Property name="rows" type="int" value="0"/>
                                   </Layout>
                                   <SubComponents>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner1">
+                                    </Component>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner2">
+                                    </Component>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner3">
+                                    </Component>
                                     <Component class="javax.swing.JSpinner" name="jSpinner15">
                                     </Component>
                                     <Component class="javax.swing.JSpinner" name="jSpinner17">
@@ -1012,30 +715,226 @@
                                     </Component>
                                   </SubComponents>
                                 </Container>
-                                <Container class="javax.swing.JPanel" name="jPanel33">
+                              </SubComponents>
+                            </Container>
+                          </SubComponents>
+                        </Container>
+                        <Container class="javax.swing.JPanel" name="jPanel24">
+                          <Properties>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                                <LineBorder>
+                                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                                </LineBorder>
+                              </Border>
+                            </Property>
+                            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[340, 139]"/>
+                            </Property>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="30" y="270" width="340" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                      <Component id="jPanel25" min="-2" pref="308" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="jPanel25" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Container class="javax.swing.JPanel" name="jPanel25">
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                                <Property name="columns" type="int" value="0"/>
+                                <Property name="rows" type="int" value="1"/>
+                              </Layout>
+                              <SubComponents>
+                                <Container class="javax.swing.JPanel" name="jPanel26">
 
                                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                                     <Property name="columns" type="int" value="1"/>
                                     <Property name="rows" type="int" value="0"/>
                                   </Layout>
                                   <SubComponents>
-                                    <Component class="javax.swing.JButton" name="jButton15">
+                                    <Component class="javax.swing.JLabel" name="jLabel40">
                                       <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
+                                        <Property name="text" type="java.lang.String" value="Hamburger"/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JButton" name="jButton16">
+                                    <Component class="javax.swing.JLabel" name="jLabel41">
                                       <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
+                                        <Property name="text" type="java.lang.String" value="C&#xe0; ri g&#xe0;"/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JButton" name="jButton14">
+                                    <Component class="javax.swing.JLabel" name="jLabel42">
                                       <Properties>
-                                        <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t "/>
+                                        <Property name="text" type="java.lang.String" value="C&#xe1; ng&#x1eeb;"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="jLabel43">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="N&#x1ea5;m"/>
                                       </Properties>
                                     </Component>
                                   </SubComponents>
                                 </Container>
+                                <Container class="javax.swing.JPanel" name="jPanel27">
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                                    <Property name="columns" type="int" value="1"/>
+                                    <Property name="rows" type="int" value="0"/>
+                                  </Layout>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="jPanel28">
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                                    <Property name="columns" type="int" value="1"/>
+                                    <Property name="rows" type="int" value="0"/>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner9">
+                                    </Component>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner12">
+                                    </Component>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner13">
+                                    </Component>
+                                    <Component class="javax.swing.JSpinner" name="jSpinner14">
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
+                          </SubComponents>
+                        </Container>
+                        <Container class="javax.swing.JPanel" name="jPanel6">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="f9" green="f2" red="f1" type="rgb"/>
+                            </Property>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="30" y="430" width="340" height="50"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnThemMon3" min="-2" pref="113" max="-2" attributes="0"/>
+                                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                                      <Component id="btnThemMon5" min="-2" pref="113" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="btnThemMon3" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="btnThemMon5" min="-2" pref="50" max="-2" attributes="0"/>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Container class="javax.swing.JPanel" name="btnThemMon3">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="5a" green="34" red="fb" type="rgb"/>
+                                </Property>
+                                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                                  <Color id="Default Cursor"/>
+                                </Property>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemMon3MouseClicked"/>
+                                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemMon3MouseExited"/>
+                                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemMon3MouseEntered"/>
+                              </Events>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                                <Property name="columns" type="int" value="0"/>
+                                <Property name="rows" type="int" value="1"/>
+                              </Layout>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="jLabel65">
+                                  <Properties>
+                                    <Property name="horizontalAlignment" type="int" value="0"/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/QuanLyQuanCafe/img/plus-5-32.png"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel67">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="SansSerif" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Reset"/>
+                                  </Properties>
+                                </Component>
+                              </SubComponents>
+                            </Container>
+                            <Container class="javax.swing.JPanel" name="btnThemMon5">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="5a" green="34" red="fb" type="rgb"/>
+                                </Property>
+                                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                                  <Color id="Default Cursor"/>
+                                </Property>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemMon5MouseClicked"/>
+                                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemMon5MouseExited"/>
+                                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemMon5MouseEntered"/>
+                              </Events>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                                <Property name="columns" type="int" value="0"/>
+                                <Property name="rows" type="int" value="1"/>
+                              </Layout>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="jLabel66">
+                                  <Properties>
+                                    <Property name="horizontalAlignment" type="int" value="0"/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/QuanLyQuanCafe/img/plus-5-32.png"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel68">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="SansSerif" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t"/>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                           </SubComponents>
