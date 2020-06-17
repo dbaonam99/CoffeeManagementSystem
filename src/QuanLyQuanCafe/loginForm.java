@@ -186,7 +186,7 @@ public class loginForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
             }
             else {
-                String sql="Select * from USER where USERNAME =? and PASSWORD=?";
+                String sql="Select * from TAIKHOAN where username =? and pass=?";
                 try {
                     Connection conn = this.connect();
                     pstmt = conn.prepareStatement(sql);
@@ -223,7 +223,7 @@ public class loginForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
             }
             else {
-                String sql="Select * from USER where USERNAME =? and PASSWORD=?";
+                String sql="Select * from TAIKHOAN where username =? and pass=?";
                 try {
                     Connection conn = this.connect();
                     pstmt = conn.prepareStatement(sql);
@@ -251,7 +251,7 @@ public class loginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPassKeyPressed
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        String sql="Select * from USER where USERNAME =? and PASSWORD=?";
+        String sql="Select * from TAIKHOAN where username =? and pass=?";
         try {
             Connection conn = this.connect();
             pstmt = conn.prepareStatement(sql);
