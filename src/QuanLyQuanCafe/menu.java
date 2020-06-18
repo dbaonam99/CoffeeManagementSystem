@@ -189,7 +189,7 @@ public class menu extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jPanel50 = new javax.swing.JPanel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
         selectLoai = new javax.swing.JComboBox<>();
         cardNhanVien = new javax.swing.JPanel();
         jPanel35 = new javax.swing.JPanel();
@@ -812,7 +812,7 @@ public class menu extends javax.swing.JFrame {
 
         jPanel49.setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabel34.setText("Size");
+        jLabel34.setText("Mô tả");
         jPanel49.add(jLabel34);
 
         jLabel46.setText("Loại");
@@ -821,9 +821,7 @@ public class menu extends javax.swing.JFrame {
         jPanel46.add(jPanel49);
 
         jPanel50.setLayout(new java.awt.GridLayout(0, 1));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel50.add(jComboBox3);
+        jPanel50.add(jTextField1);
 
         selectLoai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel50.add(selectLoai);
@@ -1498,15 +1496,6 @@ public class menu extends javax.swing.JFrame {
             txtNgayVaoLam.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
         } else {
-//            String row[] = new String[7];
-//            row[1] = txtTenNV.getText();
-//            row[2] = txtTuoi.getText();
-//            row[3] = txtDiaChi.getText();
-//            row[4] = txtSDT.getText();
-//            row[5] = txtEmail.getText();
-//            row[6] = txtNgayVaoLam.getText();
-//            tblModelTT.addRow(row);
-
             String sql = "INSERT INTO NHANVIEN(ten_NV, tuoi_NV, diachi_NV, sdt_NV, email_NV, ngayvaolam_NV) VALUES(?,?,?,?,?,?)";
             try {
                 Connection conn = this.connect();
@@ -1631,6 +1620,12 @@ public class menu extends javax.swing.JFrame {
                 System.out.println(e.getMessage());
             }
         }
+        txtTenNV.setText(null);
+        txtTuoi.setText(null); 
+        txtDiaChi.setText(null); 
+        txtSDT.setText(null);
+        txtEmail.setText(null); 
+        txtNgayVaoLam.setText(null); 
     }//GEN-LAST:event_btnXoaNhanVienMouseClicked
 
     private void btnSuaNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaNhanVienMouseEntered
@@ -1776,7 +1771,6 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox19;
     private javax.swing.JComboBox<String> jComboBox20;
     private javax.swing.JComboBox<String> jComboBox21;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1903,6 +1897,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable5;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
