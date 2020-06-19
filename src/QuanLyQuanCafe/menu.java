@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JLabel;
-import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -34,9 +34,7 @@ public class menu extends javax.swing.JFrame {
         connection = ConnectDB.dbConnector();
         this.taoTableNhanVien();
         tableNhanVien.setDefaultEditor(Object.class, null);
-        
         blur.setBackground(new Color(0,0,0,150));
-
     }
     private Connection connect() {
         // SQLite connection string
@@ -92,7 +90,6 @@ public class menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        blur = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnDatMon = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -231,7 +228,7 @@ public class menu extends javax.swing.JFrame {
         jPanel60 = new javax.swing.JPanel();
         txtSDT = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
-        txtNgayVaoLam = new javax.swing.JTextField();
+        txtNgayVaoLam = new com.toedter.calendar.JDateChooser();
         cardKho = new javax.swing.JPanel();
         jPanel73 = new javax.swing.JPanel();
         jLabel74 = new javax.swing.JLabel();
@@ -267,25 +264,13 @@ public class menu extends javax.swing.JFrame {
         jTextField21 = new javax.swing.JTextField();
         jTextField22 = new javax.swing.JTextField();
         jTextField13 = new javax.swing.JTextField();
+        blur = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(830, 554));
         setSize(new java.awt.Dimension(830, 554));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout blurLayout = new javax.swing.GroupLayout(blur);
-        blur.setLayout(blurLayout);
-        blurLayout.setHorizontalGroup(
-            blurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-        );
-        blurLayout.setVerticalGroup(
-            blurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(blur, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 550));
 
         jPanel2.setBackground(new java.awt.Color(33, 38, 54));
 
@@ -1389,6 +1374,21 @@ public class menu extends javax.swing.JFrame {
 
         jPanel1.add(card, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 750, 550));
 
+        blur.setOpaque(false);
+
+        javax.swing.GroupLayout blurLayout = new javax.swing.GroupLayout(blur);
+        blur.setLayout(blurLayout);
+        blurLayout.setHorizontalGroup(
+            blurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
+        blurLayout.setVerticalGroup(
+            blurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 550, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(blur, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 550));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1513,8 +1513,7 @@ public class menu extends javax.swing.JFrame {
             txtTuoi.getText().equals("") || 
             txtDiaChi.getText().equals("") ||
             txtSDT.getText().equals("") ||
-            txtEmail.getText().equals("") ||
-            txtNgayVaoLam.getText().equals("")) {
+            txtEmail.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
         } else {
             String sql = "INSERT INTO NHANVIEN(ten_NV, tuoi_NV, diachi_NV, sdt_NV, email_NV, ngayvaolam_NV) VALUES(?,?,?,?,?,?)";
@@ -1526,7 +1525,7 @@ public class menu extends javax.swing.JFrame {
                 pstmt.setString(3, txtDiaChi.getText());
                 pstmt.setString(4, txtSDT.getText());
                 pstmt.setString(5, txtEmail.getText());
-                pstmt.setString(6, txtNgayVaoLam.getText());
+                pstmt.setString(6, ((JTextField) txtNgayVaoLam.getDateEditor().getUiComponent()).getText());
                 pstmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Thêm nhân viên thành công!");
                 
@@ -1542,7 +1541,6 @@ public class menu extends javax.swing.JFrame {
             txtDiaChi.setText(null); 
             txtSDT.setText(null);
             txtEmail.setText(null); 
-            txtNgayVaoLam.setText(null); 
         }
     }//GEN-LAST:event_btnThemNhanVienMouseClicked
 
@@ -1646,7 +1644,6 @@ public class menu extends javax.swing.JFrame {
         txtDiaChi.setText(null); 
         txtSDT.setText(null);
         txtEmail.setText(null); 
-        txtNgayVaoLam.setText(null); 
     }//GEN-LAST:event_btnXoaNhanVienMouseClicked
 
     private void btnSuaNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaNhanVienMouseEntered
@@ -1669,7 +1666,7 @@ public class menu extends javax.swing.JFrame {
                 pstmt.setString(3, txtDiaChi.getText());
                 pstmt.setString(4, txtSDT.getText());
                 pstmt.setString(5, txtEmail.getText());
-                pstmt.setString(6, txtNgayVaoLam.getText());
+                pstmt.setString(6, ((JTextField) txtNgayVaoLam.getDateEditor().getUiComponent()).getText());
                 pstmt.setString(7, selected);
                 pstmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Sửa nhân viên thành công!");
@@ -1686,12 +1683,11 @@ public class menu extends javax.swing.JFrame {
             txtDiaChi.setText(null); 
             txtSDT.setText(null);
             txtEmail.setText(null); 
-            txtNgayVaoLam.setText(null); 
     }//GEN-LAST:event_btnSuaNhanVienMouseClicked
 
     private void btnChamCongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseClicked
-        cardLayout.show(card, "cardBangChamCong");
         new ChamCong().setVisible(true);
+        blur.setOpaque(true);
     }//GEN-LAST:event_btnChamCongMouseClicked
 
     private void btnChamCongMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseExited
@@ -1714,7 +1710,7 @@ public class menu extends javax.swing.JFrame {
         txtDiaChi.setText(tableNhanVien.getValueAt(index , 3).toString());
         txtSDT.setText(tableNhanVien.getValueAt(index , 4).toString());
         txtEmail.setText(tableNhanVien.getValueAt(index , 5).toString());
-        txtNgayVaoLam.setText(tableNhanVien.getValueAt(index , 6).toString());
+        
     }//GEN-LAST:event_tableNhanVienMouseClicked
 
     private void jLabel73MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel73MouseClicked
@@ -1941,7 +1937,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JTextField txtDiaChi;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtGia;
-    private javax.swing.JTextField txtNgayVaoLam;
+    private com.toedter.calendar.JDateChooser txtNgayVaoLam;
     private javax.swing.JTextField txtSDT;
     private javax.swing.JTextField txtTenMon;
     private javax.swing.JTextField txtTenNV;

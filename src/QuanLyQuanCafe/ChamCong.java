@@ -31,6 +31,7 @@ public class ChamCong extends javax.swing.JFrame {
         txtTuoi.setEnabled(false);
         txtSDT.setEnabled(false);
         txtDiaChi.setEnabled(false);
+        txtEmail.setEnabled(false);
         txtSoNgayCong.setEnabled(false);
         txtNgayVaoLam.setEnabled(false);
         fillCombobox();
@@ -78,6 +79,10 @@ public class ChamCong extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         selectNhanVien = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -92,8 +97,12 @@ public class ChamCong extends javax.swing.JFrame {
         txtSDT = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtNgayVaoLam = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtSoNgayCong = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jPanel6 = new javax.swing.JPanel();
         btnChamCong = new javax.swing.JPanel();
         jLabel67 = new javax.swing.JLabel();
@@ -106,6 +115,7 @@ public class ChamCong extends javax.swing.JFrame {
         jLabel68 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(241, 242, 249));
 
@@ -128,7 +138,7 @@ public class ChamCong extends javax.swing.JFrame {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 28, Short.MAX_VALUE)
+            .addGap(0, 27, Short.MAX_VALUE)
         );
 
         jPanel4.add(jPanel8);
@@ -151,10 +161,62 @@ public class ChamCong extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 28, Short.MAX_VALUE)
+            .addGap(0, 27, Short.MAX_VALUE)
         );
 
         jPanel4.add(jPanel7);
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 129, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 27, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(jPanel11);
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 129, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 27, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(jPanel12);
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 129, Short.MAX_VALUE)
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 27, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(jPanel13);
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 129, Short.MAX_VALUE)
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 27, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(jPanel14);
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel3.setText("Thông tin:");
@@ -168,7 +230,7 @@ public class ChamCong extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 28, Short.MAX_VALUE)
+            .addGap(0, 27, Short.MAX_VALUE)
         );
 
         jPanel4.add(jPanel5);
@@ -181,7 +243,7 @@ public class ChamCong extends javax.swing.JFrame {
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 28, Short.MAX_VALUE)
+            .addGap(0, 27, Short.MAX_VALUE)
         );
 
         jPanel4.add(jPanel9);
@@ -194,7 +256,7 @@ public class ChamCong extends javax.swing.JFrame {
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 28, Short.MAX_VALUE)
+            .addGap(0, 27, Short.MAX_VALUE)
         );
 
         jPanel4.add(jPanel10);
@@ -219,9 +281,17 @@ public class ChamCong extends javax.swing.JFrame {
         jPanel4.add(jLabel8);
         jPanel4.add(txtNgayVaoLam);
 
-        jLabel9.setText("    Số ngày công");
+        jLabel10.setText("    Email");
+        jPanel4.add(jLabel10);
+        jPanel4.add(txtEmail);
+
+        jLabel9.setText("Số ngày công");
         jPanel4.add(jLabel9);
         jPanel4.add(txtSoNgayCong);
+
+        jLabel11.setText("    Chấm công");
+        jPanel4.add(jLabel11);
+        jPanel4.add(jDateChooser1);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -230,13 +300,13 @@ public class ChamCong extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -294,13 +364,13 @@ public class ChamCong extends javax.swing.JFrame {
         btnThoat.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnThoat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnThoatMouseClicked(evt);
+                btnThoatMoubtnThoateClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnThoatMouseExited(evt);
+                btnThoatMoubtnThoateExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnThoatMouseEntered(evt);
+                btnThoatMoubtnThoateEntered(evt);
             }
         });
         btnThoat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -323,7 +393,7 @@ public class ChamCong extends javax.swing.JFrame {
                 .addComponent(btnChamCong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnTinhLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
+                .addGap(58, 58, 58)
                 .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -354,7 +424,7 @@ public class ChamCong extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -385,17 +455,17 @@ public class ChamCong extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnChamCongMouseEntered
 
-    private void btnThoatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThoatMouseClicked
+    private void btnThoatMoubtnThoateClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThoatMoubtnThoateClicked
         this.dispose();
-    }//GEN-LAST:event_btnThoatMouseClicked
+    }//GEN-LAST:event_btnThoatMoubtnThoateClicked
 
-    private void btnThoatMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThoatMouseExited
+    private void btnThoatMoubtnThoateExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThoatMoubtnThoateExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnThoatMouseExited
+    }//GEN-LAST:event_btnThoatMoubtnThoateExited
 
-    private void btnThoatMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThoatMouseEntered
+    private void btnThoatMoubtnThoateEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThoatMoubtnThoateEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnThoatMouseEntered
+    }//GEN-LAST:event_btnThoatMoubtnThoateEntered
 
     private void btnTinhLuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTinhLuongMouseClicked
         
@@ -411,23 +481,24 @@ public class ChamCong extends javax.swing.JFrame {
 
     private void selectNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectNhanVienActionPerformed
         String sql = "select * from NHANVIEN where ID_NV = '" + selectNhanVien.getSelectedItem() + "'";
-        
+
         try (Connection conn = this.connect();
-                Statement stmt  = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(sql)){
-                int row = 0;
-                while (rs.next()) {
-                    row++;
-                    txtTen.setText(rs.getString(2));
-                    txtTuoi.setText(rs.getString(3));
-                    txtDiaChi.setText(rs.getString(4));
-                    txtSDT.setText(rs.getString(5));
-                    txtNgayVaoLam.setText(rs.getString(6));
-                    txtSoNgayCong.setText(rs.getString(7));
-                }
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
+            Statement stmt  = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql)){
+            int row = 0;
+            while (rs.next()) {
+                row++;
+                txtTen.setText(rs.getString(2));
+                txtTuoi.setText(rs.getString(3));
+                txtDiaChi.setText(rs.getString(4));
+                txtSDT.setText(rs.getString(5));
+                txtNgayVaoLam.setText(rs.getString(6));
+                txtSoNgayCong.setText(rs.getString(7));
+                txtEmail.setText(rs.getString(8));
             }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_selectNhanVienActionPerformed
 
     /**
@@ -469,7 +540,10 @@ public class ChamCong extends javax.swing.JFrame {
     private javax.swing.JPanel btnChamCong;
     private javax.swing.JPanel btnThoat;
     private javax.swing.JPanel btnTinhLuong;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -486,6 +560,10 @@ public class ChamCong extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -496,6 +574,7 @@ public class ChamCong extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JComboBox<String> selectNhanVien;
     private javax.swing.JTextField txtDiaChi;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNgayVaoLam;
     private javax.swing.JTextField txtSDT;
     private javax.swing.JTextField txtSoNgayCong;
