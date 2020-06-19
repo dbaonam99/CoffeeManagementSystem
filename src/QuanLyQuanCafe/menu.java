@@ -34,6 +34,8 @@ public class menu extends javax.swing.JFrame {
         connection = ConnectDB.dbConnector();
         this.taoTableNhanVien();
         tableNhanVien.setDefaultEditor(Object.class, null);
+        
+        blur.setBackground(new Color(0,0,0,150));
 
     }
     private Connection connect() {
@@ -90,6 +92,7 @@ public class menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        blur = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnDatMon = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -270,6 +273,19 @@ public class menu extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(830, 554));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout blurLayout = new javax.swing.GroupLayout(blur);
+        blur.setLayout(blurLayout);
+        blurLayout.setHorizontalGroup(
+            blurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
+        blurLayout.setVerticalGroup(
+            blurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 550, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(blur, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 550));
 
         jPanel2.setBackground(new java.awt.Color(33, 38, 54));
 
@@ -996,7 +1012,7 @@ public class menu extends javax.swing.JFrame {
                 btnSuaNhanVienMouseEntered(evt);
             }
         });
-        btnSuaNhanVien.setLayout(new java.awt.GridLayout());
+        btnSuaNhanVien.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
@@ -1024,6 +1040,11 @@ public class menu extends javax.swing.JFrame {
 
         jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
+        jLabel73.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel73MouseClicked(evt);
+            }
+        });
         btnChamCong.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 46));
 
         jLabel81.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -1669,6 +1690,7 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSuaNhanVienMouseClicked
 
     private void btnChamCongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseClicked
+        cardLayout.show(card, "cardBangChamCong");
         new ChamCong().setVisible(true);
     }//GEN-LAST:event_btnChamCongMouseClicked
 
@@ -1694,6 +1716,10 @@ public class menu extends javax.swing.JFrame {
         txtEmail.setText(tableNhanVien.getValueAt(index , 5).toString());
         txtNgayVaoLam.setText(tableNhanVien.getValueAt(index , 6).toString());
     }//GEN-LAST:event_tableNhanVienMouseClicked
+
+    private void jLabel73MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel73MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel73MouseClicked
 
     public void redBar(JLabel red){
         redDatMon.setOpaque(false);
@@ -1744,6 +1770,7 @@ public class menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel blur;
     private javax.swing.JPanel btnChamCong;
     private javax.swing.JPanel btnDatMon;
     private javax.swing.JPanel btnKho;
