@@ -14,9 +14,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Graphics2D;
+import java.awt.Graphics;
+import java.awt.GradientPaint;
 /**
  *
  * @author namduong
@@ -36,6 +40,19 @@ public class menu extends javax.swing.JFrame {
         tableNhanVien.setDefaultEditor(Object.class, null);
         this.taoTableKhachHang();
         tableKhachHang.setDefaultEditor(Object.class, null);
+    }
+    
+    class JPanelGradient extends JPanel {
+        protected void paintComponent(Graphics g) {
+            Graphics2D g2d = (Graphics2D) g;
+            int w = getWidth();
+            int h = getHeight();
+            Color color1 = new Color(251,52,90);
+            Color color2 = new Color(250,97,60);
+            GradientPaint gp = new GradientPaint(200,0,color1,300,h,color2);
+            g2d.setPaint(gp);
+            g2d.fillRect(0,0,w,h);
+        }
     }
     private Connection connect() {
         // SQLite connection string
@@ -147,7 +164,7 @@ public class menu extends javax.swing.JFrame {
         txtAdmin = new javax.swing.JLabel();
         card = new javax.swing.JPanel();
         cardDatMon = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
+        jPanel11 = new JPanelGradient();
         jLabel18 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -199,8 +216,6 @@ public class menu extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         cardQuanLyMon = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel35 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -229,9 +244,9 @@ public class menu extends javax.swing.JFrame {
         jPanel50 = new javax.swing.JPanel();
         txtMoTa = new javax.swing.JTextField();
         selectLoai = new javax.swing.JComboBox<>();
+        jPanel19 = new JPanelGradient();
+        jLabel23 = new javax.swing.JLabel();
         cardNhanVien = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
         jPanel36 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableNhanVien = new javax.swing.JTable();
@@ -267,9 +282,9 @@ public class menu extends javax.swing.JFrame {
         txtSDT = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtNgayVaoLam = new com.toedter.calendar.JDateChooser();
+        jPanel22 = new JPanelGradient();
+        jLabel32 = new javax.swing.JLabel();
         cardKhachHang = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel39 = new javax.swing.JLabel();
         jPanel38 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tableKhachHang = new javax.swing.JTable();
@@ -302,9 +317,9 @@ public class menu extends javax.swing.JFrame {
         txtSDTKH = new javax.swing.JTextField();
         txtEmailKH = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jPanel23 = new JPanelGradient();
+        jLabel33 = new javax.swing.JLabel();
         cardKho = new javax.swing.JPanel();
-        jPanel18 = new javax.swing.JPanel();
-        jLabel45 = new javax.swing.JLabel();
         jPanel74 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
@@ -337,6 +352,8 @@ public class menu extends javax.swing.JFrame {
         jTextField21 = new javax.swing.JTextField();
         jTextField22 = new javax.swing.JTextField();
         jTextField13 = new javax.swing.JTextField();
+        jPanel29 = new JPanelGradient();
+        jLabel48 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(830, 554));
@@ -550,12 +567,13 @@ public class menu extends javax.swing.JFrame {
         cardDatMon.setBackground(new java.awt.Color(255, 255, 255));
         cardDatMon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBackground(new java.awt.Color(255, 102, 102));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Đặt Món ");
-        jPanel11.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 50));
+        jPanel11.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 220, 50));
 
         cardDatMon.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
 
@@ -785,7 +803,7 @@ public class menu extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel2)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -795,21 +813,12 @@ public class menu extends javax.swing.JFrame {
                 .addContainerGap(456, Short.MAX_VALUE))
         );
 
-        cardDatMon.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 370, 500));
+        cardDatMon.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 280, 500));
 
         card.add(cardDatMon, "cardDatMon");
 
         cardQuanLyMon.setBackground(new java.awt.Color(255, 255, 255));
         cardQuanLyMon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel35.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel35.setText("Quản Lý Món");
-        jPanel12.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 50));
-
-        cardQuanLyMon.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
 
         jPanel10.setBackground(new java.awt.Color(241, 242, 249));
 
@@ -1010,19 +1019,20 @@ public class menu extends javax.swing.JFrame {
 
         cardQuanLyMon.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 680, 500));
 
+        jPanel19.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel23.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Quản Lý Món");
+        jPanel19.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 220, 50));
+
+        cardQuanLyMon.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
+
         card.add(cardQuanLyMon, "cardQuanLyMon");
 
         cardNhanVien.setBackground(new java.awt.Color(255, 255, 255));
         cardNhanVien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel19.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel19.setText("Quản Lý Nhân Viên");
-        jPanel13.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 50));
-
-        cardNhanVien.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
 
         jPanel36.setBackground(new java.awt.Color(241, 242, 249));
 
@@ -1285,19 +1295,20 @@ public class menu extends javax.swing.JFrame {
 
         cardNhanVien.add(jPanel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 680, 500));
 
+        jPanel22.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel32.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setText("Quản Lý Nhân Viên");
+        jPanel22.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 220, 50));
+
+        cardNhanVien.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
+
         card.add(cardNhanVien, "cardNhanVien");
 
         cardKhachHang.setBackground(new java.awt.Color(255, 255, 255));
         cardKhachHang.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel39.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel39.setText("Quản Lý Khách Hàng");
-        jPanel14.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 50));
-
-        cardKhachHang.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
 
         jPanel38.setBackground(new java.awt.Color(241, 242, 249));
 
@@ -1526,19 +1537,20 @@ public class menu extends javax.swing.JFrame {
 
         cardKhachHang.add(jPanel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 680, 500));
 
+        jPanel23.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel33.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Quản Lý Khách Hàng");
+        jPanel23.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 220, 50));
+
+        cardKhachHang.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
+
         card.add(cardKhachHang, "cardKhachHang");
 
         cardKho.setBackground(new java.awt.Color(255, 255, 255));
         cardKho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel45.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel45.setText("Quản Lý Kho");
-        jPanel18.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 50));
-
-        cardKho.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
 
         jPanel74.setBackground(new java.awt.Color(241, 242, 249));
 
@@ -1744,6 +1756,16 @@ public class menu extends javax.swing.JFrame {
         );
 
         cardKho.add(jPanel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 680, 500));
+
+        jPanel29.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel48.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel48.setText("Quản Lý Kho");
+        jPanel29.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 220, 50));
+
+        cardKho.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
 
         card.add(cardKho, "cardKho");
 
@@ -2321,11 +2343,11 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -2335,21 +2357,21 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
@@ -2396,21 +2418,21 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel38;
