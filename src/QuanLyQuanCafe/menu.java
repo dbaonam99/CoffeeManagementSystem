@@ -142,6 +142,9 @@ public class menu extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         redKho = new javax.swing.JLabel();
+        avt = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        txtAdmin = new javax.swing.JLabel();
         card = new javax.swing.JPanel();
         cardDatMon = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
@@ -196,8 +199,8 @@ public class menu extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         cardQuanLyMon = new javax.swing.JPanel();
-        jPanel18 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -227,8 +230,8 @@ public class menu extends javax.swing.JFrame {
         txtMoTa = new javax.swing.JTextField();
         selectLoai = new javax.swing.JComboBox<>();
         cardNhanVien = new javax.swing.JPanel();
-        jPanel35 = new javax.swing.JPanel();
-        jLabel52 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
         jPanel36 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableNhanVien = new javax.swing.JTable();
@@ -265,8 +268,8 @@ public class menu extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtNgayVaoLam = new com.toedter.calendar.JDateChooser();
         cardKhachHang = new javax.swing.JPanel();
-        jPanel37 = new javax.swing.JPanel();
-        jLabel69 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
         jPanel38 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tableKhachHang = new javax.swing.JTable();
@@ -300,8 +303,8 @@ public class menu extends javax.swing.JFrame {
         txtEmailKH = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         cardKho = new javax.swing.JPanel();
-        jPanel73 = new javax.swing.JPanel();
-        jLabel74 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
         jPanel74 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
@@ -475,6 +478,35 @@ public class menu extends javax.swing.JFrame {
         redKho.setBackground(new java.awt.Color(251, 52, 90));
         btnKho.add(redKho, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 50));
 
+        avt.setBackground(new java.awt.Color(33, 38, 54));
+        avt.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setBackground(new java.awt.Color(33, 38, 54));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/login-icon.png"))); // NOI18N
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel14MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel14MouseEntered(evt);
+            }
+        });
+        avt.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        txtAdmin.setBackground(new java.awt.Color(33, 38, 54));
+        txtAdmin.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        txtAdmin.setForeground(new java.awt.Color(221, 221, 221));
+        txtAdmin.setText("Admin");
+        txtAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtAdminMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtAdminMouseEntered(evt);
+            }
+        });
+        avt.add(txtAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -487,13 +519,18 @@ public class menu extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnDatMon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnQuanLyMon, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
-                    .addComponent(btnKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(avt, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(21, 21, 21)
+                .addComponent(avt, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDatMon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnQuanLyMon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -503,7 +540,7 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(btnKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnKho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 550));
@@ -516,9 +553,9 @@ public class menu extends javax.swing.JFrame {
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel18.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel18.setText("Đặt Món ");
-        jPanel11.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 350, 40));
+        jPanel11.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 50));
 
         cardDatMon.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
 
@@ -765,15 +802,14 @@ public class menu extends javax.swing.JFrame {
         cardQuanLyMon.setBackground(new java.awt.Color(255, 255, 255));
         cardQuanLyMon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel23.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("Quản Lý Món");
-        jPanel18.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 40));
+        jLabel35.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel35.setText("Quản Lý Món");
+        jPanel12.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 50));
 
-        cardQuanLyMon.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 748, 40));
+        cardQuanLyMon.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
 
         jPanel10.setBackground(new java.awt.Color(241, 242, 249));
 
@@ -969,24 +1005,24 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(jPanel40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        cardQuanLyMon.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 680, 510));
+        cardQuanLyMon.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 680, 500));
 
         card.add(cardQuanLyMon, "cardQuanLyMon");
 
         cardNhanVien.setBackground(new java.awt.Color(255, 255, 255));
         cardNhanVien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel35.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel35.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel52.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel52.setText("Quản Lý Nhân Viên");
-        jPanel35.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 350, 40));
+        jLabel19.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel19.setText("Quản Lý Nhân Viên");
+        jPanel13.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 50));
 
-        cardNhanVien.add(jPanel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 748, 40));
+        cardNhanVien.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
 
         jPanel36.setBackground(new java.awt.Color(241, 242, 249));
 
@@ -1244,24 +1280,24 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(jPanel54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(nhanvienButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        cardNhanVien.add(jPanel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 680, 510));
+        cardNhanVien.add(jPanel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 680, 500));
 
         card.add(cardNhanVien, "cardNhanVien");
 
         cardKhachHang.setBackground(new java.awt.Color(255, 255, 255));
         cardKhachHang.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel37.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel37.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel69.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel69.setText("Quản Lý Khách Hàng");
-        jPanel37.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 350, 40));
+        jLabel39.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel39.setText("Quản Lý Khách Hàng");
+        jPanel14.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 50));
 
-        cardKhachHang.add(jPanel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 40));
+        cardKhachHang.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
 
         jPanel38.setBackground(new java.awt.Color(241, 242, 249));
 
@@ -1485,24 +1521,24 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(jPanel61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(nhanvienButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        cardKhachHang.add(jPanel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 680, 510));
+        cardKhachHang.add(jPanel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 680, 500));
 
         card.add(cardKhachHang, "cardKhachHang");
 
         cardKho.setBackground(new java.awt.Color(255, 255, 255));
         cardKho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel73.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel73.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel74.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel74.setText("Quản Lý Kho");
-        jPanel73.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 350, 40));
+        jLabel45.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel45.setText("Quản Lý Kho");
+        jPanel18.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 240, 50));
 
-        cardKho.add(jPanel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 748, 40));
+        cardKho.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
 
         jPanel74.setBackground(new java.awt.Color(241, 242, 249));
 
@@ -1704,10 +1740,10 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(jPanel76, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(jPanel75, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        cardKho.add(jPanel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 680, 510));
+        cardKho.add(jPanel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 680, 500));
 
         card.add(cardKho, "cardKho");
 
@@ -2175,6 +2211,22 @@ public class menu extends javax.swing.JFrame {
         txtEmailKH.setText(tableKhachHang.getValueAt(index , 5).toString());
     }//GEN-LAST:event_tableKhachHangMouseClicked
 
+    private void txtAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAdminMouseEntered
+        txtAdmin.setForeground(Color.decode("#ffffff"));
+    }//GEN-LAST:event_txtAdminMouseEntered
+
+    private void txtAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAdminMouseExited
+        txtAdmin.setForeground(Color.decode("#dddddd"));
+    }//GEN-LAST:event_txtAdminMouseExited
+
+    private void jLabel14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseEntered
+        txtAdmin.setForeground(Color.decode("#ffffff"));
+    }//GEN-LAST:event_jLabel14MouseEntered
+
+    private void jLabel14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseExited
+        txtAdmin.setForeground(Color.decode("#dddddd"));
+    }//GEN-LAST:event_jLabel14MouseExited
+
     public void redBar(JLabel red){
         redDatMon.setOpaque(false);
         redQuanLiMon.setOpaque(false);
@@ -2226,6 +2278,7 @@ public class menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel avt;
     private javax.swing.JPanel btnChamCong;
     private javax.swing.JPanel btnDatMon;
     private javax.swing.JPanel btnKhachHang;
@@ -2263,15 +2316,16 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -2282,19 +2336,21 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
@@ -2312,13 +2368,11 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
@@ -2342,6 +2396,9 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
@@ -2355,9 +2412,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel36;
-    private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
@@ -2383,7 +2438,6 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel65;
     private javax.swing.JPanel jPanel66;
     private javax.swing.JPanel jPanel67;
-    private javax.swing.JPanel jPanel73;
     private javax.swing.JPanel jPanel74;
     private javax.swing.JPanel jPanel75;
     private javax.swing.JPanel jPanel76;
@@ -2426,6 +2480,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> selectLoai;
     private javax.swing.JTable tableKhachHang;
     private javax.swing.JTable tableNhanVien;
+    private javax.swing.JLabel txtAdmin;
     private javax.swing.JTextField txtDiaChi;
     private javax.swing.JTextField txtDiaChiKH;
     private javax.swing.JTextField txtEmail;
