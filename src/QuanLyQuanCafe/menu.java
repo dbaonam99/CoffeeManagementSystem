@@ -34,7 +34,8 @@ public class menu extends javax.swing.JFrame {
         connection = ConnectDB.dbConnector();
         this.taoTableNhanVien();
         tableNhanVien.setDefaultEditor(Object.class, null);
-        blur.setBackground(new Color(0,0,0,150));
+        this.taoTableKhachHang();
+        tableKhachHang.setDefaultEditor(Object.class, null);
     }
     private Connection connect() {
         // SQLite connection string
@@ -48,15 +49,23 @@ public class menu extends javax.swing.JFrame {
     }
     
     DefaultTableModel tblModelTT;
+    DefaultTableModel tblModelTT2;
     public void taoTableNhanVien() {
         tblModelTT = new DefaultTableModel();
         String tieuDe[] = {"ID nhân viên", "Tên nhân viên", "Tuổi", "Địa chỉ", "Số điện thoại", "Email", "Ngày vào làm", "Số ngày làm"};
         tblModelTT.setColumnIdentifiers(tieuDe);
-        loadData();
+        loadDataNhanVien();
+        setVisible(true);
+    }
+    public void taoTableKhachHang() {
+        tblModelTT2 = new DefaultTableModel();
+        String tieuDe[] = {"ID khách hàng", "Tên khách hàng", "Tuổi", "Địa chỉ", "Số điện thoại", "Email"};
+        tblModelTT2.setColumnIdentifiers(tieuDe);
+        loadDataKhachHang();
         setVisible(true);
     }
     
-    public void loadData() {
+    public void loadDataNhanVien() {
         DefaultTableModel tMOdel = (DefaultTableModel) tableNhanVien.getModel();
         tMOdel.setRowCount(0);
         String sql = "select * from NHANVIEN";
@@ -79,6 +88,28 @@ public class menu extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
         tableNhanVien.setModel(tblModelTT);
+    }
+    public void loadDataKhachHang() {
+        DefaultTableModel tMOdel = (DefaultTableModel) tableKhachHang.getModel();
+        tMOdel.setRowCount(0);
+        String sql = "select * from KHACHHANG";
+        String row[] = new String[8];
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+            while (rs.next()) {
+                row[0] = rs.getString(1);
+                row[1] = rs.getString(2);
+                row[2] = rs.getString(3);
+                row[3] = rs.getString(4);
+                row[4] = rs.getString(5);
+                row[5] = rs.getString(6);
+                tblModelTT2.addRow(row);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        tableKhachHang.setModel(tblModelTT2);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -238,20 +269,17 @@ public class menu extends javax.swing.JFrame {
         jLabel69 = new javax.swing.JLabel();
         jPanel38 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tableNhanVien1 = new javax.swing.JTable();
+        tableKhachHang = new javax.swing.JTable();
         nhanvienButton1 = new javax.swing.JPanel();
-        btnThemNhanVien1 = new javax.swing.JPanel();
+        btnThemKhachHang = new javax.swing.JPanel();
         jLabel70 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        btnXoaNhanVien1 = new javax.swing.JPanel();
+        btnXoaKhachHang = new javax.swing.JPanel();
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
-        btnSuaNhanVien1 = new javax.swing.JPanel();
+        btnSuaKhachHang = new javax.swing.JPanel();
         jLabel82 = new javax.swing.JLabel();
         jLabel83 = new javax.swing.JLabel();
-        btnChamCong1 = new javax.swing.JPanel();
-        jLabel84 = new javax.swing.JLabel();
-        jLabel88 = new javax.swing.JLabel();
         jPanel61 = new javax.swing.JPanel();
         jPanel62 = new javax.swing.JPanel();
         jPanel63 = new javax.swing.JPanel();
@@ -259,18 +287,18 @@ public class menu extends javax.swing.JFrame {
         jLabel90 = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
         jPanel64 = new javax.swing.JPanel();
-        txtTenNV1 = new javax.swing.JTextField();
-        txtTuoi1 = new javax.swing.JTextField();
-        txtDiaChi1 = new javax.swing.JTextField();
+        txtTenKH = new javax.swing.JTextField();
+        txtTuoiKH = new javax.swing.JTextField();
+        txtDiaChiKH = new javax.swing.JTextField();
         jPanel65 = new javax.swing.JPanel();
         jPanel66 = new javax.swing.JPanel();
         jLabel92 = new javax.swing.JLabel();
         jLabel93 = new javax.swing.JLabel();
         jLabel94 = new javax.swing.JLabel();
         jPanel67 = new javax.swing.JPanel();
-        txtSDT1 = new javax.swing.JTextField();
-        txtEmail1 = new javax.swing.JTextField();
-        txtNgayVaoLam1 = new com.toedter.calendar.JDateChooser();
+        txtSDTKH = new javax.swing.JTextField();
+        txtEmailKH = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         cardKho = new javax.swing.JPanel();
         jPanel73 = new javax.swing.JPanel();
         jLabel74 = new javax.swing.JLabel();
@@ -306,7 +334,6 @@ public class menu extends javax.swing.JFrame {
         jTextField21 = new javax.swing.JTextField();
         jTextField22 = new javax.swing.JTextField();
         jTextField13 = new javax.swing.JTextField();
-        blur = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(830, 554));
@@ -1238,83 +1265,81 @@ public class menu extends javax.swing.JFrame {
 
         jPanel38.setBackground(new java.awt.Color(241, 242, 249));
 
-        tableNhanVien1.setModel(new javax.swing.table.DefaultTableModel(
+        tableKhachHang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID nhân viên", "Tên nhân viên", "Tuổi", "Địa chỉ", "Số điện thoại", "Email", "Ngày vào làm", "Số ngày làm"
+                "ID khách hàng", "Tên khách hàng", "Tuổi", "Địa chỉ", "Số điện thoại", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tableNhanVien1.getTableHeader().setReorderingAllowed(false);
-        tableNhanVien1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tableKhachHang.getTableHeader().setReorderingAllowed(false);
+        tableKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableNhanVien1MouseClicked(evt);
+                tableKhachHangMouseClicked(evt);
             }
         });
-        jScrollPane4.setViewportView(tableNhanVien1);
-        if (tableNhanVien1.getColumnModel().getColumnCount() > 0) {
-            tableNhanVien1.getColumnModel().getColumn(0).setResizable(false);
-            tableNhanVien1.getColumnModel().getColumn(1).setResizable(false);
-            tableNhanVien1.getColumnModel().getColumn(2).setResizable(false);
-            tableNhanVien1.getColumnModel().getColumn(3).setResizable(false);
-            tableNhanVien1.getColumnModel().getColumn(4).setResizable(false);
-            tableNhanVien1.getColumnModel().getColumn(5).setResizable(false);
-            tableNhanVien1.getColumnModel().getColumn(6).setResizable(false);
-            tableNhanVien1.getColumnModel().getColumn(7).setResizable(false);
+        jScrollPane4.setViewportView(tableKhachHang);
+        if (tableKhachHang.getColumnModel().getColumnCount() > 0) {
+            tableKhachHang.getColumnModel().getColumn(0).setResizable(false);
+            tableKhachHang.getColumnModel().getColumn(1).setResizable(false);
+            tableKhachHang.getColumnModel().getColumn(2).setResizable(false);
+            tableKhachHang.getColumnModel().getColumn(3).setResizable(false);
+            tableKhachHang.getColumnModel().getColumn(4).setResizable(false);
+            tableKhachHang.getColumnModel().getColumn(5).setResizable(false);
         }
 
         nhanvienButton1.setBackground(new java.awt.Color(241, 242, 249));
 
-        btnThemNhanVien1.setBackground(new java.awt.Color(251, 52, 90));
-        btnThemNhanVien1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnThemNhanVien1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnThemKhachHang.setBackground(new java.awt.Color(251, 52, 90));
+        btnThemKhachHang.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnThemKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnThemNhanVien1MouseClicked(evt);
+                btnThemKhachHangMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnThemNhanVien1MouseExited(evt);
+                btnThemKhachHangMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnThemNhanVien1MouseEntered(evt);
+                btnThemKhachHangMouseEntered(evt);
             }
         });
-        btnThemNhanVien1.setLayout(new java.awt.GridLayout());
+        btnThemKhachHang.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel70.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
-        btnThemNhanVien1.add(jLabel70);
+        btnThemKhachHang.add(jLabel70);
 
         jLabel31.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("Thêm");
-        btnThemNhanVien1.add(jLabel31);
+        btnThemKhachHang.add(jLabel31);
 
-        btnXoaNhanVien1.setBackground(new java.awt.Color(251, 52, 90));
-        btnXoaNhanVien1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnXoaNhanVien1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnXoaKhachHang.setBackground(new java.awt.Color(251, 52, 90));
+        btnXoaKhachHang.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnXoaKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnXoaNhanVien1MouseClicked(evt);
+                btnXoaKhachHangMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnXoaNhanVien1MouseExited(evt);
+                btnXoaKhachHangMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnXoaNhanVien1MouseEntered(evt);
+                btnXoaKhachHangMouseEntered(evt);
             }
         });
-        btnXoaNhanVien1.setLayout(new java.awt.GridLayout());
+        btnXoaKhachHang.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
@@ -1323,94 +1348,64 @@ public class menu extends javax.swing.JFrame {
                 jLabel71MouseClicked(evt);
             }
         });
-        btnXoaNhanVien1.add(jLabel71);
+        btnXoaKhachHang.add(jLabel71);
 
         jLabel72.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel72.setForeground(new java.awt.Color(255, 255, 255));
         jLabel72.setText("Xoá");
-        btnXoaNhanVien1.add(jLabel72);
+        btnXoaKhachHang.add(jLabel72);
 
-        btnSuaNhanVien1.setBackground(new java.awt.Color(251, 52, 90));
-        btnSuaNhanVien1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnSuaNhanVien1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSuaKhachHang.setBackground(new java.awt.Color(251, 52, 90));
+        btnSuaKhachHang.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSuaKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSuaNhanVien1MouseClicked(evt);
+                btnSuaKhachHangMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSuaNhanVien1MouseExited(evt);
+                btnSuaKhachHangMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSuaNhanVien1MouseEntered(evt);
+                btnSuaKhachHangMouseEntered(evt);
             }
         });
-        btnSuaNhanVien1.setLayout(new java.awt.GridLayout());
+        btnSuaKhachHang.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel82.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel82.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
-        btnSuaNhanVien1.add(jLabel82);
+        btnSuaKhachHang.add(jLabel82);
 
         jLabel83.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel83.setForeground(new java.awt.Color(255, 255, 255));
         jLabel83.setText("Sửa");
-        btnSuaNhanVien1.add(jLabel83);
-
-        btnChamCong1.setBackground(new java.awt.Color(251, 52, 90));
-        btnChamCong1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnChamCong1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnChamCong1MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnChamCong1MouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnChamCong1MouseEntered(evt);
-            }
-        });
-        btnChamCong1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel84.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
-        jLabel84.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel84MouseClicked(evt);
-            }
-        });
-        btnChamCong1.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 46));
-
-        jLabel88.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel88.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel88.setText("Chấm công");
-        btnChamCong1.add(jLabel88, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 90, 46));
+        btnSuaKhachHang.add(jLabel83);
 
         javax.swing.GroupLayout nhanvienButton1Layout = new javax.swing.GroupLayout(nhanvienButton1);
         nhanvienButton1.setLayout(nhanvienButton1Layout);
         nhanvienButton1Layout.setHorizontalGroup(
             nhanvienButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nhanvienButton1Layout.createSequentialGroup()
-                .addComponent(btnThemNhanVien1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(btnXoaNhanVien1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(btnSuaNhanVien1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnChamCong1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addComponent(btnThemKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93)
+                .addComponent(btnXoaKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92)
+                .addComponent(btnSuaKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         nhanvienButton1Layout.setVerticalGroup(
             nhanvienButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnThemNhanVien1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnXoaNhanVien1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnSuaNhanVien1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnChamCong1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnThemKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnXoaKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnSuaKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel61.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jPanel62.setLayout(new java.awt.GridLayout());
+        jPanel62.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel63.setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabel89.setText("Tên nhân viên");
+        jLabel89.setText("Tên khách hàng");
         jPanel63.add(jLabel89);
 
         jLabel90.setText("Tuổi");
@@ -1422,13 +1417,13 @@ public class menu extends javax.swing.JFrame {
         jPanel62.add(jPanel63);
 
         jPanel64.setLayout(new java.awt.GridLayout(0, 1));
-        jPanel64.add(txtTenNV1);
-        jPanel64.add(txtTuoi1);
-        jPanel64.add(txtDiaChi1);
+        jPanel64.add(txtTenKH);
+        jPanel64.add(txtTuoiKH);
+        jPanel64.add(txtDiaChiKH);
 
         jPanel62.add(jPanel64);
 
-        jPanel65.setLayout(new java.awt.GridLayout());
+        jPanel65.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel66.setLayout(new java.awt.GridLayout(0, 1));
 
@@ -1437,16 +1432,14 @@ public class menu extends javax.swing.JFrame {
 
         jLabel93.setText("Email");
         jPanel66.add(jLabel93);
-
-        jLabel94.setText("Ngày vào làm");
         jPanel66.add(jLabel94);
 
         jPanel65.add(jPanel66);
 
         jPanel67.setLayout(new java.awt.GridLayout(0, 1));
-        jPanel67.add(txtSDT1);
-        jPanel67.add(txtEmail1);
-        jPanel67.add(txtNgayVaoLam1);
+        jPanel67.add(txtSDTKH);
+        jPanel67.add(txtEmailKH);
+        jPanel67.add(jLabel4);
 
         jPanel65.add(jPanel67);
 
@@ -1459,7 +1452,7 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(jPanel62, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel65, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel61Layout.setVerticalGroup(
             jPanel61Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1481,7 +1474,7 @@ public class menu extends javax.swing.JFrame {
                     .addComponent(jPanel61, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane4)
                     .addComponent(nhanvienButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel38Layout.setVerticalGroup(
             jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1720,21 +1713,6 @@ public class menu extends javax.swing.JFrame {
 
         jPanel1.add(card, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 750, 550));
 
-        blur.setOpaque(false);
-
-        javax.swing.GroupLayout blurLayout = new javax.swing.GroupLayout(blur);
-        blur.setLayout(blurLayout);
-        blurLayout.setHorizontalGroup(
-            blurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-        );
-        blurLayout.setVerticalGroup(
-            blurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(blur, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 550));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1819,35 +1797,6 @@ public class menu extends javax.swing.JFrame {
 //            System.out.println(e.getMessage());
 //            JOptionPane.showMessageDialog(null, "Thêm nhân viên không thành công!");
 //        }
-        
-        if (txtTenMon.getText().equals("") || 
-            txtGia.getText().equals("") || 
-            txtMoTa.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
-        } else {
-            String sql = "INSERT INTO NHANVIEN(ten_NV, tuoi_NV, diachi_NV, sdt_NV, email_NV, ngayvaolam_NV) VALUES(?,?,?,?,?,?)";
-            try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, txtTenMon.getText());
-                pstmt.setString(2, txtGia.getText());
-                pstmt.setString(3, txtMoTa.getText());
-                pstmt.setString(4, ((JTextField) txtNgayVaoLam.getDateEditor().getUiComponent()).getText());
-                pstmt.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Thêm nhân viên thành công!");
-                loadData();
-                conn.close();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-                JOptionPane.showMessageDialog(null, "Thêm nhân viên không thành công!");
-            }
-            txtTenNV.setText(null);
-            txtTuoi.setText(null); 
-            txtDiaChi.setText(null); 
-            txtSDT.setText(null);
-            txtEmail.setText(null); 
-            ((JTextField) txtNgayVaoLam.getDateEditor().getUiComponent()).setText(null);
-        }
     }//GEN-LAST:event_btnThemMonMouseClicked
 
     private void btnThemMonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMonMouseExited
@@ -1903,7 +1852,7 @@ public class menu extends javax.swing.JFrame {
                 pstmt.setString(6, ((JTextField) txtNgayVaoLam.getDateEditor().getUiComponent()).getText());
                 pstmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Thêm nhân viên thành công!");
-                loadData();
+                loadDataNhanVien();
                 conn.close();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -2045,9 +1994,7 @@ public class menu extends javax.swing.JFrame {
                 pstmt.setString(7, selected);
                 pstmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Sửa nhân viên thành công!");
-                
-                
-                loadData();
+                loadDataNhanVien();
                 conn.close();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -2063,7 +2010,6 @@ public class menu extends javax.swing.JFrame {
 
     private void btnChamCongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseClicked
         new ChamCong().setVisible(true);
-        blur.setOpaque(true);
     }//GEN-LAST:event_btnChamCongMouseClicked
 
     private void btnChamCongMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseExited
@@ -2105,65 +2051,129 @@ public class menu extends javax.swing.JFrame {
         btnKhachHang.setBackground(Color.decode("#303545"));
     }//GEN-LAST:event_btnKhachHangMouseEntered
 
-    private void btnChamCong1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCong1MouseEntered
-        
-    }//GEN-LAST:event_btnChamCong1MouseEntered
-
-    private void btnChamCong1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCong1MouseExited
+    private void btnSuaKhachHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaKhachHangMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnChamCong1MouseExited
+    }//GEN-LAST:event_btnSuaKhachHangMouseEntered
 
-    private void btnChamCong1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCong1MouseClicked
+    private void btnSuaKhachHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaKhachHangMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnChamCong1MouseClicked
+    }//GEN-LAST:event_btnSuaKhachHangMouseExited
 
-    private void jLabel84MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel84MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel84MouseClicked
+    private void btnSuaKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaKhachHangMouseClicked
+        int indexTB = tableKhachHang.getSelectedRow();
+        String selected = tableKhachHang.getValueAt(indexTB, 0).toString();
+        String sql = "update KHACHHANG set ten_KH = ?, tuoi_KH = ?, diachi_KH = ?, sdt_KH = ?, email_KH = ? where id_KH =?";
+            try {
+                Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, txtTenKH.getText());
+                pstmt.setString(2, txtTuoiKH.getText());
+                pstmt.setString(3, txtDiaChiKH.getText());
+                pstmt.setString(4, txtSDTKH.getText());
+                pstmt.setString(5, txtEmailKH.getText());
+                pstmt.setString(6, selected);
+                pstmt.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Sửa khách hàng thành công!");
+                loadDataKhachHang();
+                conn.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, "Sửa khach hàng không thành công!");
+            }
+            txtTenKH.setText(null);
+            txtTuoiKH.setText(null); 
+            txtDiaChiKH.setText(null); 
+            txtSDTKH.setText(null);
+            txtEmailKH.setText(null); 
+    }//GEN-LAST:event_btnSuaKhachHangMouseClicked
 
-    private void btnSuaNhanVien1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaNhanVien1MouseEntered
+    private void btnXoaKhachHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaKhachHangMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuaNhanVien1MouseEntered
+    }//GEN-LAST:event_btnXoaKhachHangMouseEntered
 
-    private void btnSuaNhanVien1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaNhanVien1MouseExited
+    private void btnXoaKhachHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaKhachHangMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuaNhanVien1MouseExited
+    }//GEN-LAST:event_btnXoaKhachHangMouseExited
 
-    private void btnSuaNhanVien1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaNhanVien1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuaNhanVien1MouseClicked
-
-    private void btnXoaNhanVien1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaNhanVien1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaNhanVien1MouseEntered
-
-    private void btnXoaNhanVien1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaNhanVien1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaNhanVien1MouseExited
-
-    private void btnXoaNhanVien1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaNhanVien1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaNhanVien1MouseClicked
+    private void btnXoaKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaKhachHangMouseClicked
+        int indexTB = tableKhachHang.getSelectedRow();
+        String selected = tableKhachHang.getValueAt(indexTB, 0).toString();
+        int ret = JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xoá?", "Xoá thông tin khách hàng", JOptionPane.YES_OPTION);
+        if (ret == JOptionPane.YES_OPTION) {
+            if (indexTB < tblModelTT2.getRowCount() && indexTB >=0) {
+                tblModelTT2.removeRow(indexTB);
+            }
+            String sql = "DELETE FROM KHACHHANG where ID_KH = ?";
+            try (Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                // set the corresponding param
+                pstmt.setString(1, selected);
+                // execute the delete statement
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        txtTenKH.setText(null);
+        txtTuoiKH.setText(null); 
+        txtDiaChiKH.setText(null); 
+        txtSDTKH.setText(null);
+        txtEmailKH.setText(null); 
+    }//GEN-LAST:event_btnXoaKhachHangMouseClicked
 
     private void jLabel71MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel71MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel71MouseClicked
 
-    private void btnThemNhanVien1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemNhanVien1MouseEntered
+    private void btnThemKhachHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemKhachHangMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnThemNhanVien1MouseEntered
+    }//GEN-LAST:event_btnThemKhachHangMouseEntered
 
-    private void btnThemNhanVien1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemNhanVien1MouseExited
+    private void btnThemKhachHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemKhachHangMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnThemNhanVien1MouseExited
+    }//GEN-LAST:event_btnThemKhachHangMouseExited
 
-    private void btnThemNhanVien1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemNhanVien1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThemNhanVien1MouseClicked
+    private void btnThemKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemKhachHangMouseClicked
+        if (txtTenKH.getText().equals("") || 
+            txtTuoiKH.getText().equals("") || 
+            txtDiaChiKH.getText().equals("") ||
+            txtSDTKH.getText().equals("") ||
+            txtEmailKH.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
+        } else {
+            String sql = "INSERT INTO KHACHHANG(ten_KH, tuoi_KH, diachi_KH, sdt_KH, email_KH) VALUES(?,?,?,?,?)";
+            try {
+                Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, txtTenKH.getText());
+                pstmt.setString(2, txtTuoiKH.getText());
+                pstmt.setString(3, txtDiaChiKH.getText());
+                pstmt.setString(4, txtSDTKH.getText());
+                pstmt.setString(5, txtEmailKH.getText());
+                pstmt.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Thêm khách hàng thành công!");
+                loadDataKhachHang();
+                conn.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, "Thêm khách hàng không thành công!");
+            }
+            txtTenKH.setText(null);
+            txtTuoiKH.setText(null); 
+            txtDiaChiKH.setText(null); 
+            txtSDTKH.setText(null);
+            txtEmailKH.setText(null); 
+        }
+    }//GEN-LAST:event_btnThemKhachHangMouseClicked
 
-    private void tableNhanVien1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableNhanVien1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tableNhanVien1MouseClicked
+    private void tableKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKhachHangMouseClicked
+        int index = tableKhachHang.getSelectedRow();
+        txtTenKH.setText(tableKhachHang.getValueAt(index , 1).toString());
+        txtTuoiKH.setText(tableKhachHang.getValueAt(index , 2).toString());
+        txtDiaChiKH.setText(tableKhachHang.getValueAt(index , 3).toString());
+        txtSDTKH.setText(tableKhachHang.getValueAt(index , 4).toString());
+        txtEmailKH.setText(tableKhachHang.getValueAt(index , 5).toString());
+    }//GEN-LAST:event_tableKhachHangMouseClicked
 
     public void redBar(JLabel red){
         redDatMon.setOpaque(false);
@@ -2216,28 +2226,26 @@ public class menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel blur;
     private javax.swing.JPanel btnChamCong;
-    private javax.swing.JPanel btnChamCong1;
     private javax.swing.JPanel btnDatMon;
     private javax.swing.JPanel btnKhachHang;
     private javax.swing.JPanel btnKho;
     private javax.swing.JPanel btnNhanVien;
     private javax.swing.JPanel btnQuanLyMon;
+    private javax.swing.JPanel btnSuaKhachHang;
     private javax.swing.JPanel btnSuaMon;
     private javax.swing.JPanel btnSuaMon4;
     private javax.swing.JPanel btnSuaNhanVien;
-    private javax.swing.JPanel btnSuaNhanVien1;
+    private javax.swing.JPanel btnThemKhachHang;
     private javax.swing.JPanel btnThemMon;
     private javax.swing.JPanel btnThemMon3;
     private javax.swing.JPanel btnThemMon4;
     private javax.swing.JPanel btnThemMon5;
     private javax.swing.JPanel btnThemNhanVien;
-    private javax.swing.JPanel btnThemNhanVien1;
+    private javax.swing.JPanel btnXoaKhachHang;
     private javax.swing.JPanel btnXoaMon;
     private javax.swing.JPanel btnXoaMon4;
     private javax.swing.JPanel btnXoaNhanVien;
-    private javax.swing.JPanel btnXoaNhanVien1;
     private javax.swing.JPanel card;
     private javax.swing.JPanel cardDatMon;
     private javax.swing.JPanel cardKhachHang;
@@ -2277,6 +2285,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -2320,11 +2329,9 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
-    private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
-    private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel90;
@@ -2417,22 +2424,21 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel redNhanVien;
     private javax.swing.JLabel redQuanLiMon;
     private javax.swing.JComboBox<String> selectLoai;
+    private javax.swing.JTable tableKhachHang;
     private javax.swing.JTable tableNhanVien;
-    private javax.swing.JTable tableNhanVien1;
     private javax.swing.JTextField txtDiaChi;
-    private javax.swing.JTextField txtDiaChi1;
+    private javax.swing.JTextField txtDiaChiKH;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtEmail1;
+    private javax.swing.JTextField txtEmailKH;
     private javax.swing.JTextField txtGia;
     private javax.swing.JTextField txtMoTa;
     private com.toedter.calendar.JDateChooser txtNgayVaoLam;
-    private com.toedter.calendar.JDateChooser txtNgayVaoLam1;
     private javax.swing.JTextField txtSDT;
-    private javax.swing.JTextField txtSDT1;
+    private javax.swing.JTextField txtSDTKH;
+    private javax.swing.JTextField txtTenKH;
     private javax.swing.JTextField txtTenMon;
     private javax.swing.JTextField txtTenNV;
-    private javax.swing.JTextField txtTenNV1;
     private javax.swing.JTextField txtTuoi;
-    private javax.swing.JTextField txtTuoi1;
+    private javax.swing.JTextField txtTuoiKH;
     // End of variables declaration//GEN-END:variables
 }

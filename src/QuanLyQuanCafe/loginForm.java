@@ -29,7 +29,7 @@ public class loginForm extends javax.swing.JFrame {
         initComponents();
         overlay.setBackground(new Color(0,0,0,150));
         btnLogin.setBackground(new Color(0,0,0,150));
-        btnExit.setBackground(new Color(0,0,0,150));
+        btnExit.setBackground(new Color(0,0,0,0));
         connection = ConnectDB.dbConnector();
     }
     
@@ -154,7 +154,7 @@ public class loginForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/x-icon-white-7.jpg.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/pngegg.png"))); // NOI18N
         jLabel10.setText("jLabel10");
 
         javax.swing.GroupLayout btnExitLayout = new javax.swing.GroupLayout(btnExit);

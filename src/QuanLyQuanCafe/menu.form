@@ -2011,7 +2011,7 @@
                                   <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
                                   <Component id="nhanvienButton1" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="24" max="32767" attributes="0"/>
+                              <EmptySpace pref="20" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2037,32 +2037,20 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="tableNhanVien1">
+                        <Component class="javax.swing.JTable" name="tableKhachHang">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="8" rowCount="4">
-                                <Column editable="false" title="ID nh&#xe2;n vi&#xea;n" type="java.lang.Object"/>
-                                <Column editable="false" title="T&#xea;n nh&#xe2;n vi&#xea;n" type="java.lang.Object"/>
+                              <Table columnCount="6" rowCount="4">
+                                <Column editable="false" title="ID kh&#xe1;ch h&#xe0;ng" type="java.lang.Object"/>
+                                <Column editable="false" title="T&#xea;n kh&#xe1;ch h&#xe0;ng" type="java.lang.Object"/>
                                 <Column editable="false" title="Tu&#x1ed5;i" type="java.lang.Object"/>
                                 <Column editable="false" title="&#x110;&#x1ecb;a ch&#x1ec9;" type="java.lang.Object"/>
                                 <Column editable="false" title="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i" type="java.lang.Object"/>
                                 <Column editable="false" title="Email" type="java.lang.Object"/>
-                                <Column editable="false" title="Ng&#xe0;y v&#xe0;o l&#xe0;m" type="java.lang.Object"/>
-                                <Column editable="false" title="S&#x1ed1; ng&#xe0;y l&#xe0;m" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                   <Title/>
                                   <Editor/>
@@ -2100,7 +2088,7 @@
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableNhanVien1MouseClicked"/>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableKhachHangMouseClicked"/>
                           </Events>
                         </Component>
                       </SubComponents>
@@ -2116,27 +2104,26 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnThemNhanVien1" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="btnXoaNhanVien1" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="btnSuaNhanVien1" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="btnThemKhachHang" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Component id="btnXoaKhachHang" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Component id="btnSuaKhachHang" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="btnChamCong1" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnThemNhanVien1" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="btnXoaNhanVien1" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="btnSuaNhanVien1" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="btnChamCong1" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="btnThemKhachHang" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="btnXoaKhachHang" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="btnSuaKhachHang" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Container class="javax.swing.JPanel" name="btnThemNhanVien1">
+                        <Container class="javax.swing.JPanel" name="btnThemKhachHang">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="5a" green="34" red="fb" type="rgb"/>
@@ -2146,9 +2133,9 @@
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemNhanVien1MouseClicked"/>
-                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemNhanVien1MouseExited"/>
-                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemNhanVien1MouseEntered"/>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemKhachHangMouseClicked"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemKhachHangMouseExited"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemKhachHangMouseEntered"/>
                           </Events>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -2177,7 +2164,7 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Container class="javax.swing.JPanel" name="btnXoaNhanVien1">
+                        <Container class="javax.swing.JPanel" name="btnXoaKhachHang">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="5a" green="34" red="fb" type="rgb"/>
@@ -2187,9 +2174,9 @@
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoaNhanVien1MouseClicked"/>
-                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoaNhanVien1MouseExited"/>
-                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoaNhanVien1MouseEntered"/>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoaKhachHangMouseClicked"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoaKhachHangMouseExited"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoaKhachHangMouseEntered"/>
                           </Events>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -2221,7 +2208,7 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Container class="javax.swing.JPanel" name="btnSuaNhanVien1">
+                        <Container class="javax.swing.JPanel" name="btnSuaKhachHang">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="5a" green="34" red="fb" type="rgb"/>
@@ -2231,9 +2218,9 @@
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSuaNhanVien1MouseClicked"/>
-                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSuaNhanVien1MouseExited"/>
-                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSuaNhanVien1MouseEntered"/>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSuaKhachHangMouseClicked"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSuaKhachHangMouseExited"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSuaKhachHangMouseEntered"/>
                           </Events>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -2262,59 +2249,6 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Container class="javax.swing.JPanel" name="btnChamCong1">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="5a" green="34" red="fb" type="rgb"/>
-                            </Property>
-                            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Default Cursor"/>
-                            </Property>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnChamCong1MouseClicked"/>
-                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnChamCong1MouseExited"/>
-                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnChamCong1MouseEntered"/>
-                          </Events>
-
-                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-                            <Property name="useNullLayout" type="boolean" value="false"/>
-                          </Layout>
-                          <SubComponents>
-                            <Component class="javax.swing.JLabel" name="jLabel84">
-                              <Properties>
-                                <Property name="horizontalAlignment" type="int" value="0"/>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/QuanLyQuanCafe/img/minus-5-32.png"/>
-                                </Property>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel84MouseClicked"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="0" y="0" width="40" height="46"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel88">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="SansSerif" size="14" style="0"/>
-                                </Property>
-                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Ch&#x1ea5;m c&#xf4;ng"/>
-                              </Properties>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                                  <AbsoluteConstraints x="40" y="0" width="90" height="46"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                          </SubComponents>
-                        </Container>
                       </SubComponents>
                     </Container>
                     <Container class="javax.swing.JPanel" name="jPanel61">
@@ -2336,7 +2270,7 @@
                                   <Component id="jPanel62" min="-2" pref="281" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jPanel65" min="-2" pref="298" max="-2" attributes="0"/>
-                                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                                  <EmptySpace pref="21" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2370,7 +2304,7 @@
                               <SubComponents>
                                 <Component class="javax.swing.JLabel" name="jLabel89">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="T&#xea;n nh&#xe2;n vi&#xea;n"/>
+                                    <Property name="text" type="java.lang.String" value="T&#xea;n kh&#xe1;ch h&#xe0;ng"/>
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JLabel" name="jLabel90">
@@ -2392,11 +2326,11 @@
                                 <Property name="rows" type="int" value="0"/>
                               </Layout>
                               <SubComponents>
-                                <Component class="javax.swing.JTextField" name="txtTenNV1">
+                                <Component class="javax.swing.JTextField" name="txtTenKH">
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="txtTuoi1">
+                                <Component class="javax.swing.JTextField" name="txtTuoiKH">
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="txtDiaChi1">
+                                <Component class="javax.swing.JTextField" name="txtDiaChiKH">
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -2427,9 +2361,6 @@
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JLabel" name="jLabel94">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Ng&#xe0;y v&#xe0;o l&#xe0;m"/>
-                                  </Properties>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -2440,11 +2371,11 @@
                                 <Property name="rows" type="int" value="0"/>
                               </Layout>
                               <SubComponents>
-                                <Component class="javax.swing.JTextField" name="txtSDT1">
+                                <Component class="javax.swing.JTextField" name="txtSDTKH">
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="txtEmail1">
+                                <Component class="javax.swing.JTextField" name="txtEmailKH">
                                 </Component>
-                                <Component class="com.toedter.calendar.JDateChooser" name="txtNgayVaoLam1">
+                                <Component class="javax.swing.JLabel" name="jLabel4">
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -2865,29 +2796,6 @@
               </SubComponents>
             </Container>
           </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="blur">
-          <Properties>
-            <Property name="opaque" type="boolean" value="false"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="900" height="550"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="900" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="550" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
         </Container>
       </SubComponents>
     </Container>
