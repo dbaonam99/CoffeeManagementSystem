@@ -154,7 +154,7 @@ public class loginForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/pngegg.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/104465339_194467221913435_3583778043675453086_n.png"))); // NOI18N
         jLabel10.setText("jLabel10");
 
         javax.swing.GroupLayout btnExitLayout = new javax.swing.GroupLayout(btnExit);

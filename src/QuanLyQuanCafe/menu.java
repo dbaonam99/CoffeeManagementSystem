@@ -7,13 +7,9 @@ package QuanLyQuanCafe;
 
 import java.sql.*;
 import javax.swing.*;
-import javax.swing.table.JTableHeader;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-/**
- *
- * @author namduong
- */
+
 public class menu extends javax.swing.JFrame {
     CardLayout cardLayout = new CardLayout();
     Connection connection = null;
@@ -29,6 +25,8 @@ public class menu extends javax.swing.JFrame {
         tableNhanVien.setDefaultEditor(Object.class, null);
         this.taoTableKhachHang();
         tableKhachHang.setDefaultEditor(Object.class, null);
+        this.taoTableMon();
+        tableMon.setDefaultEditor(Object.class, null);
     }
     
     class JPanelGradient extends JPanel {
@@ -54,20 +52,27 @@ public class menu extends javax.swing.JFrame {
         return connection;
     }
     
-    DefaultTableModel tblModelTT;
-    DefaultTableModel tblModelTT2;
+    DefaultTableModel tblModelNhanVien, tblModelKhachHang, tblModelMon;
+    
     public void taoTableNhanVien() {
-        tblModelTT = new DefaultTableModel();
+        tblModelNhanVien = new DefaultTableModel();
         String tieuDe[] = {"ID", "Tên", "Tuổi", "Địa chỉ", "SDT", "Email", "Ngày vào làm", "Số ngày làm"};
-        tblModelTT.setColumnIdentifiers(tieuDe);
+        tblModelNhanVien.setColumnIdentifiers(tieuDe);
         loadDataNhanVien();
         setVisible(true);
     }
     public void taoTableKhachHang() {
-        tblModelTT2 = new DefaultTableModel();
+        tblModelKhachHang = new DefaultTableModel();
         String tieuDe[] = {"ID", "Tên", "Tuổi", "Địa chỉ", "SDT", "Email"};
-        tblModelTT2.setColumnIdentifiers(tieuDe);
+        tblModelKhachHang.setColumnIdentifiers(tieuDe);
         loadDataKhachHang();
+        setVisible(true);
+    }
+    public void taoTableMon() {
+        tblModelMon = new DefaultTableModel();
+        String tieuDe[] = {"Mã món", "Tên món", "Giá", "Mô tả", "Loại"};
+        tblModelMon.setColumnIdentifiers(tieuDe);
+        loadDataMon();
         setVisible(true);
     }
     
@@ -88,12 +93,12 @@ public class menu extends javax.swing.JFrame {
                 row[5] = rs.getString(6);
                 row[6] = rs.getString(7);
                 row[7] = rs.getString(8);
-                tblModelTT.addRow(row);
+                tblModelNhanVien.addRow(row);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        tableNhanVien.setModel(tblModelTT);
+        tableNhanVien.setModel(tblModelNhanVien);
     }
     public void loadDataKhachHang() {
         DefaultTableModel tMOdel = (DefaultTableModel) tableKhachHang.getModel();
@@ -110,12 +115,33 @@ public class menu extends javax.swing.JFrame {
                 row[3] = rs.getString(4);
                 row[4] = rs.getString(5);
                 row[5] = rs.getString(6);
-                tblModelTT2.addRow(row);
+                tblModelKhachHang.addRow(row);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        tableKhachHang.setModel(tblModelTT2);
+        tableKhachHang.setModel(tblModelKhachHang);
+    }
+    public void loadDataMon() {
+        DefaultTableModel tMOdel = (DefaultTableModel) tableMon.getModel();
+        tMOdel.setRowCount(0);
+        String sql = "select * from SANPHAM";
+        String row[] = new String[5];
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+            while (rs.next()) {
+                row[0] = rs.getString(1);
+                row[1] = rs.getString(2);
+                row[2] = rs.getString(3);
+                row[3] = rs.getString(4);
+                row[4] = rs.getString(5);
+                tblModelMon.addRow(row);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        tableMon.setModel(tblModelMon);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -207,7 +233,7 @@ public class menu extends javax.swing.JFrame {
         cardQuanLyMon = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableMon = new javax.swing.JTable();
         jPanel21 = new javax.swing.JPanel();
         btnThemMon = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
@@ -798,7 +824,7 @@ public class menu extends javax.swing.JFrame {
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableMon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -806,10 +832,10 @@ public class menu extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Mã Món", "Tên món", "Giá", "Size", "Loại"
+                "Mã Món", "Tên món", "Giá", "Mô tả", "Loại"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableMon);
 
         jPanel21.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -943,7 +969,7 @@ public class menu extends javax.swing.JFrame {
         jPanel50.setLayout(new java.awt.GridLayout(0, 1));
         jPanel50.add(txtMoTa);
 
-        selectLoai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selectLoai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         jPanel50.add(selectLoai);
 
         jPanel46.add(jPanel50);
@@ -1824,19 +1850,19 @@ public class menu extends javax.swing.JFrame {
 
     private void btnThemMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMonMouseClicked
         
-//        String sql = "INSERT INTO SANPHAM(ten_SP, gia_SP) VALUES(?,?)";
-//        try {
-//            Connection conn = this.connect();
-//            PreparedStatement pstmt = conn.prepareStatement(sql);
-//            pstmt.setString(1, txtTenMon.getText());
-//            pstmt.setString(2, txtGia.getText());
-//            pstmt.executeUpdate();
-//            JOptionPane.showMessageDialog(null, "Thêm nhân viên thành công!");
-//            conn.close();
-//        } catch (SQLException e) {
-//            System.out.println(e.getMessage());
-//            JOptionPane.showMessageDialog(null, "Thêm nhân viên không thành công!");
-//        }
+        String sql = "INSERT INTO SANPHAM(ten_SP, gia_SP) VALUES(?,?)";
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, txtTenMon.getText());
+            pstmt.setString(2, txtGia.getText());
+            pstmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Thêm nhân viên thành công!");
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "Thêm nhân viên không thành công!");
+        }
     }//GEN-LAST:event_btnThemMonMouseClicked
 
     private void btnThemMonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMonMouseExited
@@ -1988,8 +2014,8 @@ public class menu extends javax.swing.JFrame {
         String selected = tableNhanVien.getValueAt(indexTB, 0).toString();
         int ret = JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xoá?", "Xoá thông tin nhân viên", JOptionPane.YES_OPTION);
         if (ret == JOptionPane.YES_OPTION) {
-            if (indexTB < tblModelTT.getRowCount() && indexTB >=0) {
-                tblModelTT.removeRow(indexTB);
+            if (indexTB < tblModelNhanVien.getRowCount() && indexTB >=0) {
+                tblModelNhanVien.removeRow(indexTB);
             }
             String sql = "DELETE FROM NHANVIEN where ID_NV = ?";
             try (Connection conn = this.connect();
@@ -2140,8 +2166,8 @@ public class menu extends javax.swing.JFrame {
         String selected = tableKhachHang.getValueAt(indexTB, 0).toString();
         int ret = JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xoá?", "Xoá thông tin khách hàng", JOptionPane.YES_OPTION);
         if (ret == JOptionPane.YES_OPTION) {
-            if (indexTB < tblModelTT2.getRowCount() && indexTB >=0) {
-                tblModelTT2.removeRow(indexTB);
+            if (indexTB < tblModelKhachHang.getRowCount() && indexTB >=0) {
+                tblModelKhachHang.removeRow(indexTB);
             }
             String sql = "DELETE FROM KHACHHANG where ID_KH = ?";
             try (Connection conn = this.connect();
@@ -2466,7 +2492,6 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JSpinner jSpinner9;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField18;
@@ -2483,6 +2508,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel redQuanLiMon;
     private javax.swing.JComboBox<String> selectLoai;
     private javax.swing.JTable tableKhachHang;
+    private javax.swing.JTable tableMon;
     private javax.swing.JTable tableNhanVien;
     private javax.swing.JLabel txtAdmin;
     private javax.swing.JTextField txtDiaChi;

@@ -1112,14 +1112,14 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable1">
+                        <Component class="javax.swing.JTable" name="tableMon">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="5" rowCount="4">
                                 <Column editable="true" title="M&#xe3; M&#xf3;n" type="java.lang.Object"/>
                                 <Column editable="true" title="T&#xea;n m&#xf3;n" type="java.lang.Object"/>
                                 <Column editable="true" title="Gi&#xe1;" type="java.lang.Object"/>
-                                <Column editable="true" title="Size" type="java.lang.Object"/>
+                                <Column editable="true" title="M&#xf4; t&#x1ea3;" type="java.lang.Object"/>
                                 <Column editable="true" title="Lo&#x1ea1;i" type="java.lang.Object"/>
                               </Table>
                             </Property>
@@ -1435,11 +1435,8 @@
                                 <Component class="javax.swing.JComboBox" name="selectLoai">
                                   <Properties>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="4">
-                                        <StringItem index="0" value="Item 1"/>
-                                        <StringItem index="1" value="Item 2"/>
-                                        <StringItem index="2" value="Item 3"/>
-                                        <StringItem index="3" value="Item 4"/>
+                                      <StringArray count="1">
+                                        <StringItem index="0" value=" "/>
                                       </StringArray>
                                     </Property>
                                   </Properties>
