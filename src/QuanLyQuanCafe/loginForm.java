@@ -29,6 +29,7 @@ public class loginForm extends javax.swing.JFrame {
         initComponents();
         overlay.setBackground(new Color(0,0,0,150));
         btnLogin.setBackground(new Color(0,0,0,150));
+        btnExit.setBackground(new Color(0,0,0,150));
         connection = ConnectDB.dbConnector();
     }
     
@@ -62,6 +63,8 @@ public class loginForm extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnExit = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         overlay = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -144,6 +147,28 @@ public class loginForm extends javax.swing.JFrame {
         );
 
         loginBox.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, 40));
+
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExitMouseClicked(evt);
+            }
+        });
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/x-icon-white-7.jpg.png"))); // NOI18N
+        jLabel10.setText("jLabel10");
+
+        javax.swing.GroupLayout btnExitLayout = new javax.swing.GroupLayout(btnExit);
+        btnExit.setLayout(btnExitLayout);
+        btnExitLayout.setHorizontalGroup(
+            btnExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, Short.MAX_VALUE)
+        );
+        btnExitLayout.setVerticalGroup(
+            btnExitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        loginBox.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 30, 30));
 
         getContentPane().add(loginBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 470, 530));
 
@@ -277,6 +302,10 @@ public class loginForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLoginMouseClicked
 
+    private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnExitMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -313,9 +342,11 @@ public class loginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel btnExit;
     private javax.swing.JPanel btnLogin;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
