@@ -43,7 +43,37 @@ public class loginForm extends javax.swing.JFrame {
         }
         return connection;
     }
-
+    
+    public void login() {
+        if (txtUser.getText().equals("") || txtPass.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
+        } else {
+            String sql="Select * from TAIKHOAN where username =? and pass=?";
+            try {
+                Connection conn = this.connect();
+                pstmt = conn.prepareStatement(sql);
+                pstmt.setString (1,txtUser.getText());
+                pstmt.setString (2,txtPass.getText());
+                rs= pstmt.executeQuery();
+                int count = 0;
+                while(rs.next()) {
+                    count++;
+                }
+                if(count==1) {
+                    JOptionPane.showMessageDialog(this, "Đăng nhập thành công với quyền Admin!");
+                    new menu().setVisible(true);
+                    this.dispose();
+                    checkLogin.setLoggedrole("admin");
+                } else if(count>1) {
+                    JOptionPane.showMessageDialog(this, "Username and password are dupllicated");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Sai thông tin đăng nhập");
+                }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -208,34 +238,7 @@ public class loginForm extends javax.swing.JFrame {
 
     private void txtUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            if (txtUser.getText().equals("") || txtPass.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
-            }
-            else {
-                String sql="Select * from TAIKHOAN where username =? and pass=?";
-                try {
-                    Connection conn = this.connect();
-                    pstmt = conn.prepareStatement(sql);
-                    pstmt.setString (1,txtUser.getText());
-                    pstmt.setString (2,txtPass.getText());
-                    rs= pstmt.executeQuery();
-                    int count = 0;
-                    while(rs.next()) {
-                        count++;
-                    }
-                    if(count==1) {
-                        JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
-                        new menu().setVisible(true);
-                        this.dispose();
-                    } else if(count>1) {
-                        JOptionPane.showMessageDialog(this, "Username and password are dupllicated");
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Sai thông tin đăng nhập");
-                    }
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
+            login();
         }
     }//GEN-LAST:event_txtUserKeyPressed
 
@@ -245,61 +248,12 @@ public class loginForm extends javax.swing.JFrame {
 
     private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
         if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
-            if (txtUser.getText().equals("") || txtPass.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
-            }
-            else {
-                String sql="Select * from TAIKHOAN where username =? and pass=?";
-                try {
-                    Connection conn = this.connect();
-                    pstmt = conn.prepareStatement(sql);
-                    pstmt.setString (1,txtUser.getText());
-                    pstmt.setString (2,txtPass.getText());
-                    rs= pstmt.executeQuery();
-                    int count = 0;
-                    while(rs.next()) {
-                        count++;
-                    }
-                    if(count==1) {
-                        JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
-                        new menu().setVisible(true);
-                        this.dispose();
-                    } else if(count>1) {
-                        JOptionPane.showMessageDialog(this, "Username and password are dupllicated");
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Sai thông tin đăng nhập");
-                    }
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
+            login();
         }
     }//GEN-LAST:event_txtPassKeyPressed
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        String sql="Select * from TAIKHOAN where username =? and pass=?";
-        try {
-            Connection conn = this.connect();
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString (1,txtUser.getText());
-            pstmt.setString (2,txtPass.getText());
-            rs= pstmt.executeQuery();
-            int count = 0;
-            while(rs.next()) {
-                count++;
-            }
-            if(count==1) {
-                JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
-                new menu().setVisible(true);
-                this.dispose();
-            } else if(count>1) {
-                JOptionPane.showMessageDialog(this, "Username and password are dupllicated");
-            } else {
-                JOptionPane.showMessageDialog(this, "Sai thông tin đăng nhập");
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+        login();
     }//GEN-LAST:event_btnLoginMouseClicked
 
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
