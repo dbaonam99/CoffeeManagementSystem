@@ -564,15 +564,15 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(avt, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDatMon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnQuanLyMon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnKho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 550));
@@ -835,6 +835,11 @@ public class menu extends javax.swing.JFrame {
                 "Mã Món", "Tên món", "Giá", "Mô tả", "Loại"
             }
         ));
+        tableMon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMonMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableMon);
 
         jPanel21.setBackground(new java.awt.Color(255, 255, 255));
@@ -969,7 +974,7 @@ public class menu extends javax.swing.JFrame {
         jPanel50.setLayout(new java.awt.GridLayout(0, 1));
         jPanel50.add(txtMoTa);
 
-        selectLoai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        selectLoai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cà phê", "Bánh" }));
         jPanel50.add(selectLoai);
 
         jPanel46.add(jPanel50);
@@ -1849,19 +1854,31 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKhoMouseEntered
 
     private void btnThemMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMonMouseClicked
-        
-        String sql = "INSERT INTO SANPHAM(ten_SP, gia_SP) VALUES(?,?)";
-        try {
-            Connection conn = this.connect();
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, txtTenMon.getText());
-            pstmt.setString(2, txtGia.getText());
-            pstmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Thêm nhân viên thành công!");
-            conn.close();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(null, "Thêm nhân viên không thành công!");
+        if (txtTenMon.getText().equals("") || 
+            txtGia.getText().equals("") || 
+            txtMoTa.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
+        } else {
+            String sql = "INSERT INTO SANPHAM(ten_SP, gia_SP, mota_SP, loai_SP) VALUES(?,?,?,?)";
+            try {
+                Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, txtTenMon.getText());
+                pstmt.setString(2, txtGia.getText());
+                pstmt.setString(3, txtMoTa.getText());
+                pstmt.setString(4, (String)selectLoai.getSelectedItem());
+                pstmt.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Thêm món thành công!");
+                loadDataMon();
+                conn.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, "Thêm món không thành công!");
+            }
+            txtTenMon.setText(null);
+            txtGia.setText(null); 
+            txtMoTa.setText(null); 
+            selectLoai.setSelectedItem(null);
         }
     }//GEN-LAST:event_btnThemMonMouseClicked
 
@@ -1875,7 +1892,28 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThemMonMouseEntered
 
     private void btnXoaMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaMonMouseClicked
-        JOptionPane.showMessageDialog(null, "Xoá con cặc");
+        int indexTB = tableMon.getSelectedRow();
+        String selected = tableMon.getValueAt(indexTB, 0).toString();
+        int ret = JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xoá?", "Xoá thông tin món", JOptionPane.YES_OPTION);
+        if (ret == JOptionPane.YES_OPTION) {
+            if (indexTB < tblModelMon.getRowCount() && indexTB >=0) {
+                tblModelMon.removeRow(indexTB);
+            }
+            String sql = "DELETE FROM SANPHAM where ID_SP = ?";
+            try (Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                // set the corresponding param
+                pstmt.setString(1, selected);
+                // execute the delete statement
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        txtTenMon.setText(null);
+        txtGia.setText(null); 
+        txtMoTa.setText(null); 
+        selectLoai.setSelectedItem(null);
     }//GEN-LAST:event_btnXoaMonMouseClicked
 
     private void btnXoaMonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaMonMouseExited
@@ -1887,7 +1925,29 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXoaMonMouseEntered
 
     private void btnSuaMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMonMouseClicked
-        JOptionPane.showMessageDialog(null, "Sửa con cặc");
+        int indexTB = tableMon.getSelectedRow();
+        String selected = tableMon.getValueAt(indexTB, 0).toString();
+        String sql = "update SANPHAM set ten_SP = ?, gia_SP = ?, mota_SP = ?, loai_SP = ? where id_SP =?";
+            try {
+                Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, txtTenMon.getText());
+                pstmt.setString(2, txtGia.getText());
+                pstmt.setString(3, txtMoTa.getText());
+                pstmt.setString(4, (String) selectLoai.getSelectedItem());
+                pstmt.setString(5, selected);
+                pstmt.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Sửa món thành công!");
+                loadDataMon();
+                conn.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, "Sửa món không thành công!");
+            }
+            txtTenMon.setText(null);
+            txtGia.setText(null); 
+            txtMoTa.setText(null); 
+            selectLoai.setSelectedItem(null);
     }//GEN-LAST:event_btnSuaMonMouseClicked
 
     private void btnSuaMonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMonMouseExited
@@ -2256,6 +2316,14 @@ public class menu extends javax.swing.JFrame {
     private void jLabel14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseExited
         txtAdmin.setForeground(Color.decode("#dddddd"));
     }//GEN-LAST:event_jLabel14MouseExited
+
+    private void tableMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMonMouseClicked
+       int index = tableMon.getSelectedRow();
+        txtTenMon.setText(tableMon.getValueAt(index , 1).toString());
+        txtGia.setText(tableMon.getValueAt(index , 2).toString());
+        txtMoTa.setText(tableMon.getValueAt(index , 3).toString());
+        selectLoai.setSelectedItem(tableMon.getValueAt(index , 4).toString());
+    }//GEN-LAST:event_tableMonMouseClicked
 
     public void redBar(JLabel red){
         redDatMon.setOpaque(false);
