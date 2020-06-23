@@ -181,6 +181,7 @@ public class menu extends javax.swing.JFrame {
         cardDatMon = new javax.swing.JPanel();
         jPanel11 = new JPanelGradient();
         jLabel18 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -261,6 +262,7 @@ public class menu extends javax.swing.JFrame {
         selectLoai = new javax.swing.JComboBox<>();
         jPanel19 = new JPanelGradient();
         jLabel23 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         cardNhanVien = new javax.swing.JPanel();
         jPanel36 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -299,6 +301,7 @@ public class menu extends javax.swing.JFrame {
         txtNgayVaoLam = new com.toedter.calendar.JDateChooser();
         jPanel22 = new JPanelGradient();
         jLabel32 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
         cardKhachHang = new javax.swing.JPanel();
         jPanel38 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -334,6 +337,7 @@ public class menu extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel23 = new JPanelGradient();
         jLabel33 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
         cardKho = new javax.swing.JPanel();
         jPanel74 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -369,6 +373,7 @@ public class menu extends javax.swing.JFrame {
         jTextField13 = new javax.swing.JTextField();
         jPanel29 = new JPanelGradient();
         jLabel48 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(830, 554));
@@ -589,6 +594,16 @@ public class menu extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Đặt Món ");
         jPanel11.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 220, 50));
+
+        jLabel35.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setIcon(new javax.swing.ImageIcon("/Users/namduong/Downloads/inside-logout-icon.png")); // NOI18N
+        jLabel35.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel35MouseClicked(evt);
+            }
+        });
+        jPanel11.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, -1, 50));
 
         cardDatMon.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
@@ -1034,6 +1049,16 @@ public class menu extends javax.swing.JFrame {
         jLabel23.setText("Quản Lý Món");
         jPanel19.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 220, 50));
 
+        jLabel19.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setIcon(new javax.swing.ImageIcon("/Users/namduong/Downloads/inside-logout-icon.png")); // NOI18N
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+        jPanel19.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, -1, 50));
+
         cardQuanLyMon.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         card.add(cardQuanLyMon, "cardQuanLyMon");
@@ -1316,6 +1341,16 @@ public class menu extends javax.swing.JFrame {
         jLabel32.setText("Quản Lý Nhân Viên");
         jPanel22.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 220, 50));
 
+        jLabel39.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel39.setIcon(new javax.swing.ImageIcon("/Users/namduong/Downloads/inside-logout-icon.png")); // NOI18N
+        jLabel39.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel39MouseClicked(evt);
+            }
+        });
+        jPanel22.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, -1, 50));
+
         cardNhanVien.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         card.add(cardNhanVien, "cardNhanVien");
@@ -1558,6 +1593,16 @@ public class menu extends javax.swing.JFrame {
         jLabel33.setText("Quản Lý Khách Hàng");
         jPanel23.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 220, 50));
 
+        jLabel45.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel45.setIcon(new javax.swing.ImageIcon("/Users/namduong/Downloads/inside-logout-icon.png")); // NOI18N
+        jLabel45.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel45MouseClicked(evt);
+            }
+        });
+        jPanel23.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, -1, 50));
+
         cardKhachHang.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         card.add(cardKhachHang, "cardKhachHang");
@@ -1777,6 +1822,16 @@ public class menu extends javax.swing.JFrame {
         jLabel48.setForeground(new java.awt.Color(255, 255, 255));
         jLabel48.setText("Quản Lý Kho");
         jPanel29.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 220, 50));
+
+        jLabel50.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel50.setIcon(new javax.swing.ImageIcon("/Users/namduong/Downloads/inside-logout-icon.png")); // NOI18N
+        jLabel50.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel50MouseClicked(evt);
+            }
+        });
+        jPanel29.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, -1, 50));
 
         cardKho.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
@@ -2325,6 +2380,31 @@ public class menu extends javax.swing.JFrame {
         selectLoai.setSelectedItem(tableMon.getValueAt(index , 4).toString());
     }//GEN-LAST:event_tableMonMouseClicked
 
+    private void jLabel35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel35MouseClicked
+        new loginForm().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel35MouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        new loginForm().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void jLabel39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel39MouseClicked
+        new loginForm().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel39MouseClicked
+
+    private void jLabel45MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel45MouseClicked
+        new loginForm().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel45MouseClicked
+
+    private void jLabel50MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel50MouseClicked
+        new loginForm().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel50MouseClicked
+
     public void redBar(JLabel red){
         redDatMon.setOpaque(false);
         redQuanLiMon.setOpaque(false);
@@ -2419,6 +2499,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -2436,19 +2517,23 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
