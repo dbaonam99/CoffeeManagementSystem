@@ -7,7 +7,10 @@ package QuanLyQuanCafe;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import javax.swing.table.DefaultTableModel;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.charset.Charset;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,7 +37,7 @@ public class InHoaDon extends javax.swing.JFrame {
                 "\n\t\t     Tổng cộng:\t" + menu.tongCong +
                 "\n     ******************************************************\n" +
                 "\t               Cảm ơn!\n\t             Hẹn gặp lại!";
-        txtTenMon.setText(ba);
+        txtBill.setText(ba);
     }
 
     /**
@@ -50,7 +53,7 @@ public class InHoaDon extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtTenMon = new javax.swing.JTextArea();
+        txtBill = new javax.swing.JTextArea();
         btnThanhToan = new javax.swing.JPanel();
         jLabel67 = new javax.swing.JLabel();
 
@@ -72,17 +75,17 @@ public class InHoaDon extends javax.swing.JFrame {
             .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        txtTenMon.setEditable(false);
-        txtTenMon.setColumns(20);
-        txtTenMon.setRows(5);
-        txtTenMon.setText("\t            UIT Coffee\n               47 Xa lộ Hà Nội, Phường Linh Trung\n                           Thủ Đức, Hồ Chí Minh\n     ******************************************************\n\t             HOÁ ĐƠN\n\n\n");
-        txtTenMon.setAutoscrolls(false);
-        txtTenMon.setBorder(null);
-        txtTenMon.setDragEnabled(false);
-        txtTenMon.setFocusTraversalKeysEnabled(false);
-        txtTenMon.setFocusable(false);
-        txtTenMon.setVerifyInputWhenFocusTarget(false);
-        jScrollPane1.setViewportView(txtTenMon);
+        txtBill.setEditable(false);
+        txtBill.setColumns(20);
+        txtBill.setRows(5);
+        txtBill.setText("\t            UIT Coffee\n               47 Xa lộ Hà Nội, Phường Linh Trung\n                           Thủ Đức, Hồ Chí Minh\n     ******************************************************\n\t             HOÁ ĐƠN\n\n\n");
+        txtBill.setAutoscrolls(false);
+        txtBill.setBorder(null);
+        txtBill.setDragEnabled(false);
+        txtBill.setFocusTraversalKeysEnabled(false);
+        txtBill.setFocusable(false);
+        txtBill.setVerifyInputWhenFocusTarget(false);
+        jScrollPane1.setViewportView(txtBill);
 
         btnThanhToan.setBackground(new java.awt.Color(251, 52, 90));
         btnThanhToan.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -159,7 +162,31 @@ public class InHoaDon extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThanhToanMouseClicked
-        
+        BufferedWriter bw = null;
+        try {
+            String mycontent = txtBill.getText();
+             //Specify the file name and path here
+            String filePath = "/Users/namduong/NetBeansProjects/QuanLiKhachHangg/src/bills/bills.txt";
+            File file = new File(filePath);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file);
+            bw = new BufferedWriter(fw);
+            bw.write(mycontent);
+            System.out.println("File written Successfully");
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } finally { 
+            try{
+                if(bw!=null)
+                    bw.close();
+            }catch(Exception ex){
+                System.out.println("Error in closing the BufferedWriter"+ex);
+            }
+        }
+        this.dispose();
+        JOptionPane.showMessageDialog(this, "Hoá đơn đã được in!");
     }//GEN-LAST:event_btnThanhToanMouseClicked
 
     /**
@@ -204,6 +231,6 @@ public class InHoaDon extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtTenMon;
+    private javax.swing.JTextArea txtBill;
     // End of variables declaration//GEN-END:variables
 }
