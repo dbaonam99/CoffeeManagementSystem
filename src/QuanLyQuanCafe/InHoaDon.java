@@ -5,6 +5,10 @@
  */
 package QuanLyQuanCafe;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author namduong
@@ -16,6 +20,21 @@ public class InHoaDon extends javax.swing.JFrame {
      */
     public InHoaDon() {
         initComponents();
+        String hours = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+        String days = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+        String mot = "	              UIT Coffee\n" +
+                "                 47 Xa lộ Hà Nội, Phường Linh Trung\n" +
+                "                            Thủ Đức, Hồ Chí Minh\n" +
+                "     ******************************************************\n" +
+                "	               HOÁ ĐƠN     \n     ";
+        String hai = mot + hours + "                                               " + days +
+                "\n     ******************************************************\n";
+        String ba = hai + menu.hoaDon + "\n\t\t     Thành tiền:\t" + menu.thanhTien + 
+                "\n\t\t     Thuế:\t" + menu.thueHoaDon + 
+                "\n\t\t     Tổng cộng:\t" + menu.tongCong +
+                "\n     ******************************************************\n" +
+                "\t               Cảm ơn!\n\t             Hẹn gặp lại!";
+        txtTenMon.setText(ba);
     }
 
     /**
@@ -29,19 +48,16 @@ public class InHoaDon extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtTenMon = new javax.swing.JTextArea();
+        btnThanhToan = new javax.swing.JPanel();
+        jLabel67 = new javax.swing.JLabel();
 
-        jPanel2.setBackground(new java.awt.Color(241, 242, 249));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(33, 38, 54));
-        jPanel1.setLayout(new java.awt.GridLayout());
-
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Hoá Đơn");
-        jPanel1.add(jLabel1);
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel15.setBackground(new java.awt.Color(33, 38, 54));
 
@@ -56,18 +72,72 @@ public class InHoaDon extends javax.swing.JFrame {
             .addGap(0, 10, Short.MAX_VALUE)
         );
 
+        txtTenMon.setEditable(false);
+        txtTenMon.setColumns(20);
+        txtTenMon.setRows(5);
+        txtTenMon.setText("\t            UIT Coffee\n               47 Xa lộ Hà Nội, Phường Linh Trung\n                           Thủ Đức, Hồ Chí Minh\n     ******************************************************\n\t             HOÁ ĐƠN\n\n\n");
+        txtTenMon.setAutoscrolls(false);
+        txtTenMon.setBorder(null);
+        txtTenMon.setDragEnabled(false);
+        txtTenMon.setFocusTraversalKeysEnabled(false);
+        txtTenMon.setFocusable(false);
+        txtTenMon.setVerifyInputWhenFocusTarget(false);
+        jScrollPane1.setViewportView(txtTenMon);
+
+        btnThanhToan.setBackground(new java.awt.Color(251, 52, 90));
+        btnThanhToan.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnThanhToan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnThanhToanMouseClicked(evt);
+            }
+        });
+
+        jLabel67.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel67.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel67.setText("In Hoá Đơn");
+
+        javax.swing.GroupLayout btnThanhToanLayout = new javax.swing.GroupLayout(btnThanhToan);
+        btnThanhToan.setLayout(btnThanhToanLayout);
+        btnThanhToanLayout.setHorizontalGroup(
+            btnThanhToanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnThanhToanLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel67)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        btnThanhToanLayout.setVerticalGroup(
+            btnThanhToanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnThanhToanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(btnThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(338, 338, 338)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -75,7 +145,9 @@ public class InHoaDon extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,6 +157,10 @@ public class InHoaDon extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThanhToanMouseClicked
+        
+    }//GEN-LAST:event_btnThanhToanMouseClicked
 
     /**
      * @param args the command line arguments
@@ -122,9 +198,12 @@ public class InHoaDon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel btnThanhToan;
+    private javax.swing.JLabel jLabel67;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtTenMon;
     // End of variables declaration//GEN-END:variables
 }

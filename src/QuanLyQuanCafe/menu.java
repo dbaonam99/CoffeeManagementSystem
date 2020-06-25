@@ -19,6 +19,10 @@ public class menu extends javax.swing.JFrame {
     CardLayout cardLayout2 = new CardLayout();
     Connection connection = null;
     PreparedStatement pstmt =  null;
+    public static String hoaDon = "";
+    public static String thanhTien = "";
+    public static String thueHoaDon = "";
+    public static String tongCong = "";
     
     /** 
      * Creates new form gio tao sua file roi luu lai
@@ -64,9 +68,12 @@ public class menu extends javax.swing.JFrame {
         for (int i = 0; i < tableOrderList.getRowCount(); i++){
             subtotal +=Integer.parseInt( tableOrderList.getValueAt(i, 3).toString());
         }
-        txtThanhTien.setText(String.valueOf(subtotal) + " vnđ");
-        txtThue.setText(String.valueOf(subtotal*thue) + " vnđ");
-        txtTotal.setText(String.valueOf(subtotal + (subtotal*thue)) + " vnđ");
+        thanhTien = String.valueOf(subtotal);
+        thueHoaDon = String.valueOf(subtotal*thue);
+        tongCong = String.valueOf(subtotal + (subtotal*thue));
+        txtThanhTien.setText(thanhTien + " vnđ");
+        txtThue.setText(thueHoaDon + " vnđ");
+        txtTotal.setText(tongCong + " vnđ");
     }
     
     private void resetDatMon(){
@@ -134,6 +141,8 @@ public class menu extends javax.swing.JFrame {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        selectSize_dr.setSelectedItem("S");
+        selectSoLuong_dr.setSelectedItem("1");
     }
     
     public void fillInfoCake() {
@@ -158,6 +167,8 @@ public class menu extends javax.swing.JFrame {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        selectSize_cake.setSelectedItem("S");
+        selectSoLuong_cake.setSelectedItem("1");
     }
     
     private Connection connect() {
@@ -382,7 +393,7 @@ public class menu extends javax.swing.JFrame {
         txtTotal = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
         txtThanhTien = new javax.swing.JLabel();
-        btnXoaOrderList1 = new javax.swing.JPanel();
+        btnThanhToan = new javax.swing.JPanel();
         jLabel67 = new javax.swing.JLabel();
         cardQuanLyMon = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -1230,11 +1241,11 @@ public class menu extends javax.swing.JFrame {
 
         txtHours.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         txtHours.setForeground(new java.awt.Color(251, 52, 90));
-        txtHours.setText("hours");
+        txtHours.setText("20:20:00");
 
         txtDays.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         txtDays.setForeground(new java.awt.Color(204, 204, 204));
-        txtDays.setText("days");
+        txtDays.setText("25/06/2020");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -1242,10 +1253,10 @@ public class menu extends javax.swing.JFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtHours, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDays, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDays, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel13Layout.setVerticalGroup(
@@ -1318,7 +1329,7 @@ public class menu extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(btnXoaOrderList, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(btnResetOrderList, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -1393,26 +1404,26 @@ public class menu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btnXoaOrderList1.setBackground(new java.awt.Color(251, 52, 90));
-        btnXoaOrderList1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnXoaOrderList1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnThanhToan.setBackground(new java.awt.Color(251, 52, 90));
+        btnThanhToan.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnThanhToan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnXoaOrderList1MouseClicked(evt);
+                btnThanhToanMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnXoaOrderList1MouseExited(evt);
+                btnThanhToanMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnXoaOrderList1MouseEntered(evt);
+                btnThanhToanMouseEntered(evt);
             }
         });
-        btnXoaOrderList1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnThanhToan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel67.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel67.setForeground(new java.awt.Color(255, 255, 255));
         jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel67.setText("Thanh Toán");
-        btnXoaOrderList1.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 43));
+        btnThanhToan.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 43));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1428,7 +1439,7 @@ public class menu extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(90, 90, 90)
-                .addComponent(btnXoaOrderList1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -1442,7 +1453,7 @@ public class menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnXoaOrderList1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
 
@@ -3159,20 +3170,45 @@ public class menu extends javax.swing.JFrame {
     private void btnResetOrderListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetOrderListMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_btnResetOrderListMouseEntered
-
-    private void btnXoaOrderList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaOrderList1MouseClicked
+    
+    public void strHoaDon() {
+        String tenMon = "";
+        for (int i = 0; i < tableOrderList.getRowCount(); i++){
+            for (int j = 0; j < tableOrderList.getColumnCount(); j++){
+                tenMon = tenMon.concat("     " + tableOrderList.getValueAt(i, j).toString() + "\t");
+            }
+            tenMon = tenMon.concat("\n");
+        }
+//        String sizeMon = "";
+//        for (int i = 0; i < tableOrderList.getRowCount(); i++){
+//            sizeMon = sizeMon.concat("" + tableOrderList.getValueAt(i, 1).toString() + "\n");
+//        }
+//        String soluongMon = "";
+//        for (int i = 0; i < tableOrderList.getRowCount(); i++){
+//            soluongMon = soluongMon.concat("" + tableOrderList.getValueAt(i, 2).toString() + "\n");
+//        }
+//        String giaMon = "";
+//        for (int i = 0; i < tableOrderList.getRowCount(); i++){
+//            giaMon = giaMon.concat("" + tableOrderList.getValueAt(i, 3).toString() + "\n");
+//        }
+//        hoaDon = (tenMon + sizeMon + soluongMon + giaMon + txtTotal.getText());
+        hoaDon = tenMon;
+    }
+    
+    private void btnThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThanhToanMouseClicked
+        strHoaDon();
+        new InHoaDon().setVisible(true);
         ((DefaultTableModel)tableOrderList.getModel()).setNumRows(0);
         tinhTongBill();
-        new InHoaDon().setVisible(true);
-    }//GEN-LAST:event_btnXoaOrderList1MouseClicked
+    }//GEN-LAST:event_btnThanhToanMouseClicked
 
-    private void btnXoaOrderList1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaOrderList1MouseExited
+    private void btnThanhToanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThanhToanMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaOrderList1MouseExited
+    }//GEN-LAST:event_btnThanhToanMouseExited
 
-    private void btnXoaOrderList1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaOrderList1MouseEntered
+    private void btnThanhToanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThanhToanMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaOrderList1MouseEntered
+    }//GEN-LAST:event_btnThanhToanMouseEntered
     
     public void redBar(JLabel red){
         redDatMon.setOpaque(false);
@@ -3253,6 +3289,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JPanel btnSuaMon;
     private javax.swing.JPanel btnSuaMon4;
     private javax.swing.JPanel btnSuaNhanVien;
+    private javax.swing.JPanel btnThanhToan;
     private javax.swing.JPanel btnThemKhachHang;
     private javax.swing.JPanel btnThemMon;
     private javax.swing.JPanel btnThemMon4;
@@ -3262,7 +3299,6 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JPanel btnXoaMon4;
     private javax.swing.JPanel btnXoaNhanVien;
     private javax.swing.JPanel btnXoaOrderList;
-    private javax.swing.JPanel btnXoaOrderList1;
     private javax.swing.JPanel card;
     private javax.swing.JPanel cardCake;
     private javax.swing.JPanel cardCategory;

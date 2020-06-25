@@ -63,7 +63,6 @@ public class loginForm extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Đăng nhập thành công với quyền Admin!");
                     new menu().setVisible(true);
                     this.dispose();
-                    checkLogin.setLoggedrole("admin");
                 } else if(count>1) {
                     JOptionPane.showMessageDialog(this, "Username and password are dupllicated");
                 } else {
