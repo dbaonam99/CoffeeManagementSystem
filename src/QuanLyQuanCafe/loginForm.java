@@ -8,18 +8,14 @@ package QuanLyQuanCafe;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  *
  * @author namduong
  */
 public class loginForm extends javax.swing.JFrame {
-    Connection connection = null;
+    Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pstmt =  null;
     /**
@@ -30,18 +26,7 @@ public class loginForm extends javax.swing.JFrame {
         overlay.setBackground(new Color(0,0,0,150));
         btnLogin.setBackground(new Color(0,0,0,150));
         btnExit.setBackground(new Color(0,0,0,0));
-        connection = ConnectDB.dbConnector();
-    }
-    
-    private Connection connect() {
-        // SQLite connection string
-        String url = "jdbc:sqlite:/Users/namduong/NetBeansProjects/QuanLiKhachHangg/src/database/database.db";
-        try {
-            connection = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return connection;
+        conn = ConnectDB.dbConnector();
     }
     
     public void login() {
@@ -50,7 +35,6 @@ public class loginForm extends javax.swing.JFrame {
         } else {
             String sql="Select * from TAIKHOAN where username =? and pass=?";
             try {
-                Connection conn = this.connect();
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setString (1,txtUser.getText());
                 pstmt.setString (2,txtPass.getText());

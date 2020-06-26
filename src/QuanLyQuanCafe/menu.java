@@ -17,7 +17,7 @@ import java.util.*;
 public class menu extends javax.swing.JFrame {
     CardLayout cardLayout = new CardLayout();
     CardLayout cardLayout2 = new CardLayout();
-    Connection connection = null;
+    Connection conn = null;
     PreparedStatement pstmt =  null;
     public static String hoaDon = "";
     public static String thanhTien = "";
@@ -31,7 +31,7 @@ public class menu extends javax.swing.JFrame {
         initComponents();
         cardLayout = (CardLayout)(card.getLayout());
         cardLayout2 = (CardLayout)(cardCategory.getLayout());
-        connection = ConnectDB.dbConnector();
+        conn = ConnectDB.dbConnector();
         this.taoTableNhanVien();
         tableNhanVien.setDefaultEditor(Object.class, null);
         this.taoTableKhachHang();
@@ -96,9 +96,9 @@ public class menu extends javax.swing.JFrame {
     private void fillComboboxDrink(){
         selectMon.removeAllItems();
         String sql = "select ten_SP, ID_SP from SANPHAM where loai_SP = 'Drink'";
-        try (Connection conn = this.connect();
+        try {
             Statement stmt  = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql)){
+            ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 selectMon.addItem(rs.getString(1));
             }
@@ -110,9 +110,9 @@ public class menu extends javax.swing.JFrame {
     private void fillComboboxCake(){
         selectCake.removeAllItems();
         String sql = "select ten_SP, ID_SP from SANPHAM where loai_SP = 'Cake'";
-        try (Connection conn = this.connect();
+        try {
             Statement stmt  = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql)){
+            ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 selectCake.addItem(rs.getString(1));
             }
@@ -123,9 +123,9 @@ public class menu extends javax.swing.JFrame {
     
     public void fillInfoDrink() {
         String sql = "select * from SANPHAM where TEN_SP = '" + selectMon.getSelectedItem() + "'";
-        try (Connection conn = this.connect();
+        try {
             Statement stmt  = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql)){
+            ResultSet rs = stmt.executeQuery(sql);
             int row = 0;
             while (rs.next()) {
                 row++;
@@ -135,9 +135,6 @@ public class menu extends javax.swing.JFrame {
                 // hình vừa với khung 
                 ImageIcon ii = new ImageIcon(rs.getString(6));
                 Image image = ii.getImage().getScaledInstance(lbDrinkImage.getWidth(), lbDrinkImage.getHeight(), Image.SCALE_SMOOTH);
-//                lbDrinkImage.setIcon(new ImageIcon(image));
-                
-//                ImageIcon imgThisImg = new ImageIcon(ii);
                 lbDrinkImage.setIcon(new ImageIcon(image));
             }
         } catch (SQLException e) {
@@ -149,9 +146,9 @@ public class menu extends javax.swing.JFrame {
     
     public void fillInfoCake() {
         String sql = "select * from SANPHAM where TEN_SP = '" + selectCake.getSelectedItem() + "'";
-        try (Connection conn = this.connect();
+        try {
             Statement stmt  = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql)){
+            ResultSet rs = stmt.executeQuery(sql);
             int row = 0;
             while (rs.next()) {
                 row++;
@@ -161,9 +158,6 @@ public class menu extends javax.swing.JFrame {
                 // hình vừa với khung 
                 ImageIcon ii = new ImageIcon(rs.getString(6));
                 Image image = ii.getImage().getScaledInstance(lbCakeImage.getWidth(), lbCakeImage.getHeight(), Image.SCALE_SMOOTH);
-//                lbDrinkImage.setIcon(new ImageIcon(image));
-                
-//                ImageIcon imgThisImg = new ImageIcon(ii);
                 lbCakeImage.setIcon(new ImageIcon(image));
             }
         } catch (SQLException e) {
@@ -171,16 +165,6 @@ public class menu extends javax.swing.JFrame {
         }
         selectSize_cake.setSelectedItem("S");
         selectSoLuong_cake.setSelectedItem("1");
-    }
-    
-    private Connection connect() {
-        String url = "jdbc:sqlite:/Users/namduong/NetBeansProjects/QuanLiKhachHangg/src/database/database.db";
-        try {
-            connection = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return connection;
     }
     
     DefaultTableModel tblModelNhanVien, tblModelKhachHang, tblModelMon, tblModelOrderList, tblModelKho;
@@ -226,9 +210,9 @@ public class menu extends javax.swing.JFrame {
         tMOdel.setRowCount(0);
         String sql = "select * from NHANVIEN";
         String row[] = new String[8];
-        try (Connection conn = this.connect();
-             Statement stmt  = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)){
+        try {
+            Statement stmt  = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 row[0] = rs.getString(1);
                 row[1] = rs.getString(2);
@@ -250,9 +234,9 @@ public class menu extends javax.swing.JFrame {
         tMOdel.setRowCount(0);
         String sql = "select * from KHACHHANG";
         String row[] = new String[8];
-        try (Connection conn = this.connect();
+        try {
              Statement stmt  = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)){
+             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 row[0] = rs.getString(1);
                 row[1] = rs.getString(2);
@@ -276,9 +260,9 @@ public class menu extends javax.swing.JFrame {
         String sql = "select * from SANPHAM";
         Object row[] = new Object[6];
         FileOutputStream fos = null;
-        try (Connection conn = this.connect();
-             Statement stmt  = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)){
+        try {
+            Statement stmt  = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 row[0] = rs.getString(1);
                 row[1] = rs.getString(2);
@@ -302,9 +286,9 @@ public class menu extends javax.swing.JFrame {
         String sql = "select * from KHO";
         Object row[] = new Object[7];
         FileOutputStream fos = null;
-        try (Connection conn = this.connect();
-             Statement stmt  = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)){
+        try {
+            Statement stmt  = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 row[0] = rs.getString(1);
                 row[1] = rs.getString(2);
@@ -2604,8 +2588,7 @@ public class menu extends javax.swing.JFrame {
         } else {
             String sql = "INSERT INTO SANPHAM(ten_SP, gia_SP, mota_SP, loai_SP, anh_SP) VALUES(?,?,?,?,?)";
             try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, txtTenMon.getText());
                 pstmt.setString(2, txtGia.getText());
                 pstmt.setString(3, txtMoTa.getText());
@@ -2614,7 +2597,6 @@ public class menu extends javax.swing.JFrame {
                 pstmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Thêm món thành công!");
                 loadDataMon();
-                conn.close();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(null, "Thêm món không thành công!");
@@ -2645,8 +2627,8 @@ public class menu extends javax.swing.JFrame {
                 tblModelMon.removeRow(indexTB);
             }
             String sql = "DELETE FROM SANPHAM where ID_SP = ?";
-            try (Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            try {
+                PreparedStatement pstmt = conn.prepareStatement(sql);
                 // set the corresponding param
                 pstmt.setString(1, selected);
                 // execute the delete statement
@@ -2674,8 +2656,7 @@ public class menu extends javax.swing.JFrame {
         String selected = tableMon.getValueAt(indexTB, 0).toString();
         String sql = "update SANPHAM set ten_SP = ?, gia_SP = ?, mota_SP = ?, loai_SP = ?, anh_SP = ? where id_SP =?";
             try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, txtTenMon.getText());
                 pstmt.setString(2, txtGia.getText());
                 pstmt.setString(3, txtMoTa.getText());
@@ -2685,7 +2666,6 @@ public class menu extends javax.swing.JFrame {
                 pstmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Sửa món thành công!");
                 loadDataMon();
-                conn.close();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(null, "Sửa món không thành công!");
@@ -2715,8 +2695,7 @@ public class menu extends javax.swing.JFrame {
         } else {
             String sql = "INSERT INTO NHANVIEN(ten_NV, tuoi_NV, diachi_NV, sdt_NV, email_NV, ngayvaolam_NV) VALUES(?,?,?,?,?,?)";
             try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, txtTenNV.getText());
                 pstmt.setString(2, txtTuoi.getText());
                 pstmt.setString(3, txtDiaChi.getText());
@@ -2726,7 +2705,6 @@ public class menu extends javax.swing.JFrame {
                 pstmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Thêm nhân viên thành công!");
                 loadDataNhanVien();
-                conn.close();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(null, "Thêm nhân viên không thành công!");
@@ -2757,8 +2735,8 @@ public class menu extends javax.swing.JFrame {
                 tblModelKho.removeRow(indexTB);
             }
             String sql = "DELETE FROM KHO where ID_NL = ?";
-            try (Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            try {
+                PreparedStatement pstmt = conn.prepareStatement(sql);
                 // set the corresponding param
                 pstmt.setString(1, selected);
                 // execute the delete statement
@@ -2787,8 +2765,7 @@ public class menu extends javax.swing.JFrame {
         String selected = tableKho.getValueAt(indexTB, 0).toString();
         String sql = "update KHO set ten_NL = ?, khoiluong_NL = ?, ngaynhap_NL = ?, nguoinhap_NL = ?, xuatxu_NL = ? where id_NL =?";
             try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, txtTenNL.getText());
                 pstmt.setString(2, txtKhoiLuong.getText());
                 pstmt.setString(3, ((JTextField) txtNgayNhap.getDateEditor().getUiComponent()).getText());
@@ -2798,7 +2775,6 @@ public class menu extends javax.swing.JFrame {
                 pstmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Sửa nguyên liệu thành công!");
                 loadDataKho();
-                conn.close();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(null, "Sửa nguyên liệu không thành công!");
@@ -2835,8 +2811,8 @@ public class menu extends javax.swing.JFrame {
                 tblModelNhanVien.removeRow(indexTB);
             }
             String sql = "DELETE FROM NHANVIEN where ID_NV = ?";
-            try (Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            try {
+                pstmt = conn.prepareStatement(sql);
                 // set the corresponding param
                 pstmt.setString(1, selected);
                 // execute the delete statement
@@ -2866,8 +2842,7 @@ public class menu extends javax.swing.JFrame {
         String selected = tableNhanVien.getValueAt(indexTB, 0).toString();
         String sql = "update NHANVIEN set ten_NV = ?, tuoi_NV = ?, diachi_NV = ?, sdt_NV = ?, email_NV = ?, ngayvaolam_NV = ? where id_NV =?";
             try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, txtTenNV.getText());
                 pstmt.setString(2, txtTuoi.getText());
                 pstmt.setString(3, txtDiaChi.getText());
@@ -2878,7 +2853,6 @@ public class menu extends javax.swing.JFrame {
                 pstmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Sửa nhân viên thành công!");
                 loadDataNhanVien();
-                conn.close();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(null, "Sửa nhân viên không thành công!");
@@ -2947,8 +2921,7 @@ public class menu extends javax.swing.JFrame {
         String selected = tableKhachHang.getValueAt(indexTB, 0).toString();
         String sql = "update KHACHHANG set ten_KH = ?, tuoi_KH = ?, diachi_KH = ?, sdt_KH = ?, email_KH = ? where id_KH =?";
             try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, txtTenKH.getText());
                 pstmt.setString(2, txtTuoiKH.getText());
                 pstmt.setString(3, txtDiaChiKH.getText());
@@ -2958,7 +2931,6 @@ public class menu extends javax.swing.JFrame {
                 pstmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Sửa khách hàng thành công!");
                 loadDataKhachHang();
-                conn.close();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(null, "Sửa khach hàng không thành công!");
@@ -2987,8 +2959,8 @@ public class menu extends javax.swing.JFrame {
                 tblModelKhachHang.removeRow(indexTB);
             }
             String sql = "DELETE FROM KHACHHANG where ID_KH = ?";
-            try (Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            try {
+                pstmt = conn.prepareStatement(sql);
                 // set the corresponding param
                 pstmt.setString(1, selected);
                 // execute the delete statement
@@ -3026,8 +2998,7 @@ public class menu extends javax.swing.JFrame {
         } else {
             String sql = "INSERT INTO KHACHHANG(ten_KH, tuoi_KH, diachi_KH, sdt_KH, email_KH) VALUES(?,?,?,?,?)";
             try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, txtTenKH.getText());
                 pstmt.setString(2, txtTuoiKH.getText());
                 pstmt.setString(3, txtDiaChiKH.getText());
@@ -3036,7 +3007,6 @@ public class menu extends javax.swing.JFrame {
                 pstmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Thêm khách hàng thành công!");
                 loadDataKhachHang();
-                conn.close();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(null, "Thêm khách hàng không thành công!");
@@ -3283,8 +3253,7 @@ public class menu extends javax.swing.JFrame {
         } else {
             String sql = "INSERT INTO KHO(Ten_NL, khoiluong_NL, nguoinhap_NL, ngaynhap_NL, xuatxu_NL) VALUES(?,?,?,?,?)";
             try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, txtTenNL.getText());
                 pstmt.setString(2, txtKhoiLuong.getText());
                 pstmt.setString(3, txtTenNguoiNhap.getText());
@@ -3293,7 +3262,6 @@ public class menu extends javax.swing.JFrame {
                 pstmt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Thêm nguyên liệu thành công!");
                 loadDataKho();
-                conn.close();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(null, "Thêm nguyên liệu không thành công!");

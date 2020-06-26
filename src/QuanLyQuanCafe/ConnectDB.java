@@ -17,31 +17,13 @@ public class ConnectDB {
     public static Connection dbConnector() {
         Connection conn = null;
         try {
-            // jdbc:sqlite:/Users/namduong/Documents/database/QuanLiKhamBenh.db
-            String url = "jdbc:sqlite:/Users/namduong/NetBeansProjects/QuanLiKhachHangg/src/database/database.db";
-            // create a connection to the database
+            String url = "jdbc:sqlite:../QuanLiKhachHangg/src/database/database.db";
             conn = DriverManager.getConnection(url);
-            
             System.out.println("Connection to SQLite has been established.");
             return conn;
-            
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
+            return null;
         }
-        return null;
-    }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        dbConnector();
     }
 }

@@ -8,8 +8,6 @@ package QuanLyQuanCafe;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.charset.Charset;
 import javax.swing.JOptionPane;
 
 /**

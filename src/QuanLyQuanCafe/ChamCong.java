@@ -5,28 +5,20 @@
  */
 package QuanLyQuanCafe;
 
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import java.sql.*;
+import javax.swing.*;
 
 /**
  *
  * @author namduong
  */
 public class ChamCong extends javax.swing.JFrame {
-
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pstmt =  null;
     /**
      * Creates new form ChamCong
      */
-    
-    Connection connection = null;
-    
     public ChamCong() {
         initComponents();
         txtTen.setEnabled(false);
@@ -36,25 +28,15 @@ public class ChamCong extends javax.swing.JFrame {
         txtEmail.setEnabled(false);
         txtSoNgayCong.setEnabled(false);
         txtNgayVaoLam.setEnabled(false);
+        conn = ConnectDB.dbConnector();
         fillCombobox();
-    }
-    
-    private Connection connect() {
-        // SQLite connection string
-        String url = "jdbc:sqlite:/Users/namduong/NetBeansProjects/QuanLiKhachHangg/src/database/database.db";
-        try {
-            connection = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return connection;
     }
     
     private void fillCombobox(){
         String sql = "select ID_NV, ten_NV from NHANVIEN";
-        try (Connection conn = this.connect();
+        try {
             Statement stmt  = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql)){
+            ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 selectNhanVien.addItem(rs.getString(1));
             }
@@ -301,11 +283,6 @@ public class ChamCong extends javax.swing.JFrame {
         jLabel67.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel67.setForeground(new java.awt.Color(255, 255, 255));
         jLabel67.setText("Cập nhật");
-        jLabel67.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel67MouseClicked(evt);
-            }
-        });
         btnChamCong.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 90, 50));
 
         jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -463,19 +440,6 @@ public class ChamCong extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnChamCongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseClicked
-        
-        
-    }//GEN-LAST:event_btnChamCongMouseClicked
-
-    private void btnChamCongMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnChamCongMouseExited
-
-    private void btnChamCongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnChamCongMouseEntered
-
     private void btnThoatMoubtnThoateClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThoatMoubtnThoateClicked
         this.dispose();
     }//GEN-LAST:event_btnThoatMoubtnThoateClicked
@@ -509,29 +473,6 @@ public class ChamCong extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNgayVaoLamActionPerformed
 
-    private void jLabel67MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel67MouseClicked
-        if (txtSoNgayLam.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Vui lòng điền đầy đủ thông tin trước khi cập nhật!");
-        } else {
-            String sql = "update NHANVIEN set tongsongaylam_NV = tongsongaylam_NV + ? where id_NV =?";
-            try {
-                Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, txtSoNgayLam.getText());
-                pstmt.setString(2, (String) selectNhanVien.getSelectedItem());
-                pstmt.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Cập nhật ngày công thành công!");
-                fillInfoToTextbox();
-                conn.close();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-                JOptionPane.showMessageDialog(null, "Cập nhật ngày công không thành công!");
-            }
-            txtSoNgayLam.setText(null);
-        }
-            
-    }//GEN-LAST:event_jLabel67MouseClicked
-
     private void btnTraLuongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTraLuongMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTraLuongMouseEntered
@@ -543,25 +484,51 @@ public class ChamCong extends javax.swing.JFrame {
     private void btnTraLuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTraLuongMouseClicked
         String sql = "update NHANVIEN set tongsongaylam_NV = 0 where id_NV =?";
         try {
-            Connection conn = this.connect();
-            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, (String) selectNhanVien.getSelectedItem());
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Tiền lương đã được chuyển vào tài khoản nhân viên!");
             fillInfoToTextbox();
-            conn.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "Trả lương không thành công!");
         }
         txtSoNgayLam.setText(null);
     }//GEN-LAST:event_btnTraLuongMouseClicked
+
+    private void btnChamCongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnChamCongMouseEntered
+
+    private void btnChamCongMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnChamCongMouseExited
+
+    private void btnChamCongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseClicked
+        if (txtSoNgayLam.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Vui lòng điền đầy đủ thông tin trước khi cập nhật!");
+        } else {
+            String sql = "update NHANVIEN set tongsongaylam_NV = tongsongaylam_NV + ? where id_NV =?";
+            try {
+                pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, txtSoNgayLam.getText());
+                pstmt.setString(2, (String) selectNhanVien.getSelectedItem());
+                pstmt.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Cập nhật ngày công thành công!");
+                fillInfoToTextbox();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(null, "Cập nhật ngày công không thành công!");
+            }
+            txtSoNgayLam.setText(null);
+        } 
+    }//GEN-LAST:event_btnChamCongMouseClicked
     public void fillInfoToTextbox() {
         String sql = "select * from NHANVIEN where ID_NV = '" + selectNhanVien.getSelectedItem() + "'";
 
-        try (Connection conn = this.connect();
+        try {
             Statement stmt  = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql)){
+            ResultSet rs = stmt.executeQuery(sql);
             int row = 0;
             while (rs.next()) {
                 row++;
