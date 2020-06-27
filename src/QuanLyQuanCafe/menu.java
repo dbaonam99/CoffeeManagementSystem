@@ -59,6 +59,22 @@ public class menu extends javax.swing.JFrame {
         for (int i = 0; i < panel.length; i++) {
             panel[i].setBackground(new Color(0,0,0,0));
         }
+        
+        
+        JTable[] table = {tableOrderList, tableMon, tableNhanVien, tableKhachHang, tableKho};
+        
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+        headerRenderer.setBackground(new Color(32, 136, 203));
+        headerRenderer.setForeground(new Color(250,250,250));
+        
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[i].getModel().getColumnCount(); j++) {
+                table[i].getColumnModel().getColumn(j).setHeaderRenderer(headerRenderer);
+                table[i].setSelectionBackground(new Color(190,190,190));
+                table[i].setBackground(Color.white);
+                table[i].setFillsViewportHeight(true);
+            }
+        }
     }
     
     class JPanelGradient extends JPanel {
@@ -146,6 +162,9 @@ public class menu extends javax.swing.JFrame {
                 ImageIcon ii = new ImageIcon(rs.getString(6));
                 Image image = ii.getImage().getScaledInstance(lbDrinkImage.getWidth(), lbDrinkImage.getHeight(), Image.SCALE_SMOOTH);
                 lbDrinkImage.setIcon(new ImageIcon(image));
+                if (txtMoTa_dr.getText().length() > 25) {
+                    txtMoTa_dr.setText(txtMoTa_dr.getText().substring(0,25) + "...");
+                }
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -169,6 +188,9 @@ public class menu extends javax.swing.JFrame {
                 ImageIcon ii = new ImageIcon(rs.getString(6));
                 Image image = ii.getImage().getScaledInstance(lbCakeImage.getWidth(), lbCakeImage.getHeight(), Image.SCALE_SMOOTH);
                 lbCakeImage.setIcon(new ImageIcon(image));
+                if (txtMoTa_cake.getText().length() > 25) {
+                    txtMoTa_cake.setText(txtMoTa_cake.getText().substring(0,25) + "...");
+                }
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -1251,6 +1273,8 @@ public class menu extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(33, 38, 54));
 
+        jScrollPane2.setBorder(null);
+
         tableOrderList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1261,8 +1285,24 @@ public class menu extends javax.swing.JFrame {
             new String [] {
                 "Tên", "Size", "Số lượng", "Giá"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableOrderList.setRequestFocusEnabled(false);
+        tableOrderList.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(tableOrderList);
+        if (tableOrderList.getColumnModel().getColumnCount() > 0) {
+            tableOrderList.getColumnModel().getColumn(0).setResizable(false);
+            tableOrderList.getColumnModel().getColumn(1).setResizable(false);
+            tableOrderList.getColumnModel().getColumn(2).setResizable(false);
+            tableOrderList.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jPanel13.setBackground(new java.awt.Color(33, 38, 54));
         jPanel13.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(251, 52, 90)));
@@ -1447,7 +1487,6 @@ public class menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -1455,6 +1494,10 @@ public class menu extends javax.swing.JFrame {
                 .addGap(90, 90, 90)
                 .addComponent(btnThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1499,6 +1542,7 @@ public class menu extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tableMon.setRequestFocusEnabled(false);
         tableMon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableMonMouseClicked(evt);
@@ -1731,7 +1775,7 @@ public class menu extends javax.swing.JFrame {
         });
         tableNhanVien.setFocusable(false);
         tableNhanVien.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        tableNhanVien.setSelectionForeground(new java.awt.Color(51, 51, 0));
+        tableNhanVien.setRequestFocusEnabled(false);
         tableNhanVien.setShowGrid(false);
         tableNhanVien.getTableHeader().setReorderingAllowed(false);
         tableNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2021,6 +2065,7 @@ public class menu extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tableKhachHang.setRequestFocusEnabled(false);
         tableKhachHang.getTableHeader().setReorderingAllowed(false);
         tableKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2265,6 +2310,7 @@ public class menu extends javax.swing.JFrame {
                 "ID", "Tên nguyên liệu", "Khối lương", "Người nhập", "Ngày nhập", "Xuất xứ", "Trạng thái"
             }
         ));
+        tableKho.setRequestFocusEnabled(false);
         tableKho.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableKhoMouseClicked(evt);
