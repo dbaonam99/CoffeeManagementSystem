@@ -617,6 +617,7 @@ public class menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(830, 554));
+        setUndecorated(true);
         setSize(new java.awt.Dimension(830, 554));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
