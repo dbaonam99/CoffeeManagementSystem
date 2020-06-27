@@ -1846,7 +1846,7 @@ public class menu extends javax.swing.JFrame {
         btnChamCong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
+        jLabel73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/time-8-32.png"))); // NOI18N
         jLabel73.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel73MouseClicked(evt);
