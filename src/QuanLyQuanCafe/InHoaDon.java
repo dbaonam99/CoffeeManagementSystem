@@ -5,10 +5,12 @@
  */
 package QuanLyQuanCafe;
 
+import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.io.*;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -36,6 +38,10 @@ public class InHoaDon extends javax.swing.JFrame {
                 "\n     ******************************************************\n" +
                 "\t               Cảm ơn!\n\t             Hẹn gặp lại!";
         txtBill.setText(ba);
+        JPanel[] panel = {btnThanhToan};
+        for (int i = 0; i < panel.length; i++) {
+            panel[i].setBackground(new Color(0,0,0,0));
+        }
     }
 
     /**
@@ -52,7 +58,7 @@ public class InHoaDon extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtBill = new javax.swing.JTextArea();
-        btnThanhToan = new javax.swing.JPanel();
+        btnThanhToan = new Decoration(20);
         jLabel67 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));

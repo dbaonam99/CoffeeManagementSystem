@@ -9,7 +9,6 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import java.awt.event.KeyEvent;
 import java.sql.*;
-
 /**
  *
  * @author namduong
@@ -24,7 +23,7 @@ public class loginForm extends javax.swing.JFrame {
     public loginForm() {
         initComponents();
         overlay.setBackground(new Color(0,0,0,150));
-        btnLogin.setBackground(new Color(0,0,0,150));
+        btnLogin.setBackground(new Color(0,0,0,0));
         btnExit.setBackground(new Color(0,0,0,0));
         conn = ConnectDB.dbConnector();
     }
@@ -57,6 +56,7 @@ public class loginForm extends javax.swing.JFrame {
             }
         }
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,7 +74,7 @@ public class loginForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        btnLogin = new javax.swing.JPanel();
+        btnLogin = new Decoration(20);
         jLabel1 = new javax.swing.JLabel();
         btnExit = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();

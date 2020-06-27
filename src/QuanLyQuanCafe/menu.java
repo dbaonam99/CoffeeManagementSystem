@@ -49,6 +49,16 @@ public class menu extends javax.swing.JFrame {
         txtHours.setText(hours);
         String days = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
         txtDays.setText(days);
+        
+        //Xoá nền của tất cả các nút cần bo tròn viền
+        JPanel[] panel = {btnXoaOrderList, btnThanhToan, btnResetOrderList, 
+                            btnThemMon, btnXoaMon, btnSuaMon, btnChamCong, 
+                            btnThemNhanVien, btnXoaNhanVien, btnSuaNhanVien,
+                            btnThemKhachHang, btnXoaKhachHang, btnSuaKhachHang,
+                            btnThemKho, btnXoaKho, btnSuaKho};
+        for (int i = 0; i < panel.length; i++) {
+            panel[i].setBackground(new Color(0,0,0,0));
+        }
     }
     
     class JPanelGradient extends JPanel {
@@ -58,7 +68,7 @@ public class menu extends javax.swing.JFrame {
             int h = getHeight();
             Color color1 = new Color(251,52,90);
             Color color2 = new Color(250,97,60);
-            GradientPaint gp = new GradientPaint(200,0,color1,300,h,color2);
+            GradientPaint gp = new GradientPaint(150,0,color1,150,h,color2);
             g2d.setPaint(gp);
             g2d.fillRect(0,0,w,h);
         }
@@ -400,10 +410,10 @@ public class menu extends javax.swing.JFrame {
         txtHours = new javax.swing.JLabel();
         txtDays = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        btnXoaOrderList = new javax.swing.JPanel();
+        btnXoaOrderList = new Decoration(20);
         jLabel65 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
-        btnResetOrderList = new javax.swing.JPanel();
+        btnResetOrderList = new Decoration(20);
         jLabel66 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -413,20 +423,20 @@ public class menu extends javax.swing.JFrame {
         txtTotal = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
         txtThanhTien = new javax.swing.JLabel();
-        btnThanhToan = new javax.swing.JPanel();
+        btnThanhToan =  new Decoration(20);
         jLabel67 = new javax.swing.JLabel();
         cardQuanLyMon = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableMon = new javax.swing.JTable();
         jPanel21 = new javax.swing.JPanel();
-        btnThemMon = new javax.swing.JPanel();
+        btnThemMon = new Decoration(20);
         jLabel24 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        btnXoaMon = new javax.swing.JPanel();
+        btnXoaMon = new Decoration(20);
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        btnSuaMon = new javax.swing.JPanel();
+        btnSuaMon = new Decoration(20);
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jPanel40 = new javax.swing.JPanel();
@@ -456,16 +466,16 @@ public class menu extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tableNhanVien = new javax.swing.JTable();
         nhanvienButton = new javax.swing.JPanel();
-        btnThemNhanVien = new javax.swing.JPanel();
+        btnThemNhanVien = new Decoration(20);
         jLabel53 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        btnXoaNhanVien = new javax.swing.JPanel();
+        btnXoaNhanVien = new Decoration(20);
         jLabel54 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
-        btnSuaNhanVien = new javax.swing.JPanel();
+        btnSuaNhanVien = new Decoration(20);
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
-        btnChamCong = new javax.swing.JPanel();
+        btnChamCong = new Decoration(20);
         jLabel73 = new javax.swing.JLabel();
         jLabel81 = new javax.swing.JLabel();
         jPanel54 = new javax.swing.JPanel();
@@ -495,13 +505,13 @@ public class menu extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tableKhachHang = new javax.swing.JTable();
         nhanvienButton1 = new javax.swing.JPanel();
-        btnThemKhachHang = new javax.swing.JPanel();
+        btnThemKhachHang = new Decoration(20);
         jLabel70 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        btnXoaKhachHang = new javax.swing.JPanel();
+        btnXoaKhachHang = new Decoration(20);
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
-        btnSuaKhachHang = new javax.swing.JPanel();
+        btnSuaKhachHang = new Decoration(20);
         jLabel82 = new javax.swing.JLabel();
         jLabel83 = new javax.swing.JLabel();
         jPanel61 = new javax.swing.JPanel();
@@ -531,13 +541,13 @@ public class menu extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tableKho = new javax.swing.JTable();
         jPanel75 = new javax.swing.JPanel();
-        btnThemKho = new javax.swing.JPanel();
+        btnThemKho = new Decoration(20);
         jLabel105 = new javax.swing.JLabel();
         jLabel106 = new javax.swing.JLabel();
-        btnXoaKho = new javax.swing.JPanel();
+        btnXoaKho = new Decoration(20);
         jLabel76 = new javax.swing.JLabel();
         jLabel77 = new javax.swing.JLabel();
-        btnSuaKho = new javax.swing.JPanel();
+        btnSuaKho = new Decoration(20);
         jLabel78 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
         jPanel76 = new javax.swing.JPanel();
@@ -1300,17 +1310,11 @@ public class menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnXoaOrderListMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnXoaOrderListMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnXoaOrderListMouseEntered(evt);
-            }
         });
         btnXoaOrderList.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel65.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
+        jLabel65.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
         btnXoaOrderList.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 20, 30));
 
         jLabel43.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -1325,17 +1329,11 @@ public class menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnResetOrderListMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnResetOrderListMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnResetOrderListMouseEntered(evt);
-            }
         });
         btnResetOrderList.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel66.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel66.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
+        jLabel66.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/sinchronize-32.png"))); // NOI18N
         btnResetOrderList.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 20, 30));
 
         jLabel47.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -1432,12 +1430,6 @@ public class menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnThanhToanMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnThanhToanMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnThanhToanMouseEntered(evt);
-            }
         });
         btnThanhToan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1522,12 +1514,6 @@ public class menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnThemMonMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnThemMonMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnThemMonMouseEntered(evt);
-            }
         });
         btnThemMon.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -1545,12 +1531,6 @@ public class menu extends javax.swing.JFrame {
         btnXoaMon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnXoaMonMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnXoaMonMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnXoaMonMouseEntered(evt);
             }
         });
         btnXoaMon.setLayout(new java.awt.GridLayout(1, 0));
@@ -1570,17 +1550,11 @@ public class menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSuaMonMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSuaMonMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSuaMonMouseEntered(evt);
-            }
         });
         btnSuaMon.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/edit-8-32.png"))); // NOI18N
         btnSuaMon.add(jLabel29);
 
         jLabel30.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -1848,7 +1822,7 @@ public class menu extends javax.swing.JFrame {
         btnSuaNhanVien.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
+        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/edit-8-32.png"))); // NOI18N
         btnSuaNhanVien.add(jLabel56);
 
         jLabel57.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -2134,7 +2108,7 @@ public class menu extends javax.swing.JFrame {
         btnSuaKhachHang.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel82.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel82.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
+        jLabel82.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/edit-8-32.png"))); // NOI18N
         btnSuaKhachHang.add(jLabel82);
 
         jLabel83.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -2313,10 +2287,10 @@ public class menu extends javax.swing.JFrame {
                 btnThemKhoMouseEntered(evt);
             }
         });
-        btnThemKho.setLayout(new java.awt.GridLayout());
+        btnThemKho.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel105.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel105.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
+        jLabel105.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
         btnThemKho.add(jLabel105);
 
         jLabel106.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -2364,7 +2338,7 @@ public class menu extends javax.swing.JFrame {
         btnSuaKho.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel78.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/minus-5-32.png"))); // NOI18N
+        jLabel78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/edit-8-32.png"))); // NOI18N
         btnSuaKho.add(jLabel78);
 
         jLabel79.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -2389,9 +2363,9 @@ public class menu extends javax.swing.JFrame {
             jPanel75Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel75Layout.createSequentialGroup()
                 .addGroup(jPanel75Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnSuaKho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnXoaKho, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                    .addComponent(btnThemKho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSuaKho, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                    .addComponent(btnXoaKho, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                    .addComponent(btnThemKho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2479,14 +2453,14 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(jPanel76, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jPanel75, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(jPanel75, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         cardKho.add(jPanel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 500));
 
-        jPanel29.setBackground(new java.awt.Color(251, 52, 90));
+        jPanel29.setBackground(new java.awt.Color(255, 102, 102));
         jPanel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel48.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
@@ -2609,15 +2583,6 @@ public class menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnThemMonMouseClicked
 
-    private void btnThemMonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMonMouseExited
-        btnThemMon.setBackground(Color.decode("#FB345A"));
-    }//GEN-LAST:event_btnThemMonMouseExited
-
-    private void btnThemMonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMonMouseEntered
-        // TODO add your handling code here:
-        btnThemMon.setBackground(Color.decode("#DD163C"));
-    }//GEN-LAST:event_btnThemMonMouseEntered
-
     private void btnXoaMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaMonMouseClicked
         int indexTB = tableMon.getSelectedRow();
         String selected = tableMon.getValueAt(indexTB, 0).toString();
@@ -2642,14 +2607,6 @@ public class menu extends javax.swing.JFrame {
         txtMoTa.setText(null); 
         selectLoai.setSelectedItem(null);
     }//GEN-LAST:event_btnXoaMonMouseClicked
-
-    private void btnXoaMonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaMonMouseExited
-        btnXoaMon.setBackground(Color.decode("#FB345A"));
-    }//GEN-LAST:event_btnXoaMonMouseExited
-
-    private void btnXoaMonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaMonMouseEntered
-        btnXoaMon.setBackground(Color.decode("#DD163C"));
-    }//GEN-LAST:event_btnXoaMonMouseEntered
 
     private void btnSuaMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMonMouseClicked
         int indexTB = tableMon.getSelectedRow();
@@ -2676,14 +2633,6 @@ public class menu extends javax.swing.JFrame {
             selectLoai.setSelectedItem(null);
             txtURL.setText(null);
     }//GEN-LAST:event_btnSuaMonMouseClicked
-
-    private void btnSuaMonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMonMouseExited
-        btnSuaMon.setBackground(Color.decode("#FB345A"));
-    }//GEN-LAST:event_btnSuaMonMouseExited
-
-    private void btnSuaMonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMonMouseEntered
-        btnSuaMon.setBackground(Color.decode("#DD163C"));
-    }//GEN-LAST:event_btnSuaMonMouseEntered
 
     private void btnThemNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemNhanVienMouseClicked
         if (txtTenNV.getText().equals("") || 
@@ -3164,26 +3113,10 @@ public class menu extends javax.swing.JFrame {
         tinhTongBill();
     }//GEN-LAST:event_btnXoaOrderListMouseClicked
 
-    private void btnXoaOrderListMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaOrderListMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaOrderListMouseExited
-
-    private void btnXoaOrderListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaOrderListMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaOrderListMouseEntered
-
     private void btnResetOrderListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetOrderListMouseClicked
         ((DefaultTableModel)tableOrderList.getModel()).setNumRows(0);
         tinhTongBill();
     }//GEN-LAST:event_btnResetOrderListMouseClicked
-
-    private void btnResetOrderListMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetOrderListMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnResetOrderListMouseExited
-
-    private void btnResetOrderListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetOrderListMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnResetOrderListMouseEntered
     
     public void strHoaDon() {
         String tenMon = "";
@@ -3202,14 +3135,6 @@ public class menu extends javax.swing.JFrame {
         ((DefaultTableModel)tableOrderList.getModel()).setNumRows(0);
         tinhTongBill();
     }//GEN-LAST:event_btnThanhToanMouseClicked
-
-    private void btnThanhToanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThanhToanMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThanhToanMouseExited
-
-    private void btnThanhToanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThanhToanMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThanhToanMouseEntered
 
     private void btnOrderDrinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOrderDrinkMouseClicked
         if (selectSize_dr.getSelectedIndex() == -1 ||

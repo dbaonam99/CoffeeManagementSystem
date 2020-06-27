@@ -5,6 +5,7 @@
  */
 package QuanLyQuanCafe;
 
+import java.awt.Color;
 import java.sql.*;
 import javax.swing.*;
 
@@ -30,6 +31,12 @@ public class ChamCong extends javax.swing.JFrame {
         txtNgayVaoLam.setEnabled(false);
         conn = ConnectDB.dbConnector();
         fillCombobox();
+        
+        //Xoá nền của tất cả các nút cần bo tròn viền
+        JPanel[] panel = {btnChamCong, btnThoat, btnTraLuong, btnTinhLuong};
+        for (int i = 0; i < panel.length; i++) {
+            panel[i].setBackground(new Color(0,0,0,0));
+        }
     }
     
     private void fillCombobox(){
@@ -90,17 +97,13 @@ public class ChamCong extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txtSoNgayLam = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
-        btnChamCong = new javax.swing.JPanel();
+        btnChamCong = new Decoration(20);
         jLabel67 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
-        btnTinhLuong = new javax.swing.JPanel();
-        jLabel70 = new javax.swing.JLabel();
+        btnTinhLuong = new Decoration(20);
         jLabel71 = new javax.swing.JLabel();
-        btnThoat = new javax.swing.JPanel();
-        jLabel66 = new javax.swing.JLabel();
+        btnThoat = new Decoration(20);
         jLabel68 = new javax.swing.JLabel();
-        btnTraLuong = new javax.swing.JPanel();
-        jLabel72 = new javax.swing.JLabel();
+        btnTraLuong = new Decoration(20);
         jLabel73 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
 
@@ -282,12 +285,9 @@ public class ChamCong extends javax.swing.JFrame {
 
         jLabel67.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel67.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel67.setText("Cập nhật");
-        btnChamCong.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 90, 50));
-
-        jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel69.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
-        btnChamCong.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 50));
+        btnChamCong.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 50));
 
         btnTinhLuong.setBackground(new java.awt.Color(251, 52, 90));
         btnTinhLuong.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -304,14 +304,11 @@ public class ChamCong extends javax.swing.JFrame {
         });
         btnTinhLuong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel70.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
-        btnTinhLuong.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 50));
-
         jLabel71.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel71.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel71.setText("Tính lương");
-        btnTinhLuong.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 90, 50));
+        btnTinhLuong.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 50));
 
         btnThoat.setBackground(new java.awt.Color(251, 52, 90));
         btnThoat.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -328,14 +325,11 @@ public class ChamCong extends javax.swing.JFrame {
         });
         btnThoat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel66.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel66.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
-        btnThoat.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 50));
-
         jLabel68.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel68.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel68.setText("Thoát");
-        btnThoat.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 70, 50));
+        btnThoat.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 50));
 
         btnTraLuong.setBackground(new java.awt.Color(251, 52, 90));
         btnTraLuong.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -352,14 +346,11 @@ public class ChamCong extends javax.swing.JFrame {
         });
         btnTraLuong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel72.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/plus-5-32.png"))); // NOI18N
-        btnTraLuong.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 50));
-
         jLabel73.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel73.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel73.setText("Trả lương");
-        btnTraLuong.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 90, 50));
+        btnTraLuong.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 50));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -598,14 +589,10 @@ public class ChamCong extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
