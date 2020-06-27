@@ -32,16 +32,11 @@ public class menu extends javax.swing.JFrame {
         cardLayout = (CardLayout)(card.getLayout());
         cardLayout2 = (CardLayout)(cardCategory.getLayout());
         conn = ConnectDB.dbConnector();
-        this.taoTableNhanVien();
-        tableNhanVien.setDefaultEditor(Object.class, null);
-        this.taoTableKhachHang();
-        tableKhachHang.setDefaultEditor(Object.class, null);
-        this.taoTableMon();
-        tableMon.setDefaultEditor(Object.class, null);
-        this.taoTableKho();
-        tableKho.setDefaultEditor(Object.class, null);
-        this.taoTableOrderList();
-        tableOrderList.setDefaultEditor(Object.class, null);
+        taoTableNhanVien();
+        taoTableKhachHang();
+        taoTableMon();
+        taoTableKho();
+        taoTableOrderList();
         fillComboboxDrink();
         fillComboboxCake();
         resetDatMon();
@@ -207,6 +202,7 @@ public class menu extends javax.swing.JFrame {
         tblModelNhanVien.setColumnIdentifiers(tieuDe);
         loadDataNhanVien();
         setVisible(true);
+        tableNhanVien.setDefaultEditor(Object.class, null);
     }
     public void taoTableKhachHang() {
         tblModelKhachHang = new DefaultTableModel();
@@ -214,6 +210,7 @@ public class menu extends javax.swing.JFrame {
         tblModelKhachHang.setColumnIdentifiers(tieuDe);
         loadDataKhachHang();
         setVisible(true);
+        tableKhachHang.setDefaultEditor(Object.class, null);
     }
     public void taoTableMon() {
         tblModelMon = new DefaultTableModel();
@@ -221,6 +218,7 @@ public class menu extends javax.swing.JFrame {
         tblModelMon.setColumnIdentifiers(tieuDe);
         loadDataMon();
         setVisible(true);
+        tableMon.setDefaultEditor(Object.class, null);
     }
     public void taoTableKho() {
         tblModelKho = new DefaultTableModel();
@@ -228,6 +226,7 @@ public class menu extends javax.swing.JFrame {
         tblModelKho.setColumnIdentifiers(tieuDe);
         loadDataKho();
         setVisible(true);
+        tableKho.setDefaultEditor(Object.class, null);
     }
     public void taoTableOrderList() {
         tblModelOrderList = new DefaultTableModel();
@@ -235,6 +234,7 @@ public class menu extends javax.swing.JFrame {
         tblModelOrderList.setColumnIdentifiers(tieuDe);
         tableOrderList.setModel(tblModelOrderList);
         setVisible(true);
+        tableOrderList.setDefaultEditor(Object.class, null);
     }
     
     public void loadDataNhanVien() {
