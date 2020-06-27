@@ -5,7 +5,11 @@
  */
 package QuanLyQuanCafe;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
@@ -13,6 +17,7 @@ import javax.swing.filechooser.*;
 import java.io.*;
 import java.text.*;
 import java.util.*;
+import java.util.Timer;
 
 public class menu extends javax.swing.JFrame {
     CardLayout cardLayout = new CardLayout();
@@ -29,6 +34,12 @@ public class menu extends javax.swing.JFrame {
      */
     public menu() {
         initComponents();
+        String role = loginForm.role;
+        if (role == "user") {
+            btnNhanVien.setVisible(false);
+            btnKho.setVisible(false);
+            txtAdmin.setText("User");
+        }
         cardLayout = (CardLayout)(card.getLayout());
         cardLayout2 = (CardLayout)(cardCategory.getLayout());
         conn = ConnectDB.dbConnector();
@@ -40,10 +51,19 @@ public class menu extends javax.swing.JFrame {
         fillComboboxDrink();
         fillComboboxCake();
         resetDatMon();
-        String hours = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
-        txtHours.setText(hours);
-        String days = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-        txtDays.setText(days);
+        
+        //Đếm thời gian
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                String hours = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+                txtHours.setText(hours);
+                String days = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+                txtDays.setText(days);
+            }
+        };
+        Timer timer = new Timer();
+        timer.schedule(task, new Date(), 1000);
         
         //Xoá nền của tất cả các nút cần bo tròn viền
         JPanel[] panel = {btnXoaOrderList, btnThanhToan, btnResetOrderList, 
@@ -602,7 +622,6 @@ public class menu extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         navbar.setBackground(new java.awt.Color(33, 38, 54));
-        navbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnDatMon.setBackground(new java.awt.Color(33, 38, 54));
         btnDatMon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -631,8 +650,6 @@ public class menu extends javax.swing.JFrame {
         redDatMon.setOpaque(true);
         btnDatMon.add(redDatMon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 50));
 
-        navbar.add(btnDatMon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 165, 150, -1));
-
         btnQuanLyMon.setBackground(new java.awt.Color(33, 38, 54));
         btnQuanLyMon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnQuanLyMon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -660,8 +677,6 @@ public class menu extends javax.swing.JFrame {
         redQuanLiMon.setBackground(new java.awt.Color(251, 52, 90));
         btnQuanLyMon.add(redQuanLiMon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 50));
 
-        navbar.add(btnQuanLyMon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 221, 150, -1));
-
         btnNhanVien.setBackground(new java.awt.Color(33, 38, 54));
         btnNhanVien.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -687,8 +702,6 @@ public class menu extends javax.swing.JFrame {
 
         redNhanVien.setBackground(new java.awt.Color(251, 52, 90));
         btnNhanVien.add(redNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 50));
-
-        navbar.add(btnNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 277, 150, -1));
 
         btnKhachHang.setBackground(new java.awt.Color(33, 38, 54));
         btnKhachHang.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -716,8 +729,6 @@ public class menu extends javax.swing.JFrame {
         redKhachHang.setBackground(new java.awt.Color(251, 52, 90));
         btnKhachHang.add(redKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 50));
 
-        navbar.add(btnKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 333, 150, -1));
-
         btnKho.setBackground(new java.awt.Color(33, 38, 54));
         btnKho.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnKho.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -744,28 +755,23 @@ public class menu extends javax.swing.JFrame {
         redKho.setBackground(new java.awt.Color(251, 52, 90));
         btnKho.add(redKho, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 50));
 
-        navbar.add(btnKho, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 389, 150, -1));
-
         avt.setBackground(new java.awt.Color(33, 38, 54));
         avt.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setBackground(new java.awt.Color(33, 38, 54));
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QuanLyQuanCafe/img/login-icon.png"))); // NOI18N
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel14MouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel14MouseEntered(evt);
-            }
-        });
         avt.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         txtAdmin.setBackground(new java.awt.Color(33, 38, 54));
         txtAdmin.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         txtAdmin.setForeground(new java.awt.Color(221, 221, 221));
+        txtAdmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtAdmin.setText("Admin");
+        txtAdmin.setOpaque(true);
         txtAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAdminMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 txtAdminMouseExited(evt);
             }
@@ -773,9 +779,38 @@ public class menu extends javax.swing.JFrame {
                 txtAdminMouseEntered(evt);
             }
         });
-        avt.add(txtAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        avt.add(txtAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 110, 90, -1));
 
-        navbar.add(avt, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, -1, 132));
+        javax.swing.GroupLayout navbarLayout = new javax.swing.GroupLayout(navbar);
+        navbar.setLayout(navbarLayout);
+        navbarLayout.setHorizontalGroup(
+            navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navbarLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(avt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(btnDatMon, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnQuanLyMon, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnKho, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        navbarLayout.setVerticalGroup(
+            navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navbarLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(avt, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(btnDatMon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(btnQuanLyMon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnKho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117))
+        );
 
         jPanel1.add(navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 550));
 
@@ -3031,14 +3066,6 @@ public class menu extends javax.swing.JFrame {
         txtAdmin.setForeground(Color.decode("#dddddd"));
     }//GEN-LAST:event_txtAdminMouseExited
 
-    private void jLabel14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseEntered
-        txtAdmin.setForeground(Color.decode("#ffffff"));
-    }//GEN-LAST:event_jLabel14MouseEntered
-
-    private void jLabel14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseExited
-        txtAdmin.setForeground(Color.decode("#dddddd"));
-    }//GEN-LAST:event_jLabel14MouseExited
-
     private void tableMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMonMouseClicked
         int index = tableMon.getSelectedRow();
         txtTenMon.setText(tableMon.getValueAt(index , 1).toString());
@@ -3261,6 +3288,14 @@ public class menu extends javax.swing.JFrame {
         ((JTextField) txtNgayNhap.getDateEditor().getUiComponent()).setText(tableKho.getValueAt(index , 4).toString());
         txtXuatXu.setText(tableKho.getValueAt(index , 5).toString());
     }//GEN-LAST:event_tableKhoMouseClicked
+
+    private void txtAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAdminMouseClicked
+        if (txtAdmin.getText() == "Admin") {
+            new QuanLyTaiKhoan().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Bạn không có quyền chỉnh sửa tài khoản!");
+        }
+    }//GEN-LAST:event_txtAdminMouseClicked
     
     public void redBar(JLabel red){
         redDatMon.setOpaque(false);

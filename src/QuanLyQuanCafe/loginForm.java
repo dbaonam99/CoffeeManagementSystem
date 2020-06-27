@@ -17,6 +17,7 @@ public class loginForm extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pstmt =  null;
+    public static String role = "";
     /**
      * Creates new form loginForm
      */
@@ -32,7 +33,7 @@ public class loginForm extends javax.swing.JFrame {
         if (txtUser.getText().equals("") || txtPass.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
         } else {
-            String sql="Select * from TAIKHOAN where username =? and pass=?";
+            String sql="Select * from TAIKHOAN where username =? and pass=? and perm = 'admin'";
             try {
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setString (1,txtUser.getText());
@@ -44,12 +45,31 @@ public class loginForm extends javax.swing.JFrame {
                 }
                 if(count==1) {
                     JOptionPane.showMessageDialog(this, "Đăng nhập thành công với quyền Admin!");
+                    role = "admin";
                     new menu().setVisible(true);
                     this.dispose();
-                } else if(count>1) {
-                    JOptionPane.showMessageDialog(this, "Username and password are dupllicated");
                 } else {
-                    JOptionPane.showMessageDialog(this, "Sai thông tin đăng nhập");
+                    String sql2="Select * from TAIKHOAN where username =? and pass=? and perm = 'user'";
+                    try {
+                        pstmt = conn.prepareStatement(sql2);
+                        pstmt.setString (1,txtUser.getText());
+                        pstmt.setString (2,txtPass.getText());
+                        rs= pstmt.executeQuery();
+                        int count2 = 0;
+                        while(rs.next()) {
+                            count2++;
+                        }
+                        if(count2==1) {
+                            JOptionPane.showMessageDialog(this, "Đăng nhập thành công với quyền User!");
+                            role = "user";
+                            new menu().setVisible(true);
+                            this.dispose();
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Sai thông tin đăng nhập");
+                        }
+                    } catch (SQLException e) {
+                        System.out.println(e.getMessage());
+                    }
                 }
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
