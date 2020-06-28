@@ -24,21 +24,25 @@ public class menu extends javax.swing.JFrame {
     CardLayout cardLayout2 = new CardLayout();
     Connection conn = null;
     PreparedStatement pstmt =  null;
+    
     public static String hoaDon = "";
     public static String thanhTien = "";
     public static String thueHoaDon = "";
     public static String tongCong = "";
     
     /** 
-     * Creates new form gio tao sua file roi luu lai
+     * Creates new form
      */
+    String role = loginForm.role;
     public menu() {
         initComponents();
-        String role = loginForm.role;
-        if (role == "user") {
+        if ("user".equals(role)) {
             btnNhanVien.setVisible(false);
             btnKho.setVisible(false);
             txtAdmin.setText("User");
+//            txtAdmin.setText(loginForm.txtUser.getText() + " (user)");
+        } else {
+//            txtAdmin.setText(loginForm.txtUser.getText() + " (admin)");
         }
         cardLayout = (CardLayout)(card.getLayout());
         cardLayout2 = (CardLayout)(cardCategory.getLayout());
@@ -54,7 +58,6 @@ public class menu extends javax.swing.JFrame {
         
         //Đếm thời gian
         TimerTask task = new TimerTask() {
-            @Override
             public void run() {
                 String hours = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
                 txtHours.setText(hours);
@@ -93,6 +96,7 @@ public class menu extends javax.swing.JFrame {
     }
     
     class JPanelGradient extends JPanel {
+        @Override
         protected void paintComponent(Graphics g) {
             Graphics2D g2d = (Graphics2D) g;
             int w = getWidth();
@@ -780,7 +784,7 @@ public class menu extends javax.swing.JFrame {
                 txtAdminMouseEntered(evt);
             }
         });
-        avt.add(txtAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 110, 90, -1));
+        avt.add(txtAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-13, 110, 135, -1));
 
         javax.swing.GroupLayout navbarLayout = new javax.swing.GroupLayout(navbar);
         navbar.setLayout(navbarLayout);
@@ -2675,7 +2679,7 @@ public class menu extends javax.swing.JFrame {
             }
             String sql = "DELETE FROM SANPHAM where ID_SP = ?";
             try {
-                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt = conn.prepareStatement(sql);
                 // set the corresponding param
                 pstmt.setString(1, selected);
                 // execute the delete statement
@@ -2767,7 +2771,7 @@ public class menu extends javax.swing.JFrame {
             }
             String sql = "DELETE FROM KHO where ID_NL = ?";
             try {
-                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt = conn.prepareStatement(sql);
                 // set the corresponding param
                 pstmt.setString(1, selected);
                 // execute the delete statement
@@ -3159,14 +3163,13 @@ public class menu extends javax.swing.JFrame {
             row[2] = selectSoLuong_cake.getSelectedItem().toString();
             int soluong = Integer.parseInt(selectSoLuong_cake.getSelectedItem().toString());
             int gia = Integer.parseInt(txtGia_cake.getText());
-            if (selectSize_cake.getSelectedItem().toString() == "L (+20k)") {
+            if ("L (+20k)".equals(selectSize_cake.getSelectedItem().toString())) {
                 gia = gia + 20000;
-            } else if (selectSize_cake.getSelectedItem().toString() == "M (+10k)") {
-                gia = gia + 10000;
-            } else {
-                gia = gia;
             }
-            row[3] = String.valueOf(soluong * gia).toString();
+            if ("M (+10k)".equals(selectSize_cake.getSelectedItem().toString())) {
+                gia = gia + 10000;
+            }
+            row[3] = String.valueOf(soluong * gia);
             tblModelOrderList.addRow(row);
             txtTenMon_cake.setText(null);
             txtGia_cake.setText(null);
@@ -3221,14 +3224,13 @@ public class menu extends javax.swing.JFrame {
             row[2] = selectSoLuong_dr.getSelectedItem().toString();
             int soluong = Integer.parseInt(selectSoLuong_dr.getSelectedItem().toString());
             int gia = Integer.parseInt(txtGia_dr.getText());
-            if (selectSize_dr.getSelectedItem().toString() == "L (+20k)") {
+            if ("L (+20k)".equals(selectSize_dr.getSelectedItem().toString())) {
                 gia = gia + 20000;
-            } else if (selectSize_dr.getSelectedItem().toString() == "M (+10k)") {
+            } 
+            if ("M (+10k)".equals(selectSize_dr.getSelectedItem().toString())) {
                 gia = gia + 10000;
-            } else {
-                gia = gia;
             }
-            row[3] = String.valueOf(soluong * gia).toString();
+            row[3] = String.valueOf(soluong * gia);
             tblModelOrderList.addRow(row);
             txtTenMon_dr.setText(null);
             txtGia_dr.setText(null);
@@ -3291,7 +3293,7 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_tableKhoMouseClicked
 
     private void txtAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAdminMouseClicked
-        if (txtAdmin.getText() == "Admin") {
+        if ("admin".equals(role)) {
             new QuanLyTaiKhoan().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Bạn không có quyền chỉnh sửa tài khoản!");
@@ -3351,10 +3353,8 @@ public class menu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new menu().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new menu().setVisible(true);
         });
     }
 

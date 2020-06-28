@@ -316,7 +316,7 @@ public class loginForm extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel loginBox;
     private javax.swing.JPanel overlay;
-    private javax.swing.JPasswordField txtPass;
-    private javax.swing.JTextField txtUser;
+    public static javax.swing.JPasswordField txtPass;
+    public static javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
