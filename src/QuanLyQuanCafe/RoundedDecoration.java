@@ -11,28 +11,28 @@ import javax.swing.*;
  *
  * @author namduong
  */
-public class Decoration extends JPanel
+public class RoundedDecoration extends JPanel
 {
     private GradientPaint backgroundColor;
     private int cornerRadius = 15;
     
-    public Decoration(LayoutManager layout, int radius) {
+    public RoundedDecoration(LayoutManager layout, int radius) {
         super(layout);
         cornerRadius = radius;
     }
     
-    public Decoration(LayoutManager layout, int radius, GradientPaint bgColor) {
+    public RoundedDecoration(LayoutManager layout, int radius, GradientPaint bgColor) {
         super(layout);
         cornerRadius = radius;
         backgroundColor = bgColor;
     }
 
-    public Decoration(int radius) {
+    public RoundedDecoration(int radius) {
         super();
         cornerRadius = radius;
     }
 
-    public Decoration(int radius, GradientPaint bgColor) {
+    public RoundedDecoration(int radius, GradientPaint bgColor) {
         super();
         cornerRadius = radius;
         backgroundColor = bgColor;

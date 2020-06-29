@@ -22,13 +22,6 @@ public class ChamCong extends javax.swing.JFrame {
      */
     public ChamCong() {
         initComponents();
-        txtTen.setEnabled(false);
-        txtTuoi.setEnabled(false);
-        txtSDT.setEnabled(false);
-        txtDiaChi.setEnabled(false);
-        txtEmail.setEnabled(false);
-        txtSoNgayCong.setEnabled(false);
-        txtNgayVaoLam.setEnabled(false);
         conn = ConnectDB.dbConnector();
         fillCombobox();
         
@@ -75,19 +68,19 @@ public class ChamCong extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        txtTen = new javax.swing.JTextField();
+        txtTen = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtDiaChi = new javax.swing.JTextField();
+        txtDiaChi = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtTuoi = new javax.swing.JTextField();
+        txtTuoi = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtSDT = new javax.swing.JTextField();
+        txtSDT = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtNgayVaoLam = new javax.swing.JTextField();
+        txtNgayVaoLam = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtSoNgayCong = new javax.swing.JTextField();
+        txtSoNgayCong = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -97,13 +90,13 @@ public class ChamCong extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txtSoNgayLam = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
-        btnChamCong = new Decoration(20);
+        btnChamCong = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel67 = new javax.swing.JLabel();
-        btnTinhLuong = new Decoration(20);
+        btnTinhLuong = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel71 = new javax.swing.JLabel();
-        btnThoat = new Decoration(20);
+        btnThoat = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel68 = new javax.swing.JLabel();
-        btnTraLuong = new Decoration(20);
+        btnTraLuong = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel73 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
 
@@ -220,12 +213,6 @@ public class ChamCong extends javax.swing.JFrame {
 
         jLabel8.setText("Ngày vào làm");
         jPanel4.add(jLabel8);
-
-        txtNgayVaoLam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNgayVaoLamActionPerformed(evt);
-            }
-        });
         jPanel4.add(txtNgayVaoLam);
 
         jLabel10.setText("    Email");
@@ -274,12 +261,6 @@ public class ChamCong extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnChamCongMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnChamCongMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnChamCongMouseEntered(evt);
-            }
         });
         btnChamCong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -294,12 +275,6 @@ public class ChamCong extends javax.swing.JFrame {
         btnTinhLuong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnTinhLuongMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnTinhLuongMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnTinhLuongMouseEntered(evt);
             }
         });
         btnTinhLuong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -316,12 +291,6 @@ public class ChamCong extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnThoatMoubtnThoateClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnThoatMoubtnThoateExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnThoatMoubtnThoateEntered(evt);
-            }
         });
         btnThoat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -336,12 +305,6 @@ public class ChamCong extends javax.swing.JFrame {
         btnTraLuong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnTraLuongMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnTraLuongMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnTraLuongMouseEntered(evt);
             }
         });
         btnTraLuong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -435,42 +398,14 @@ public class ChamCong extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnThoatMoubtnThoateClicked
 
-    private void btnThoatMoubtnThoateExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThoatMoubtnThoateExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThoatMoubtnThoateExited
-
-    private void btnThoatMoubtnThoateEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThoatMoubtnThoateEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThoatMoubtnThoateEntered
-
     private void btnTinhLuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTinhLuongMouseClicked
         int tongluong = Integer.parseInt(txtSoNgayCong.getText()) * 240;
         JOptionPane.showMessageDialog(null, "Lương của nhân viên này là: " + tongluong + "k");
     }//GEN-LAST:event_btnTinhLuongMouseClicked
 
-    private void btnTinhLuongMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTinhLuongMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTinhLuongMouseExited
-
-    private void btnTinhLuongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTinhLuongMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTinhLuongMouseEntered
-
     private void selectNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectNhanVienActionPerformed
         fillInfoToTextbox();
     }//GEN-LAST:event_selectNhanVienActionPerformed
-
-    private void txtNgayVaoLamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgayVaoLamActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNgayVaoLamActionPerformed
-
-    private void btnTraLuongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTraLuongMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTraLuongMouseEntered
-
-    private void btnTraLuongMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTraLuongMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTraLuongMouseExited
 
     private void btnTraLuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTraLuongMouseClicked
         String sql = "update NHANVIEN set tongsongaylam_NV = 0 where id_NV =?";
@@ -486,14 +421,6 @@ public class ChamCong extends javax.swing.JFrame {
         }
         txtSoNgayLam.setText(null);
     }//GEN-LAST:event_btnTraLuongMouseClicked
-
-    private void btnChamCongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnChamCongMouseEntered
-
-    private void btnChamCongMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnChamCongMouseExited
 
     private void btnChamCongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseClicked
         if (txtSoNgayLam.getText().equals("")) {
@@ -608,13 +535,13 @@ public class ChamCong extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JComboBox<String> selectNhanVien;
-    private javax.swing.JTextField txtDiaChi;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtNgayVaoLam;
-    private javax.swing.JTextField txtSDT;
-    private javax.swing.JTextField txtSoNgayCong;
+    private javax.swing.JLabel txtDiaChi;
+    private javax.swing.JLabel txtEmail;
+    private javax.swing.JLabel txtNgayVaoLam;
+    private javax.swing.JLabel txtSDT;
+    private javax.swing.JLabel txtSoNgayCong;
     private javax.swing.JTextField txtSoNgayLam;
-    private javax.swing.JTextField txtTen;
-    private javax.swing.JTextField txtTuoi;
+    private javax.swing.JLabel txtTen;
+    private javax.swing.JLabel txtTuoi;
     // End of variables declaration//GEN-END:variables
 }

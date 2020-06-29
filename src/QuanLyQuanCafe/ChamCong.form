@@ -233,52 +233,49 @@
                     <Property name="text" type="java.lang.String" value="T&#xea;n"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtTen">
+                <Component class="javax.swing.JLabel" name="txtTen">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="    &#x110;&#x1ecb;a ch&#x1ec9;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtDiaChi">
+                <Component class="javax.swing.JLabel" name="txtDiaChi">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel6">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Tu&#x1ed5;i"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtTuoi">
+                <Component class="javax.swing.JLabel" name="txtTuoi">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="    S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtSDT">
+                <Component class="javax.swing.JLabel" name="txtSDT">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ng&#xe0;y v&#xe0;o l&#xe0;m"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtNgayVaoLam">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNgayVaoLamActionPerformed"/>
-                  </Events>
+                <Component class="javax.swing.JLabel" name="txtNgayVaoLam">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel10">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="    Email"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtEmail">
+                <Component class="javax.swing.JLabel" name="txtEmail">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel9">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y c&#xf4;ng"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtSoNgayCong">
+                <Component class="javax.swing.JLabel" name="txtSoNgayCong">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel12">
                 </Component>
@@ -358,11 +355,9 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnChamCongMouseClicked"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnChamCongMouseExited"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnChamCongMouseEntered"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -399,11 +394,9 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnTinhLuongMouseClicked"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnTinhLuongMouseExited"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnTinhLuongMouseEntered"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -440,11 +433,9 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThoatMoubtnThoateClicked"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThoatMoubtnThoateExited"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThoatMoubtnThoateEntered"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -481,11 +472,9 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnTraLuongMouseClicked"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnTraLuongMouseExited"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnTraLuongMouseEntered"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">

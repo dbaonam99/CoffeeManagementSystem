@@ -58,7 +58,7 @@ public class InHoaDon extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtBill = new javax.swing.JTextArea();
-        btnThanhToan = new Decoration(20);
+        btnThanhToan = new RoundedDecoration(20);
         jLabel67 = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -170,7 +170,7 @@ public class InHoaDon extends javax.swing.JFrame {
         try {
             String mycontent = txtBill.getText();
              //Specify the file name and path here
-            String filePath = "/Users/namduong/NetBeansProjects/QuanLiKhachHangg/src/bills/bills.txt";
+            String filePath = "../QuanLiKhachHangg/src/bills/bills.txt";
             File file = new File(filePath);
             if (!file.exists()) {
                 file.createNewFile();

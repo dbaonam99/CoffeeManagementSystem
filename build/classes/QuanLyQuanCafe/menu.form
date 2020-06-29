@@ -885,10 +885,15 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="selectSoLuong_dr" alignment="0" max="32767" attributes="0"/>
                                                       <Component id="selectSize_dr" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="txtMoTa_dr" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="txtGia_dr" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="txtTenMon_dr" alignment="1" max="32767" attributes="0"/>
                                                       <Component id="selectMon" alignment="0" max="32767" attributes="0"/>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                              <Component id="txtMoTa_dr" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="txtGia_dr" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="txtTenMon_dr" alignment="1" pref="192" max="32767" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
@@ -1175,10 +1180,15 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="selectSoLuong_cake" alignment="0" max="32767" attributes="0"/>
                                                       <Component id="selectSize_cake" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="txtMoTa_cake" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="txtGia_cake" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="txtTenMon_cake" alignment="1" max="32767" attributes="0"/>
                                                       <Component id="selectCake" alignment="0" max="32767" attributes="0"/>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                              <Component id="txtMoTa_cake" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="txtGia_cake" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="txtTenMon_cake" alignment="1" pref="192" max="32767" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
@@ -1605,7 +1615,7 @@
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoaOrderListMouseClicked"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -1657,7 +1667,7 @@
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnResetOrderListMouseClicked"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -1828,7 +1838,7 @@
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThanhToanMouseClicked"/>
                       </Events>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value=" new Decoration(20)"/>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value=" new QuanLyQuanCafe.RoundedDecoration(20)"/>
                       </AuxValues>
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -2027,7 +2037,7 @@
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemMonMouseClicked"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -2069,7 +2079,7 @@
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoaMonMouseClicked"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -2111,7 +2121,7 @@
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSuaMonMouseClicked"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -2565,7 +2575,7 @@
                             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemNhanVienMouseEntered"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -2609,7 +2619,7 @@
                             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoaNhanVienMouseEntered"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -2656,7 +2666,7 @@
                             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSuaNhanVienMouseEntered"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -2700,7 +2710,7 @@
                             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnChamCongMouseEntered"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -3135,7 +3145,7 @@
                             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemKhachHangMouseEntered"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -3179,7 +3189,7 @@
                             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoaKhachHangMouseEntered"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -3226,7 +3236,7 @@
                             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSuaKhachHangMouseEntered"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -3657,7 +3667,7 @@
                             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemKhoMouseEntered"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -3701,7 +3711,7 @@
                             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXoaKhoMouseEntered"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -3745,7 +3755,7 @@
                             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSuaKhoMouseEntered"/>
                           </Events>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Decoration(20)"/>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new QuanLyQuanCafe.RoundedDecoration(20)"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">

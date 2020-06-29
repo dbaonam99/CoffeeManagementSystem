@@ -64,8 +64,8 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         String sql = "select * from TAIKHOAN";
         String row[] = new String[4];
         try {
-             Statement stmt  = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql);
+            Statement stmt  = conn.createStatement();
+            rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 row[0] = rs.getString(1);
                 row[1] = rs.getString(2);
@@ -103,13 +103,13 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        btnThemTK = new Decoration(20);
+        btnThemTK = new RoundedDecoration(20);
         jLabel67 = new javax.swing.JLabel();
-        btnXoaTK = new Decoration(20);
+        btnXoaTK = new RoundedDecoration(20);
         jLabel71 = new javax.swing.JLabel();
-        btnThoat = new Decoration(20);
+        btnThoat = new RoundedDecoration(20);
         jLabel68 = new javax.swing.JLabel();
-        btnSuaTK = new Decoration(20);
+        btnSuaTK = new RoundedDecoration(20);
         jLabel73 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
 
@@ -425,7 +425,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
             }
             String sql = "DELETE FROM TAIKHOAN where ID_TK = ?";
             try {
-                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt = conn.prepareStatement(sql);
                 // set the corresponding param
                 pstmt.setString(1, selected);
                 // execute the delete statement

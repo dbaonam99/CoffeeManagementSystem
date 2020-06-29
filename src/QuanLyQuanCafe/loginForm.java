@@ -94,7 +94,7 @@ public class loginForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        btnLogin = new Decoration(20);
+        btnLogin = new RoundedDecoration(20);
         jLabel1 = new javax.swing.JLabel();
         btnExit = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();

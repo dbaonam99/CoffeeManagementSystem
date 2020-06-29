@@ -46,9 +46,6 @@ public class menu extends javax.swing.JFrame {
             btnNhanVien.setVisible(false);
             btnKho.setVisible(false);
             txtAdmin.setText("User");
-//            txtAdmin.setText(loginForm.txtUser.getText() + " (user)");
-        } else {
-//            txtAdmin.setText(loginForm.txtUser.getText() + " (admin)");
         }
         cardLayout = (CardLayout)(card.getLayout());
         cardLayout2 = (CardLayout)(cardCategory.getLayout());
@@ -493,10 +490,10 @@ public class menu extends javax.swing.JFrame {
         txtHours = new javax.swing.JLabel();
         txtDays = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        btnXoaOrderList = new Decoration(20);
+        btnXoaOrderList = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel65 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
-        btnResetOrderList = new Decoration(20);
+        btnResetOrderList = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel66 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -506,20 +503,20 @@ public class menu extends javax.swing.JFrame {
         txtTotal = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
         txtThanhTien = new javax.swing.JLabel();
-        btnThanhToan =  new Decoration(20);
+        btnThanhToan =  new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel67 = new javax.swing.JLabel();
         cardQuanLyMon = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableMon = new javax.swing.JTable();
         jPanel21 = new javax.swing.JPanel();
-        btnThemMon = new Decoration(20);
+        btnThemMon = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel24 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        btnXoaMon = new Decoration(20);
+        btnXoaMon = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        btnSuaMon = new Decoration(20);
+        btnSuaMon = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jPanel40 = new javax.swing.JPanel();
@@ -550,16 +547,16 @@ public class menu extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tableNhanVien = new javax.swing.JTable();
         nhanvienButton = new javax.swing.JPanel();
-        btnThemNhanVien = new Decoration(20);
+        btnThemNhanVien = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel53 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        btnXoaNhanVien = new Decoration(20);
+        btnXoaNhanVien = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel54 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
-        btnSuaNhanVien = new Decoration(20);
+        btnSuaNhanVien = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
-        btnChamCong = new Decoration(20);
+        btnChamCong = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel73 = new javax.swing.JLabel();
         jLabel81 = new javax.swing.JLabel();
         jPanel54 = new javax.swing.JPanel();
@@ -590,13 +587,13 @@ public class menu extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tableKhachHang = new javax.swing.JTable();
         nhanvienButton1 = new javax.swing.JPanel();
-        btnThemKhachHang = new Decoration(20);
+        btnThemKhachHang = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel70 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        btnXoaKhachHang = new Decoration(20);
+        btnXoaKhachHang = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
-        btnSuaKhachHang = new Decoration(20);
+        btnSuaKhachHang = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel82 = new javax.swing.JLabel();
         jLabel83 = new javax.swing.JLabel();
         jPanel61 = new javax.swing.JPanel();
@@ -627,13 +624,13 @@ public class menu extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tableKho = new javax.swing.JTable();
         jPanel75 = new javax.swing.JPanel();
-        btnThemKho = new Decoration(20);
+        btnThemKho = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel105 = new javax.swing.JLabel();
         jLabel106 = new javax.swing.JLabel();
-        btnXoaKho = new Decoration(20);
+        btnXoaKho = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel76 = new javax.swing.JLabel();
         jLabel77 = new javax.swing.JLabel();
-        btnSuaKho = new Decoration(20);
+        btnSuaKho = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel78 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
         jPanel76 = new javax.swing.JPanel();
@@ -1091,10 +1088,13 @@ public class menu extends javax.swing.JFrame {
                         .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(selectSoLuong_dr, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(selectSize_dr, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtMoTa_dr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtGia_dr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtTenMon_dr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(selectMon, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(selectMon, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtMoTa_dr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtGia_dr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtTenMon_dr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))))
                         .addContainerGap())
                     .addComponent(jLabel99, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
@@ -1245,10 +1245,13 @@ public class menu extends javax.swing.JFrame {
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(selectSoLuong_cake, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(selectSize_cake, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtMoTa_cake, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtGia_cake, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtTenMon_cake, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(selectCake, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(selectCake, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtMoTa_cake, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtGia_cake, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtTenMon_cake, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))))
                         .addContainerGap())
                     .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
@@ -3046,13 +3049,15 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel54MouseClicked
 
     private void tableNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableNhanVienMouseClicked
-        int index = tableNhanVien.getSelectedRow();
-        txtTenNV.setText(tableNhanVien.getValueAt(index , 1).toString());
-        txtTuoi.setText(tableNhanVien.getValueAt(index , 2).toString());
-        txtDiaChi.setText(tableNhanVien.getValueAt(index , 3).toString());
-        txtSDT.setText(tableNhanVien.getValueAt(index , 4).toString());
-        txtEmail.setText(tableNhanVien.getValueAt(index , 5).toString());
-        ((JTextField) txtNgayVaoLam.getDateEditor().getUiComponent()).setText(tableNhanVien.getValueAt(index , 6).toString());
+        try {
+            int index = tableNhanVien.getSelectedRow();
+            txtTenNV.setText(tableNhanVien.getValueAt(index , 1).toString());
+            txtTuoi.setText(tableNhanVien.getValueAt(index , 2).toString());
+            txtDiaChi.setText(tableNhanVien.getValueAt(index , 3).toString());
+            txtSDT.setText(tableNhanVien.getValueAt(index , 4).toString());
+            txtEmail.setText(tableNhanVien.getValueAt(index , 5).toString());
+            ((JTextField) txtNgayVaoLam.getDateEditor().getUiComponent()).setText(tableNhanVien.getValueAt(index , 6).toString());
+        } catch(Exception e) {}
     }//GEN-LAST:event_tableNhanVienMouseClicked
 
     private void jLabel73MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel73MouseClicked
@@ -3184,12 +3189,14 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThemKhachHangMouseClicked
 
     private void tableKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKhachHangMouseClicked
-        int index = tableKhachHang.getSelectedRow();
-        txtTenKH.setText(tableKhachHang.getValueAt(index , 1).toString());
-        txtTuoiKH.setText(tableKhachHang.getValueAt(index , 2).toString());
-        txtDiaChiKH.setText(tableKhachHang.getValueAt(index , 3).toString());
-        txtSDTKH.setText(tableKhachHang.getValueAt(index , 4).toString());
-        txtEmailKH.setText(tableKhachHang.getValueAt(index , 5).toString());
+        try {
+            int index = tableKhachHang.getSelectedRow();
+            txtTenKH.setText(tableKhachHang.getValueAt(index , 1).toString());
+            txtTuoiKH.setText(tableKhachHang.getValueAt(index , 2).toString());
+            txtDiaChiKH.setText(tableKhachHang.getValueAt(index , 3).toString());
+            txtSDTKH.setText(tableKhachHang.getValueAt(index , 4).toString());
+            txtEmailKH.setText(tableKhachHang.getValueAt(index , 5).toString());
+        } catch(Exception e) {}
     }//GEN-LAST:event_tableKhachHangMouseClicked
 
     private void txtAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAdminMouseEntered
@@ -3201,12 +3208,14 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAdminMouseExited
 
     private void tableMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMonMouseClicked
-        int index = tableMon.getSelectedRow();
-        txtTenMon.setText(tableMon.getValueAt(index , 1).toString());
-        txtGia.setText(tableMon.getValueAt(index , 2).toString());
-        txtMoTa.setText(tableMon.getValueAt(index , 3).toString());
-        selectLoai.setSelectedItem(tableMon.getValueAt(index , 4).toString());
-        txtURL.setText(tableMon.getValueAt(index , 5).toString());
+        try {
+            int index = tableMon.getSelectedRow();
+            txtTenMon.setText(tableMon.getValueAt(index , 1).toString());
+            txtGia.setText(tableMon.getValueAt(index , 2).toString());
+            txtMoTa.setText(tableMon.getValueAt(index , 3).toString());
+            selectLoai.setSelectedItem(tableMon.getValueAt(index , 4).toString());
+            txtURL.setText(tableMon.getValueAt(index , 5).toString());
+        } catch(Exception e) {}
     }//GEN-LAST:event_tableMonMouseClicked
 
     private void jLabel35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel35MouseClicked
@@ -3415,12 +3424,14 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThemKhoMouseEntered
 
     private void tableKhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKhoMouseClicked
-        int index = tableKho.getSelectedRow();
-        txtTenNL.setText(tableKho.getValueAt(index , 1).toString());
-        txtKhoiLuong.setText(tableKho.getValueAt(index , 2).toString());
-        txtTenNguoiNhap.setText(tableKho.getValueAt(index , 3).toString());
-        ((JTextField) txtNgayNhap.getDateEditor().getUiComponent()).setText(tableKho.getValueAt(index , 4).toString());
-        txtXuatXu.setText(tableKho.getValueAt(index , 5).toString());
+        try {
+            int index = tableKho.getSelectedRow();
+            txtTenNL.setText(tableKho.getValueAt(index , 1).toString());
+            txtKhoiLuong.setText(tableKho.getValueAt(index , 2).toString());
+            txtTenNguoiNhap.setText(tableKho.getValueAt(index , 3).toString());
+            ((JTextField) txtNgayNhap.getDateEditor().getUiComponent()).setText(tableKho.getValueAt(index , 4).toString());
+            txtXuatXu.setText(tableKho.getValueAt(index , 5).toString());
+        } catch(Exception e) {}
     }//GEN-LAST:event_tableKhoMouseClicked
 
     private void txtAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAdminMouseClicked
