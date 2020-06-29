@@ -36,6 +36,12 @@ public class menu extends javax.swing.JFrame {
     String role = loginForm.role;
     public menu() {
         initComponents();
+        
+        searchMon.setBackground(new Color(0,0,0,0));
+        searchNhanVien.setBackground(new Color(0,0,0,0));
+        searchKhachHang.setBackground(new Color(0,0,0,0));
+        searchKho.setBackground(new Color(0,0,0,0));
+        
         if ("user".equals(role)) {
             btnNhanVien.setVisible(false);
             btnKho.setVisible(false);
@@ -55,7 +61,6 @@ public class menu extends javax.swing.JFrame {
         fillComboboxDrink();
         fillComboboxCake();
         resetDatMon();
-        
         //Đếm thời gian
         TimerTask task = new TimerTask() {
             public void run() {
@@ -107,6 +112,38 @@ public class menu extends javax.swing.JFrame {
             g2d.setPaint(gp);
             g2d.fillRect(0,0,w,h);
         }
+    }
+        
+    public void searchTable(String searchString, JTable table, DefaultTableModel tableModel) {    
+        TableRowSorter<DefaultTableModel> tableSearch = new  TableRowSorter<DefaultTableModel>(tableModel);
+        table.setRowSorter(tableSearch);
+        tableSearch.setRowFilter(RowFilter.regexFilter(searchString));
+    }
+    
+    public void redBar(JLabel red){
+        redDatMon.setOpaque(false);
+        redQuanLiMon.setOpaque(false);
+        redNhanVien.setOpaque(false);
+        redKho.setOpaque(false);
+        redKhachHang.setOpaque(false);
+        
+        red.setOpaque(true);
+        
+        redDatMon.repaint();
+        redQuanLiMon.repaint();
+        redNhanVien.repaint();
+        redKho.repaint();
+        redKhachHang.repaint();
+    }
+    
+    public void redCategory(JPanel red){
+        redDrink.setOpaque(false);
+        redCake.setOpaque(false);
+        
+        red.setOpaque(true);
+        
+        redDrink.repaint();
+        redCake.repaint();
     }
     
     private void tinhTongBill(){
@@ -507,6 +544,7 @@ public class menu extends javax.swing.JFrame {
         jPanel19 = new JPanelGradient();
         jLabel23 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        searchMon = new javax.swing.JTextField();
         cardNhanVien = new javax.swing.JPanel();
         jPanel36 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -546,6 +584,7 @@ public class menu extends javax.swing.JFrame {
         jPanel22 = new JPanelGradient();
         jLabel32 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
+        searchNhanVien = new javax.swing.JTextField();
         cardKhachHang = new javax.swing.JPanel();
         jPanel38 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -582,6 +621,7 @@ public class menu extends javax.swing.JFrame {
         jPanel23 = new JPanelGradient();
         jLabel33 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
+        searchKhachHang = new javax.swing.JTextField();
         cardKho = new javax.swing.JPanel();
         jPanel74 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -618,6 +658,7 @@ public class menu extends javax.swing.JFrame {
         jPanel29 = new JPanelGradient();
         jLabel48 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
+        searchKho = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(830, 554));
@@ -824,7 +865,7 @@ public class menu extends javax.swing.JFrame {
         cardDatMon.setBackground(new java.awt.Color(255, 255, 255));
         cardDatMon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel11.setBackground(new java.awt.Color(251, 52, 90));
+        jPanel11.setBackground(new java.awt.Color(255, 102, 102));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
@@ -1351,11 +1392,11 @@ public class menu extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Order List");
 
-        txtHours.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        txtHours.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         txtHours.setForeground(new java.awt.Color(251, 52, 90));
         txtHours.setText("20:20:00");
 
-        txtDays.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        txtDays.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         txtDays.setForeground(new java.awt.Color(204, 204, 204));
         txtDays.setText("25/06/2020");
 
@@ -1785,6 +1826,28 @@ public class menu extends javax.swing.JFrame {
         });
         jPanel19.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, -1, 50));
 
+        searchMon.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        searchMon.setForeground(new java.awt.Color(204, 204, 204));
+        searchMon.setText(" Tìm kiếm...");
+        searchMon.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        searchMon.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                searchMonFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchMonFocusLost(evt);
+            }
+        });
+        searchMon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchMonKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchMonKeyReleased(evt);
+            }
+        });
+        jPanel19.add(searchMon, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 380, 30));
+
         cardQuanLyMon.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         card.add(cardQuanLyMon, "cardQuanLyMon");
@@ -2077,6 +2140,28 @@ public class menu extends javax.swing.JFrame {
         });
         jPanel22.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, -1, 50));
 
+        searchNhanVien.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        searchNhanVien.setForeground(new java.awt.Color(204, 204, 204));
+        searchNhanVien.setText(" Tìm kiếm...");
+        searchNhanVien.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        searchNhanVien.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                searchNhanVienFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchNhanVienFocusLost(evt);
+            }
+        });
+        searchNhanVien.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchNhanVienKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchNhanVienKeyReleased(evt);
+            }
+        });
+        jPanel22.add(searchNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 380, 30));
+
         cardNhanVien.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         card.add(cardNhanVien, "cardNhanVien");
@@ -2330,6 +2415,28 @@ public class menu extends javax.swing.JFrame {
         });
         jPanel23.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, -1, 50));
 
+        searchKhachHang.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        searchKhachHang.setForeground(new java.awt.Color(204, 204, 204));
+        searchKhachHang.setText(" Tìm kiếm...");
+        searchKhachHang.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        searchKhachHang.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                searchKhachHangFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchKhachHangFocusLost(evt);
+            }
+        });
+        searchKhachHang.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchKhachHangKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchKhachHangKeyReleased(evt);
+            }
+        });
+        jPanel23.add(searchKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 380, 30));
+
         cardKhachHang.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         card.add(cardKhachHang, "cardKhachHang");
@@ -2563,6 +2670,28 @@ public class menu extends javax.swing.JFrame {
             }
         });
         jPanel29.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, -1, 50));
+
+        searchKho.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        searchKho.setForeground(new java.awt.Color(204, 204, 204));
+        searchKho.setText(" Tìm kiếm...");
+        searchKho.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        searchKho.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                searchKhoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchKhoFocusLost(evt);
+            }
+        });
+        searchKho.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchKhoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchKhoKeyReleased(evt);
+            }
+        });
+        jPanel29.add(searchKho, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 380, 30));
 
         cardKho.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
@@ -3174,6 +3303,7 @@ public class menu extends javax.swing.JFrame {
             txtTenMon_cake.setText(null);
             txtGia_cake.setText(null);
             txtMoTa_cake.setText(null);
+            selectCake.setSelectedItem(null);
             selectSize_cake.setSelectedItem(null);
             selectSoLuong_cake.setSelectedItem(null);
         }
@@ -3235,6 +3365,7 @@ public class menu extends javax.swing.JFrame {
             txtTenMon_dr.setText(null);
             txtGia_dr.setText(null);
             txtMoTa_dr.setText(null);
+            selectMon.setSelectedItem(null);
             selectSize_dr.setSelectedItem(null);
             selectSoLuong_dr.setSelectedItem(null);
         }
@@ -3299,32 +3430,95 @@ public class menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Bạn không có quyền chỉnh sửa tài khoản!");
         }
     }//GEN-LAST:event_txtAdminMouseClicked
-    
-    public void redBar(JLabel red){
-        redDatMon.setOpaque(false);
-        redQuanLiMon.setOpaque(false);
-        redNhanVien.setOpaque(false);
-        redKho.setOpaque(false);
-        redKhachHang.setOpaque(false);
-        
-        red.setOpaque(true);
-        
-        redDatMon.repaint();
-        redQuanLiMon.repaint();
-        redNhanVien.repaint();
-        redKho.repaint();
-        redKhachHang.repaint();
-    }
-    
-    public void redCategory(JPanel red){
-        redDrink.setOpaque(false);
-        redCake.setOpaque(false);
-        
-        red.setOpaque(true);
-        
-        redDrink.repaint();
-        redCake.repaint();
-    }
+
+    private void searchMonFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchMonFocusGained
+        if(searchMon.getText().equals(" Tìm kiếm...")){
+            searchMon.setCaretPosition(0);
+            searchMon.setText(null);
+        }
+    }//GEN-LAST:event_searchMonFocusGained
+
+    private void searchMonFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchMonFocusLost
+        searchMon.setText(" Tìm kiếm...");
+    }//GEN-LAST:event_searchMonFocusLost
+
+    private void searchMonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchMonKeyPressed
+        if(searchMon.getText().equals(" Tìm kiếm...")){
+            searchMon.setText(null);
+            searchMon.setCaretPosition(0);
+        }
+    }//GEN-LAST:event_searchMonKeyPressed
+
+    private void searchMonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchMonKeyReleased
+        searchTable(searchMon.getText(), tableMon, tblModelMon);
+    }//GEN-LAST:event_searchMonKeyReleased
+
+    private void searchNhanVienFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchNhanVienFocusGained
+        if(searchNhanVien.getText().equals(" Tìm kiếm...")){
+            searchNhanVien.setCaretPosition(0);
+            searchNhanVien.setText(null);
+        }
+    }//GEN-LAST:event_searchNhanVienFocusGained
+
+    private void searchNhanVienFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchNhanVienFocusLost
+        searchNhanVien.setText(" Tìm kiếm...");
+    }//GEN-LAST:event_searchNhanVienFocusLost
+
+    private void searchNhanVienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchNhanVienKeyPressed
+        if(searchNhanVien.getText().equals(" Tìm kiếm...")){
+            searchNhanVien.setText(null);
+            searchNhanVien.setCaretPosition(0);
+        }
+    }//GEN-LAST:event_searchNhanVienKeyPressed
+
+    private void searchNhanVienKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchNhanVienKeyReleased
+        searchTable(searchNhanVien.getText(), tableNhanVien, tblModelNhanVien);
+    }//GEN-LAST:event_searchNhanVienKeyReleased
+
+    private void searchKhachHangFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchKhachHangFocusGained
+        if(searchKhachHang.getText().equals(" Tìm kiếm...")){
+            searchKhachHang.setCaretPosition(0);
+            searchKhachHang.setText(null);
+        }
+    }//GEN-LAST:event_searchKhachHangFocusGained
+
+    private void searchKhachHangFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchKhachHangFocusLost
+        searchKhachHang.setText(" Tìm kiếm...");
+    }//GEN-LAST:event_searchKhachHangFocusLost
+
+    private void searchKhachHangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKhachHangKeyPressed
+        if(searchKhachHang.getText().equals(" Tìm kiếm...")){
+            searchKhachHang.setText(null);
+            searchKhachHang.setCaretPosition(0);
+        }
+    }//GEN-LAST:event_searchKhachHangKeyPressed
+
+    private void searchKhachHangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKhachHangKeyReleased
+        searchTable(searchKhachHang.getText(), tableKhachHang, tblModelKhachHang);
+    }//GEN-LAST:event_searchKhachHangKeyReleased
+
+    private void searchKhoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchKhoFocusGained
+        if(searchKho.getText().equals(" Tìm kiếm...")){
+            searchKho.setCaretPosition(0);
+            searchKho.setText(null);
+        }
+    }//GEN-LAST:event_searchKhoFocusGained
+
+    private void searchKhoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchKhoFocusLost
+        searchKho.setText(" Tìm kiếm...");
+    }//GEN-LAST:event_searchKhoFocusLost
+
+    private void searchKhoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKhoKeyPressed
+        if(searchKho.getText().equals(" Tìm kiếm...")){
+            searchKho.setText(null);
+            searchKho.setCaretPosition(0);
+        }
+    }//GEN-LAST:event_searchKhoKeyPressed
+
+    private void searchKhoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKhoKeyReleased
+        searchTable(searchKho.getText(), tableKho, tblModelKho);
+    }//GEN-LAST:event_searchKhoKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -3563,6 +3757,10 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel redKho;
     private javax.swing.JLabel redNhanVien;
     private javax.swing.JLabel redQuanLiMon;
+    private javax.swing.JTextField searchKhachHang;
+    private javax.swing.JTextField searchKho;
+    private javax.swing.JTextField searchMon;
+    private javax.swing.JTextField searchNhanVien;
     private javax.swing.JComboBox<String> selectCake;
     private javax.swing.JComboBox<String> selectLoai;
     private javax.swing.JComboBox<String> selectMon;

@@ -260,7 +260,7 @@ public class loginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginMouseClicked
 
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
-        this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_btnExitMouseClicked
 
     /**
@@ -316,7 +316,7 @@ public class loginForm extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel loginBox;
     private javax.swing.JPanel overlay;
-    public static javax.swing.JPasswordField txtPass;
+    private javax.swing.JPasswordField txtPass;
     public static javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
