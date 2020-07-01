@@ -17,9 +17,9 @@ public class ConnectDB {
     public static Connection dbConnector() {
         Connection conn = null;
         try {
-            String url = "jdbc:sqlite:../QuanLiKhachHangg/src/database/database.db";
+            String url = "jdbc:sqlite:../QuanLyQuanCafe/src/database/database.db";
             conn = DriverManager.getConnection(url);
-            System.out.println("Connection to SQLite has been established.");
+//            System.out.println("Connection to SQLite has been established.");
             return conn;
         } catch (SQLException e) {
             System.out.println(e.getMessage());

@@ -36,17 +36,18 @@ public class menu extends javax.swing.JFrame {
     String role = loginForm.role;
     public menu() {
         initComponents();
-        
+        //Làm mờ các search box
         searchMon.setBackground(new Color(0,0,0,0));
         searchNhanVien.setBackground(new Color(0,0,0,0));
         searchKhachHang.setBackground(new Color(0,0,0,0));
         searchKho.setBackground(new Color(0,0,0,0));
-        
+        //check quyền đăng nhập
         if ("user".equals(role)) {
             btnNhanVien.setVisible(false);
             btnKho.setVisible(false);
             txtAdmin.setText("User");
         }
+        
         cardLayout = (CardLayout)(card.getLayout());
         cardLayout2 = (CardLayout)(cardCategory.getLayout());
         conn = ConnectDB.dbConnector();
@@ -80,7 +81,7 @@ public class menu extends javax.swing.JFrame {
             panel[i].setBackground(new Color(0,0,0,0));
         }
         
-        
+        //Trang trí table
         JTable[] table = {tableOrderList, tableMon, tableNhanVien, tableKhachHang, tableKho};
         
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
@@ -1909,12 +1910,6 @@ public class menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnThemNhanVienMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnThemNhanVienMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnThemNhanVienMouseEntered(evt);
-            }
         });
         btnThemNhanVien.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -1932,12 +1927,6 @@ public class menu extends javax.swing.JFrame {
         btnXoaNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnXoaNhanVienMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnXoaNhanVienMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnXoaNhanVienMouseEntered(evt);
             }
         });
         btnXoaNhanVien.setLayout(new java.awt.GridLayout(1, 0));
@@ -1962,12 +1951,6 @@ public class menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSuaNhanVienMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSuaNhanVienMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSuaNhanVienMouseEntered(evt);
-            }
         });
         btnSuaNhanVien.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -1985,12 +1968,6 @@ public class menu extends javax.swing.JFrame {
         btnChamCong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnChamCongMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnChamCongMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnChamCongMouseEntered(evt);
             }
         });
         btnChamCong.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2218,12 +2195,6 @@ public class menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnThemKhachHangMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnThemKhachHangMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnThemKhachHangMouseEntered(evt);
-            }
         });
         btnThemKhachHang.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -2241,12 +2212,6 @@ public class menu extends javax.swing.JFrame {
         btnXoaKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnXoaKhachHangMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnXoaKhachHangMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnXoaKhachHangMouseEntered(evt);
             }
         });
         btnXoaKhachHang.setLayout(new java.awt.GridLayout(1, 0));
@@ -2270,12 +2235,6 @@ public class menu extends javax.swing.JFrame {
         btnSuaKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSuaKhachHangMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSuaKhachHangMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSuaKhachHangMouseEntered(evt);
             }
         });
         btnSuaKhachHang.setLayout(new java.awt.GridLayout(1, 0));
@@ -2476,12 +2435,6 @@ public class menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnThemKhoMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnThemKhoMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnThemKhoMouseEntered(evt);
-            }
         });
         btnThemKho.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -2500,12 +2453,6 @@ public class menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnXoaKhoMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnXoaKhoMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnXoaKhoMouseEntered(evt);
-            }
         });
         btnXoaKho.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -2523,12 +2470,6 @@ public class menu extends javax.swing.JFrame {
         btnSuaKho.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSuaKhoMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSuaKhoMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSuaKhoMouseEntered(evt);
             }
         });
         btnSuaKho.setLayout(new java.awt.GridLayout(1, 0));
@@ -2824,6 +2765,8 @@ public class menu extends javax.swing.JFrame {
         txtGia.setText(null); 
         txtMoTa.setText(null); 
         selectLoai.setSelectedItem(null);
+        txtURL.setText(null);
+        
     }//GEN-LAST:event_btnXoaMonMouseClicked
 
     private void btnSuaMonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaMonMouseClicked
@@ -2885,14 +2828,6 @@ public class menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnThemNhanVienMouseClicked
 
-    private void btnThemNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemNhanVienMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThemNhanVienMouseExited
-
-    private void btnThemNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemNhanVienMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThemNhanVienMouseEntered
-
     private void btnXoaKhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaKhoMouseClicked
         int indexTB = tableKho.getSelectedRow();
         String selected = tableKho.getValueAt(indexTB, 0).toString();
@@ -2918,14 +2853,6 @@ public class menu extends javax.swing.JFrame {
         txtTenNguoiNhap.setText(null);
         ((JTextField) txtNgayNhap.getDateEditor().getUiComponent()).setText(null);
     }//GEN-LAST:event_btnXoaKhoMouseClicked
-
-    private void btnXoaKhoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaKhoMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaKhoMouseExited
-
-    private void btnXoaKhoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaKhoMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaKhoMouseEntered
 
     private void btnSuaKhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaKhoMouseClicked
         int indexTB = tableKho.getSelectedRow();
@@ -2953,22 +2880,6 @@ public class menu extends javax.swing.JFrame {
             ((JTextField) txtNgayNhap.getDateEditor().getUiComponent()).setText(null);
     }//GEN-LAST:event_btnSuaKhoMouseClicked
 
-    private void btnSuaKhoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaKhoMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuaKhoMouseExited
-
-    private void btnSuaKhoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaKhoMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuaKhoMouseEntered
-
-    private void btnXoaNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaNhanVienMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaNhanVienMouseEntered
-
-    private void btnXoaNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaNhanVienMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaNhanVienMouseExited
-
     private void btnXoaNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaNhanVienMouseClicked
         int indexTB = tableNhanVien.getSelectedRow();
         String selected = tableNhanVien.getValueAt(indexTB, 0).toString();
@@ -2995,14 +2906,6 @@ public class menu extends javax.swing.JFrame {
         txtEmail.setText(null); 
         ((JTextField) txtNgayVaoLam.getDateEditor().getUiComponent()).setText(null);
     }//GEN-LAST:event_btnXoaNhanVienMouseClicked
-
-    private void btnSuaNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaNhanVienMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuaNhanVienMouseEntered
-
-    private void btnSuaNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaNhanVienMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuaNhanVienMouseExited
 
     private void btnSuaNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaNhanVienMouseClicked
         int indexTB = tableNhanVien.getSelectedRow();
@@ -3035,14 +2938,6 @@ public class menu extends javax.swing.JFrame {
     private void btnChamCongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseClicked
         new ChamCong().setVisible(true);
     }//GEN-LAST:event_btnChamCongMouseClicked
-
-    private void btnChamCongMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnChamCongMouseExited
-
-    private void btnChamCongMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChamCongMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnChamCongMouseEntered
 
     private void jLabel54MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel54MouseClicked
 
@@ -3077,14 +2972,6 @@ public class menu extends javax.swing.JFrame {
         btnKhachHang.setBackground(Color.decode("#303545"));
     }//GEN-LAST:event_btnKhachHangMouseEntered
 
-    private void btnSuaKhachHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaKhachHangMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuaKhachHangMouseEntered
-
-    private void btnSuaKhachHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaKhachHangMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuaKhachHangMouseExited
-
     private void btnSuaKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuaKhachHangMouseClicked
         int indexTB = tableKhachHang.getSelectedRow();
         String selected = tableKhachHang.getValueAt(indexTB, 0).toString();
@@ -3110,14 +2997,6 @@ public class menu extends javax.swing.JFrame {
             txtSDTKH.setText(null);
             txtEmailKH.setText(null); 
     }//GEN-LAST:event_btnSuaKhachHangMouseClicked
-
-    private void btnXoaKhachHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaKhachHangMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaKhachHangMouseEntered
-
-    private void btnXoaKhachHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaKhachHangMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXoaKhachHangMouseExited
 
     private void btnXoaKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaKhachHangMouseClicked
         int indexTB = tableKhachHang.getSelectedRow();
@@ -3148,14 +3027,6 @@ public class menu extends javax.swing.JFrame {
     private void jLabel71MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel71MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel71MouseClicked
-
-    private void btnThemKhachHangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemKhachHangMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThemKhachHangMouseEntered
-
-    private void btnThemKhachHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemKhachHangMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThemKhachHangMouseExited
 
     private void btnThemKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemKhachHangMouseClicked
         if (txtTenKH.getText().equals("") || 
@@ -3414,14 +3285,6 @@ public class menu extends javax.swing.JFrame {
             ((JTextField) txtNgayNhap.getDateEditor().getUiComponent()).setText(null);
         }
     }//GEN-LAST:event_btnThemKhoMouseClicked
-
-    private void btnThemKhoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemKhoMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThemKhoMouseExited
-
-    private void btnThemKhoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemKhoMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThemKhoMouseEntered
 
     private void tableKhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKhoMouseClicked
         try {

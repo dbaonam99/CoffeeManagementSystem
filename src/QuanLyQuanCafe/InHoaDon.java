@@ -170,7 +170,7 @@ public class InHoaDon extends javax.swing.JFrame {
         try {
             String mycontent = txtBill.getText();
              //Specify the file name and path here
-            String filePath = "../QuanLiKhachHangg/src/bills/bills.txt";
+            String filePath = "../QuanLyQuanCafe/src/bills/bills.txt";
             File file = new File(filePath);
             if (!file.exists()) {
                 file.createNewFile();
