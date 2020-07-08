@@ -11,6 +11,10 @@ import java.util.Calendar;
 import java.io.*;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
 /**
  *
@@ -38,12 +42,35 @@ public class InHoaDon extends javax.swing.JFrame {
                 "\n     ******************************************************\n" +
                 "\t               Cảm ơn!\n\t             Hẹn gặp lại!";
         txtBill.setText(ba);
+        
         JPanel[] panel = {btnThanhToan};
         for (int i = 0; i < panel.length; i++) {
             panel[i].setBackground(new Color(0,0,0,0));
         }
+        
+        printPDF();
     }
+    
+    public void printPDF() {
+        Document document = new Document();
 
+        try {
+            // khởi tạo một PdfWriter truyền vào document và FileOutputStream
+            PdfWriter.getInstance(document, new FileOutputStream("../QuanLyQuanCafe/src/bills/HelloWorld.pdf"));
+
+            // mở file để thực hiện viết
+            document.open();
+            // thêm nội dung sử dụng add function
+            document.add(new Paragraph(txtBill.getText()));
+            // đóng file
+            document.close();
+
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,8 +85,10 @@ public class InHoaDon extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtBill = new javax.swing.JTextArea();
-        btnThanhToan = new RoundedDecoration(20);
+        btnThanhToan = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel67 = new javax.swing.JLabel();
+
+        setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
