@@ -18,9 +18,11 @@ public class loginForm extends javax.swing.JFrame {
     ResultSet rs = null;
     PreparedStatement pstmt =  null;
     public static String role = "";
+    public static int ID_NV = 0;
     /**
      * Creates new form loginForm
      */
+    
     public loginForm() {
         initComponents();
         overlay.setBackground(new Color(0,0,0,150));
@@ -41,6 +43,7 @@ public class loginForm extends javax.swing.JFrame {
                 rs= pstmt.executeQuery();
                 int count = 0;
                 while(rs.next()) {
+                    ID_NV = rs.getInt(2);
                     count++;
                 }
                 if(count==1) {
@@ -57,6 +60,7 @@ public class loginForm extends javax.swing.JFrame {
                         rs= pstmt.executeQuery();
                         int count2 = 0;
                         while(rs.next()) {
+                            ID_NV = rs.getInt(2);
                             count2++;
                         }
                         if(count2==1) {
@@ -66,6 +70,8 @@ public class loginForm extends javax.swing.JFrame {
                             this.dispose();
                         } else {
                             JOptionPane.showMessageDialog(this, "Sai thông tin đăng nhập");
+                            txtUser.setText(null);
+                            txtPass.setText(null);
                         }
                     } catch (SQLException e) {
                         System.out.println(e.getMessage());

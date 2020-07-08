@@ -8,8 +8,6 @@ package QuanLyQuanCafe;
 import java.awt.Color;
 import java.sql.*;
 import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +18,7 @@ public class DangKyTaiKhoan extends javax.swing.JFrame {
     ResultSet rs = null;
     PreparedStatement pstmt =  null;
     public static int ID_NV = 0;
+    public static String ten_NV = "";
     /**
      * Creates new form ChamCong
      */

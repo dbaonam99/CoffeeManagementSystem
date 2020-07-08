@@ -51,7 +51,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
     
     public void taoTableTK() {
         tblModelTK = new DefaultTableModel();
-        String tieuDe[] = {"ID", "Tài khoản", "Mật khẩu", "Quyền"};
+        String tieuDe[] = {"ID", "ID_NV", "Tài khoản", "Mật khẩu", "Quyền"};
         tblModelTK.setColumnIdentifiers(tieuDe);
         loadDataTK();
         setVisible(true);
@@ -62,7 +62,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         DefaultTableModel tMOdel = (DefaultTableModel) tableTK.getModel();
         tMOdel.setRowCount(0);
         String sql = "select * from TAIKHOAN";
-        String row[] = new String[4];
+        String row[] = new String[5];
         try {
             Statement stmt  = conn.createStatement();
             rs = stmt.executeQuery(sql);
@@ -71,6 +71,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
                 row[1] = rs.getString(2);
                 row[2] = rs.getString(3);
                 row[3] = rs.getString(4);
+                row[4] = rs.getString(5);
                 tblModelTK.addRow(row);
             }
         } catch (SQLException e) {
@@ -103,13 +104,13 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        btnThemTK = new RoundedDecoration(20);
+        btnThemTK = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel67 = new javax.swing.JLabel();
-        btnXoaTK = new RoundedDecoration(20);
+        btnXoaTK = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel71 = new javax.swing.JLabel();
-        btnThoat = new RoundedDecoration(20);
+        btnThoat = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel68 = new javax.swing.JLabel();
-        btnSuaTK = new RoundedDecoration(20);
+        btnSuaTK = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel73 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
 
@@ -124,13 +125,13 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
 
         tableTK.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Tài khoản", "Mật khẩu", "Quyền"
+                "ID", "ID_NV", "Tài khoản", "Mật khẩu", "Quyền"
             }
         ));
         tableTK.setRequestFocusEnabled(false);
@@ -221,7 +222,6 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -511,9 +511,9 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
 
     private void tableTKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableTKMouseClicked
         int index = tableTK.getSelectedRow();
-        txtTK.setText(tableTK.getValueAt(index , 1).toString());
-        txtMK.setText(tableTK.getValueAt(index , 2).toString());
-        selectQuyen.setSelectedItem(tableTK.getValueAt(index , 3).toString());
+        txtTK.setText(tableTK.getValueAt(index , 2).toString());
+        txtMK.setText(tableTK.getValueAt(index , 3).toString());
+        selectQuyen.setSelectedItem(tableTK.getValueAt(index , 4).toString());
     }//GEN-LAST:event_tableTKMouseClicked
     /**
      * @param args the command line arguments

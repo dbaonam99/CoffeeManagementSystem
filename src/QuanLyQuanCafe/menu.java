@@ -32,6 +32,7 @@ public class menu extends javax.swing.JFrame {
     public static float khuyenMai = 0;
     public static int ID_HD = 0;
     public static int ID_SP = 0;
+    public static String ten_NV = "";
     
     /** 
      * Creates new form
@@ -44,12 +45,6 @@ public class menu extends javax.swing.JFrame {
         searchNhanVien.setBackground(new Color(0,0,0,0));
         searchKhachHang.setBackground(new Color(0,0,0,0));
         searchKho.setBackground(new Color(0,0,0,0));
-        //check quyền đăng nhập
-        if ("user".equals(role)) {
-            btnNhanVien.setVisible(false);
-            btnKho.setVisible(false);
-            txtAdmin.setText("User");
-        }
         
         cardLayout = (CardLayout)(card.getLayout());
         cardLayout2 = (CardLayout)(cardCategory.getLayout());
@@ -102,6 +97,13 @@ public class menu extends javax.swing.JFrame {
         getID_HD();
         int curID_HD = ID_HD + 1;
         txtIDOrder.setText("#" + curID_HD);
+        getTen_NV();
+        txtAdmin.setText(ten_NV);
+        //check quyền đăng nhập
+        if ("user".equals(role)) {
+            btnNhanVien.setVisible(false);
+            btnKho.setVisible(false);
+        }
     }
     
     class JPanelGradient extends JPanel {
@@ -258,6 +260,19 @@ public class menu extends javax.swing.JFrame {
         }
         selectSize_cake.setSelectedItem("S");
         selectSoLuong_cake.setSelectedItem("1");
+    }
+    
+    public void getTen_NV(){
+        String sql = "select ten_NV from NHANVIEN where ID_NV = '" + loginForm.ID_NV + "'";
+        try {
+            Statement stmt  = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                ten_NV = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
     
     public void getID_HD() {
