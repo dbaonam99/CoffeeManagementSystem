@@ -30,6 +30,8 @@ public class menu extends javax.swing.JFrame {
     public static String thueHoaDon = "";
     public static String tongCong = "";
     public static float khuyenMai = 0;
+    public static int ID_HD = 0;
+    public static int ID_SP = 0;
     
     /** 
      * Creates new form
@@ -255,6 +257,33 @@ public class menu extends javax.swing.JFrame {
         selectSoLuong_cake.setSelectedItem("1");
     }
     
+    public void getID_HD() {
+        String sql = "select max(ID_HD) from HOADON";
+        try {
+            Statement stmt  = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                ID_HD = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void getID_SP(int row) {
+        String a = tableOrderList.getValueAt(row, 0).toString();
+        String sql = "select ID_SP from SANPHAM where ten_SP = '" + a + "'";
+        try {
+            Statement stmt  = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                ID_SP = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     private void insertHOADON(){
         String days = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
         String sql = "INSERT INTO HOADON(NG_HD, TRIGIA_HD) VALUES(?,?)";
@@ -267,6 +296,26 @@ public class menu extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }
+    
+    private void insertCTHD(){
+        getID_HD();
+        String sql = "INSERT INTO CTHD(ID_HD, ID_SP, SOLUONG) VALUES(?,?,?)";
+        try {
+            int rows = tableOrderList.getRowCount();
+            for(int row = 0; row < rows; row++)
+            {   
+                getID_SP(row);
+                pstmt = conn.prepareStatement(sql);
+                pstmt.setInt(1, ID_HD);
+                pstmt.setInt(2, ID_SP);
+                pstmt.setString(3, tableOrderList.getValueAt(row, 2).toString());
+                pstmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     
     DefaultTableModel tblModelNhanVien, tblModelKhachHang, tblModelMon, tblModelOrderList, tblModelKho;
     
@@ -3277,9 +3326,10 @@ public class menu extends javax.swing.JFrame {
     private void btnThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThanhToanMouseClicked
         strHoaDon();
         new InHoaDon().setVisible(true);
-        ((DefaultTableModel)tableOrderList.getModel()).setNumRows(0);
         insertHOADON();
+        insertCTHD();
         tinhTongBill();
+        ((DefaultTableModel)tableOrderList.getModel()).setNumRows(0);
         selectVIPCard.setSelectedIndex(0);
     }//GEN-LAST:event_btnThanhToanMouseClicked
 
