@@ -19,6 +19,8 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pstmt =  null;
+    public String ten_NV = "";
+    int ID_NV;
     /**
      * Creates new form ChamCong
      */
@@ -32,6 +34,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
             panel[i].setBackground(new Color(0,0,0,0));
         }
         taoTableTK();
+        fillComboboxTenNV();
         JTable[] table = {tableTK};
         
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
@@ -51,7 +54,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
     
     public void taoTableTK() {
         tblModelTK = new DefaultTableModel();
-        String tieuDe[] = {"ID", "ID_NV", "Tài khoản", "Mật khẩu", "Quyền"};
+        String tieuDe[] = {"ID", "Tên NV", "Tài khoản", "Mật khẩu", "Quyền"};
         tblModelTK.setColumnIdentifiers(tieuDe);
         loadDataTK();
         setVisible(true);
@@ -68,7 +71,8 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
             rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 row[0] = rs.getString(1);
-                row[1] = rs.getString(2);
+                getTen_NV(rs.getInt(2));
+                row[1] = ten_NV;
                 row[2] = rs.getString(3);
                 row[3] = rs.getString(4);
                 row[4] = rs.getString(5);
@@ -79,6 +83,67 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         }
         tableTK.setModel(tblModelTK);
     }
+    
+    public void getID_NV(String ten) {
+        String sql = "select ID_NV from NHANVIEN where ten_NV='" + ten + "'";
+        try {
+            Statement stmt  = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                ID_NV = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private void fillComboboxTenNV(){
+        selectTenNV.removeAllItems();
+        String sql = "select ten_NV from NHANVIEN";
+        try {
+            Statement stmt  = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                selectTenNV.addItem(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void getTen_NV(int id){
+        String sql = "select ten_NV from NHANVIEN where ID_NV = '" + id + "'";
+        try {
+            Statement stmt  = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                ten_NV = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public boolean checkAccountExist(int id) {
+        String sql="Select * from TAIKHOAN where id_NV = '"+ id +"'";
+        try {
+            pstmt = conn.prepareStatement(sql);
+            rs= pstmt.executeQuery();
+            int count = 0;
+            while(rs.next()) {
+                count++;
+            }
+            if(count>=1) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return true;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -101,6 +166,8 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         txtMK = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         selectQuyen = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        selectTenNV = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -131,7 +198,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "ID", "ID_NV", "Tài khoản", "Mật khẩu", "Quyền"
+                "ID", "Tên NV", "Tài khoản", "Mật khẩu", "Quyền"
             }
         ));
         tableTK.setRequestFocusEnabled(false);
@@ -146,13 +213,11 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         jLabel2.setText("Tài khoản");
@@ -163,34 +228,56 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
 
         selectQuyen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "admin", "user" }));
 
+        jLabel5.setText("Tên NV");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtMK)
-                    .addComponent(txtTK)
-                    .addComponent(selectQuyen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtMK)
+                            .addComponent(selectQuyen, 0, 121, Short.MAX_VALUE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTK)
+                            .addComponent(selectTenNV, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectTenNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTK, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMK, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(selectQuyen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(selectQuyen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -198,16 +285,16 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(15, 15, 15))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -215,17 +302,16 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -331,11 +417,11 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnThemTK, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addGap(43, 43, 43)
                 .addComponent(btnXoaTK, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 43, Short.MAX_VALUE)
                 .addComponent(btnSuaTK, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addGap(43, 43, 43)
                 .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -382,7 +468,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -392,7 +478,9 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -437,6 +525,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         txtTK.setText(null);
         txtMK.setText(null); 
         selectQuyen.setSelectedItem(null); 
+        selectTenNV.setSelectedItem(null); 
     }//GEN-LAST:event_btnXoaTKMouseClicked
 
     private void btnXoaTKMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXoaTKMouseExited
@@ -475,6 +564,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
             txtTK.setText(null);
             txtMK.setText(null);
             selectQuyen.setSelectedItem(null);
+            selectTenNV.setSelectedItem(null);
     }//GEN-LAST:event_btnSuaTKMouseClicked
 
     private void btnThemTKMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemTKMouseEntered
@@ -486,16 +576,24 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThemTKMouseExited
 
     private void btnThemTKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemTKMouseClicked
+        getID_NV(selectTenNV.getSelectedItem().toString());
         if (txtTK.getText().equals("") || 
             txtMK.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Vui lòng điền đầy đủ thông tin trước khi cập nhật!");
+        } else if (checkAccountExist(ID_NV) == false) {
+            JOptionPane.showMessageDialog(this, "Nhân viên này đã có tài khoản!");
+            txtTK.setText(null);
+            txtMK.setText(null); 
+            selectTenNV.setSelectedItem(null);
+            selectQuyen.setSelectedItem(null);
         } else {
-            String sql = "insert into taikhoan(username, pass, perm) values(?,?,?)";
+            String sql = "insert into taikhoan(ID_NV, username, pass, perm) values(?,?,?,?)";
             try {
                 pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, txtTK.getText());
-                pstmt.setString(2, txtMK.getText());
-                pstmt.setString(3, selectQuyen.getSelectedItem().toString());
+                pstmt.setInt(1, ID_NV);
+                pstmt.setString(2, txtTK.getText());
+                pstmt.setString(3, txtMK.getText());
+                pstmt.setString(4, selectQuyen.getSelectedItem().toString());
                 pstmt.executeUpdate();
                 loadDataTK();
                 JOptionPane.showMessageDialog(null, "Thêm tài khoản thành công!");
@@ -511,6 +609,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
 
     private void tableTKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableTKMouseClicked
         int index = tableTK.getSelectedRow();
+        selectTenNV.setSelectedItem(tableTK.getValueAt(index , 1).toString());
         txtTK.setText(tableTK.getValueAt(index , 2).toString());
         txtMK.setText(tableTK.getValueAt(index , 3).toString());
         selectQuyen.setSelectedItem(tableTK.getValueAt(index , 4).toString());
@@ -560,6 +659,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel71;
@@ -574,6 +674,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> selectQuyen;
+    private javax.swing.JComboBox<String> selectTenNV;
     private javax.swing.JTable tableTK;
     private javax.swing.JTextField txtMK;
     private javax.swing.JTextField txtTK;
