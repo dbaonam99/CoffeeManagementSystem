@@ -99,6 +99,9 @@ public class menu extends javax.swing.JFrame {
                 table[i].setFillsViewportHeight(true);
             }
         }
+        getID_HD();
+        int curID_HD = ID_HD + 1;
+        txtIDOrder.setText("#" + curID_HD);
     }
     
     class JPanelGradient extends JPanel {
@@ -553,9 +556,10 @@ public class menu extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableOrderList = new javax.swing.JTable();
         jPanel13 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        txtOrderListID = new javax.swing.JLabel();
         txtHours = new javax.swing.JLabel();
         txtDays = new javax.swing.JLabel();
+        txtIDOrder = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         btnXoaOrderList = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel65 = new javax.swing.JLabel();
@@ -1462,9 +1466,9 @@ public class menu extends javax.swing.JFrame {
         jPanel13.setBackground(new java.awt.Color(33, 38, 54));
         jPanel13.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(251, 52, 90)));
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Order List");
+        txtOrderListID.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
+        txtOrderListID.setForeground(new java.awt.Color(255, 255, 255));
+        txtOrderListID.setText("Order List");
 
         txtHours.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         txtHours.setForeground(new java.awt.Color(251, 52, 90));
@@ -1474,12 +1478,17 @@ public class menu extends javax.swing.JFrame {
         txtDays.setForeground(new java.awt.Color(204, 204, 204));
         txtDays.setText("25/06/2020");
 
+        txtIDOrder.setForeground(new java.awt.Color(204, 204, 204));
+        txtIDOrder.setText("#1");
+
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtOrderListID, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtIDOrder)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtHours, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1491,9 +1500,10 @@ public class menu extends javax.swing.JFrame {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtOrderListID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtHours, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtDays))
+                    .addComponent(txtDays)
+                    .addComponent(txtIDOrder))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -3325,13 +3335,23 @@ public class menu extends javax.swing.JFrame {
     }
     
     private void btnThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThanhToanMouseClicked
-        strHoaDon();
-        new InHoaDon().setVisible(true);
-        insertHOADON();
-        insertCTHD();
-        tinhTongBill();
-        ((DefaultTableModel)tableOrderList.getModel()).setNumRows(0);
-        selectVIPCard.setSelectedIndex(0);
+        int ret = JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn thanh toán?", "Thanh Toán", JOptionPane.YES_OPTION);
+        if (ret == JOptionPane.YES_OPTION) {
+            if (tableOrderList.getRowCount() <= 0) {
+                JOptionPane.showMessageDialog(null, "Vui lòng chọn món trước khi thanh toán!");
+            } else {
+                strHoaDon();
+                new InHoaDon().setVisible(true);
+                insertHOADON();
+                insertCTHD();
+                tinhTongBill();
+                ((DefaultTableModel)tableOrderList.getModel()).setNumRows(0);
+                selectVIPCard.setSelectedIndex(0);
+                getID_HD();
+                int curID_HD = ID_HD + 1;
+                txtIDOrder.setText("#" + curID_HD);
+            }
+        }
     }//GEN-LAST:event_btnThanhToanMouseClicked
 
     private void btnOrderDrinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOrderDrinkMouseClicked
@@ -3604,7 +3624,6 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -3782,6 +3801,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel txtGia_cake;
     private javax.swing.JLabel txtGia_dr;
     private javax.swing.JLabel txtHours;
+    private javax.swing.JLabel txtIDOrder;
     private javax.swing.JTextField txtKhoiLuong;
     private javax.swing.JLabel txtKhuyenMai;
     private javax.swing.JTextField txtMoTa;
@@ -3789,6 +3809,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JLabel txtMoTa_dr;
     private com.toedter.calendar.JDateChooser txtNgayNhap;
     private com.toedter.calendar.JDateChooser txtNgayVaoLam;
+    private javax.swing.JLabel txtOrderListID;
     private javax.swing.JTextField txtSDT;
     private javax.swing.JTextField txtSDTKH;
     private javax.swing.JTextField txtTenKH;

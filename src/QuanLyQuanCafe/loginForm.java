@@ -94,7 +94,7 @@ public class loginForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        btnLogin = new RoundedDecoration(20);
+        btnLogin = new QuanLyQuanCafe.RoundedDecoration(20);
         jLabel1 = new javax.swing.JLabel();
         btnExit = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -233,7 +233,7 @@ public class loginForm extends javax.swing.JFrame {
         jLabel6.setText("jLabel1");
         jLabel6.setMaximumSize(new java.awt.Dimension(833, 531));
         jLabel6.setMinimumSize(new java.awt.Dimension(833, 531));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 529));
 
         pack();
         setLocationRelativeTo(null);
