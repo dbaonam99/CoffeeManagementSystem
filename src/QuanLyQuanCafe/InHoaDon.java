@@ -9,23 +9,26 @@ import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.io.*;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
+import javax.swing.*;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
 
 /**
  *
  * @author namduong
  */
 public class InHoaDon extends javax.swing.JFrame {
-
     /**
      * Creates new form InHoaDon
      */
+    String thanhTien = menu.thanhTien;
+    String thueHoaDon = menu.thueHoaDon;
+    String tongCong = menu.tongCong;
+    float khuyenMai = menu.khuyenMai;
+    float tienKhuyenMai = khuyenMai * (Integer.parseInt(thanhTien.substring(0, thanhTien.length()-2)));
+//    float tienKhuyenMai = 0;
     public InHoaDon() {
+//        printPDF();
         initComponents();
         String hours = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
         String days = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
@@ -37,6 +40,7 @@ public class InHoaDon extends javax.swing.JFrame {
         String hai = mot + hours + "                                               " + days +
                 "\n     ******************************************************\n";
         String ba = hai + menu.hoaDon + "\n\t\t     Thành tiền:\t" + menu.thanhTien + 
+                "\n\t\t     Khuyến mãi:" + tienKhuyenMai +
                 "\n\t\t     Thuế:\t" + menu.thueHoaDon + 
                 "\n\t\t     Tổng cộng:\t" + menu.tongCong +
                 "\n     ******************************************************\n" +
@@ -47,29 +51,60 @@ public class InHoaDon extends javax.swing.JFrame {
         for (int i = 0; i < panel.length; i++) {
             panel[i].setBackground(new Color(0,0,0,0));
         }
-        
-        printPDF();
     }
     
     public void printPDF() {
-        Document document = new Document();
-
+        Rectangle pagesize = new Rectangle(300, 400);
+        Document document = new Document(pagesize);
+        document.setMargins(0,0,0,0);
+        String hours = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+        String days = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
         try {
-            // khởi tạo một PdfWriter truyền vào document và FileOutputStream
-            PdfWriter.getInstance(document, new FileOutputStream("../QuanLyQuanCafe/src/bills/HelloWorld.pdf"));
-
-            // mở file để thực hiện viết
+            PdfWriter.getInstance(document, new FileOutputStream("../QuanLyQuanCafe/src/bills/HoaDon_" + menu.ID_HD + ".pdf"));
             document.open();
-            // thêm nội dung sử dụng add function
-            document.add(new Paragraph(txtBill.getText()));
-            // đóng file
+            Paragraph header = new Paragraph(
+                    "UIT Coffee\n" +
+                    "47 Xa lo Ha Noi, Phuong Linh Trung\n" +
+                    "Thuc Duc, Ho Chi Minh\n" +
+                    "-----------------------------------------------\n" +
+                    "HOA DON");
+            Paragraph time = new Paragraph(hours + 
+                    "                          " + days + 
+                    "\n-----------------------------------------------");
+            Paragraph content = new Paragraph(menu.hoaDon);
+            Paragraph content2 = new Paragraph(
+                    "\nThanh tien: " + thanhTien + 
+                    "\nKhuyen mai: " + tienKhuyenMai + 
+                    "\nThue: " + thueHoaDon + 
+                    "\nTong cong: " + tongCong);
+            Paragraph footer = new Paragraph(
+                    "-----------------------------------------------" +
+                    "\nCam on!\nHen gap lai!");
+            header.setAlignment(Element.ALIGN_CENTER);
+            header.setSpacingAfter(15);
+            
+            time.setAlignment(Element.ALIGN_CENTER);
+            
+            content.setAlignment(Element.ALIGN_LEFT);
+            content.setIndentationLeft(45);
+            
+            content2.setAlignment(Element.ALIGN_RIGHT);
+            content2.setIndentationRight(55);
+            
+            footer.setAlignment(Element.ALIGN_CENTER);
+            
+            document.add(new Paragraph(header));
+            document.add(new Paragraph(time));
+            document.add(new Paragraph(content));
+            document.add(new Paragraph(content2));
+            document.add(new Paragraph(footer));
+            
             document.close();
 
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        } catch (DocumentException | FileNotFoundException e) {
         }
+        this.dispose();
+        JOptionPane.showMessageDialog(this, "Hoá đơn đã được in vào file PDF!");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -195,31 +230,7 @@ public class InHoaDon extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThanhToanMouseClicked
-        BufferedWriter bw = null;
-        try {
-            String mycontent = txtBill.getText();
-             //Specify the file name and path here
-            String filePath = "../QuanLyQuanCafe/src/bills/bills.txt";
-            File file = new File(filePath);
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            FileWriter fw = new FileWriter(file);
-            bw = new BufferedWriter(fw);
-            bw.write(mycontent);
-            System.out.println("File written Successfully");
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        } finally { 
-            try{
-                if(bw!=null)
-                    bw.close();
-            }catch(Exception ex){
-                System.out.println("Error in closing the BufferedWriter"+ex);
-            }
-        }
-        this.dispose();
-        JOptionPane.showMessageDialog(this, "Hoá đơn đã được in!");
+        printPDF();
     }//GEN-LAST:event_btnThanhToanMouseClicked
 
     /**

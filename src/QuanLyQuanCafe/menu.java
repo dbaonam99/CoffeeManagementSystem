@@ -299,7 +299,7 @@ public class menu extends javax.swing.JFrame {
     
     private void insertCTHD(){
         getID_HD();
-        String sql = "INSERT INTO CTHD(ID_HD, ID_SP, SOLUONG) VALUES(?,?,?)";
+        String sql = "INSERT INTO CTHD(ID_HD, ID_SP, SIZE, SOLUONG) VALUES(?,?,?,?)";
         try {
             int rows = tableOrderList.getRowCount();
             for(int row = 0; row < rows; row++)
@@ -308,7 +308,8 @@ public class menu extends javax.swing.JFrame {
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setInt(1, ID_HD);
                 pstmt.setInt(2, ID_SP);
-                pstmt.setString(3, tableOrderList.getValueAt(row, 2).toString());
+                pstmt.setString(3, (tableOrderList.getValueAt(row, 1).toString()).substring(0,1));
+                pstmt.setString(4, tableOrderList.getValueAt(row, 2).toString());
                 pstmt.executeUpdate();
             }
         } catch (SQLException e) {
