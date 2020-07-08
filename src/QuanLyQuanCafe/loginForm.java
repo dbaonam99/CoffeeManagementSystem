@@ -98,6 +98,7 @@ public class loginForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnExit = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        btnDangKy = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         overlay = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -179,7 +180,7 @@ public class loginForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        loginBox.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, 40));
+        loginBox.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, -1, 40));
 
         btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -202,6 +203,23 @@ public class loginForm extends javax.swing.JFrame {
         );
 
         loginBox.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 30, 30));
+
+        btnDangKy.setBackground(new java.awt.Color(255, 255, 255));
+        btnDangKy.setForeground(new java.awt.Color(102, 102, 102));
+        btnDangKy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnDangKy.setText("Đăng ký");
+        btnDangKy.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDangKyMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDangKyMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDangKyMouseEntered(evt);
+            }
+        });
+        loginBox.add(btnDangKy, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 125, -1));
 
         getContentPane().add(loginBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 470, 530));
 
@@ -263,6 +281,18 @@ public class loginForm extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnExitMouseClicked
 
+    private void btnDangKyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDangKyMouseClicked
+        new DangKyTaiKhoan().setVisible(true);
+    }//GEN-LAST:event_btnDangKyMouseClicked
+
+    private void btnDangKyMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDangKyMouseEntered
+        btnDangKy.setForeground(new Color(0,0,0));
+    }//GEN-LAST:event_btnDangKyMouseEntered
+
+    private void btnDangKyMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDangKyMouseExited
+        btnDangKy.setForeground(new Color(102,102,102));
+    }//GEN-LAST:event_btnDangKyMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -299,6 +329,7 @@ public class loginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnDangKy;
     private javax.swing.JPanel btnExit;
     private javax.swing.JPanel btnLogin;
     private javax.swing.ButtonGroup buttonGroup1;
