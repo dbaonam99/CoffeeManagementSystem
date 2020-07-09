@@ -35,6 +35,10 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         }
         taoTableTK();
         fillComboboxTenNV();
+        selectTenNV.setSelectedItem(null);
+        selectQuyen.setSelectedItem(null);
+        txtTK.setText(null);
+        txtMK.setText(null);
         JTable[] table = {tableTK};
         
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
@@ -229,6 +233,12 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         selectQuyen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "admin", "user" }));
 
         jLabel5.setText("Tên NV");
+
+        selectTenNV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectTenNVActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -614,6 +624,30 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
         txtMK.setText(tableTK.getValueAt(index , 3).toString());
         selectQuyen.setSelectedItem(tableTK.getValueAt(index , 4).toString());
     }//GEN-LAST:event_tableTKMouseClicked
+
+    private void selectTenNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectTenNVActionPerformed
+        if (selectTenNV.getSelectedItem() != null) {
+            getID_NV(selectTenNV.getSelectedItem().toString());
+            String sql = "select * from TAIKHOAN where ID_NV = '" + ID_NV + "'";
+            try {
+                Statement stmt  = conn.createStatement();
+                rs = stmt.executeQuery(sql);
+                int count = 0;
+                while (rs.next()) {
+                    count++;
+                    txtTK.setText(rs.getString(3));
+                    txtMK.setText(rs.getString(4));
+                    selectQuyen.setSelectedItem(rs.getString(5));
+                }
+                if (count == 0) {
+                    txtTK.setText(null);
+                    txtMK.setText(null);
+                }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_selectTenNVActionPerformed
     /**
      * @param args the command line arguments
      */

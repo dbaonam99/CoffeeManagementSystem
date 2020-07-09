@@ -15,11 +15,10 @@ import java.sql.SQLException;
  */
 public class ConnectDB {
     public static Connection dbConnector() {
-        Connection conn = null;
+//        Connection conn;
         try {
             String url = "jdbc:sqlite:../QuanLyQuanCafe/src/database/database.db";
-            conn = DriverManager.getConnection(url);
-//            System.out.println("Connection to SQLite has been established.");
+            Connection conn = DriverManager.getConnection(url);
             return conn;
         } catch (SQLException e) {
             System.out.println(e.getMessage());

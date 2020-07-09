@@ -19,6 +19,7 @@ public class loginForm extends javax.swing.JFrame {
     PreparedStatement pstmt =  null;
     public static String role = "";
     public static int ID_NV = 0;
+    public static int curID_NV = 0;
     /**
      * Creates new form loginForm
      */
@@ -29,6 +30,21 @@ public class loginForm extends javax.swing.JFrame {
         btnLogin.setBackground(new Color(0,0,0,0));
         btnExit.setBackground(new Color(0,0,0,0));
         conn = ConnectDB.dbConnector();
+    }
+    
+    public void getcurID_NV() {
+        String sql = "select ID_NV from TAIKHOAN where username=? and pass = ?";
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString (1,txtUser.getText());
+            pstmt.setString (2,txtPass.getText());
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                curID_NV = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
     
     public void login() {
@@ -49,6 +65,7 @@ public class loginForm extends javax.swing.JFrame {
                 if(count==1) {
                     JOptionPane.showMessageDialog(this, "Đăng nhập thành công với quyền Admin!");
                     role = "admin";
+                    getcurID_NV();
                     new menu().setVisible(true);
                     this.dispose();
                 } else {
@@ -66,6 +83,7 @@ public class loginForm extends javax.swing.JFrame {
                         if(count2==1) {
                             JOptionPane.showMessageDialog(this, "Đăng nhập thành công với quyền User!");
                             role = "user";
+                            getcurID_NV();
                             new menu().setVisible(true);
                             this.dispose();
                         } else {

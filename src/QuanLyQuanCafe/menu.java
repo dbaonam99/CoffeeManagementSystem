@@ -3447,7 +3447,7 @@ public class menu extends javax.swing.JFrame {
         if ("admin".equals(role)) {
             new QuanLyTaiKhoan().setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(null, "Bạn không có quyền chỉnh sửa tài khoản!");
+            new DoiMatKhau().setVisible(true);
         }
     }//GEN-LAST:event_txtAdminMouseClicked
 
